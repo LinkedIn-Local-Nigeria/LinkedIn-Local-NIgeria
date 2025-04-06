@@ -14,7 +14,7 @@ The project is currently in development. We are building a responsive landing pa
 
 ## Project Structure
 ```
-lln-website/
+LinkedIn-Local-NIgeria/
 ├── public/
 │   ├── assets/
 │   └── favicon.ico
