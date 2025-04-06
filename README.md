@@ -105,3 +105,6 @@ The website will be deployed automatically from the `main` branch using GitHub A
 
 ## Contact
 For any questions or issues, please contact the Web Development Team Lead.
+
+## Figma Design Link
+https://www.figma.com/design/z44asAWKhvD0a26hsikIQp/LLN-Revamp?node-id=0-1&p=f&t=EgyKX1HRgABNZ2vi-0
