@@ -42,8 +42,8 @@ lln-website/
 ### Installation
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-org/lln-website.git
-   cd lln-website
+   git clone https://github.com/LinkedIn-Local-Nigeria/LinkedIn-Local-NIgeria.git
+   cd LinkedIn-Local-NIgeria.
    ```
 
 2. Install dependencies
