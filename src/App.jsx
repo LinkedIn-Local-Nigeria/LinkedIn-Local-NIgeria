@@ -1,41 +1,28 @@
+import React from "react";
 import "./App.css";
 import Navbar from "./components/NavBar";
-import About from "./pages/About";
-import FAQs from "./pages/FAQs";
-import Speakers from "./pages/Speakers";
-import Teams from "./pages/Teams";
+import Section from "./components/ui/Section";
 
 function App() {
   return (
     <>
       <Navbar />
-      <div
-        id="about"
-        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
-      >
-        <About />
-      </div>
 
-      <div
-        id="speakers"
-        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
-      >
-        <Speakers />
-      </div>
+      <Section id="about" title="About Section" background="bg-[#fdfdfd]">
+        <p>Content for the About section goes here...</p>
+      </Section>
 
-      <div
-        id="teams"
-        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
-      >
-        <Teams />
-      </div>
+      <Section id="speakers" title="Speakers Section" background="bg-[#fdfdfd]">
+        <p>Content for the Speakers section goes here...</p>
+      </Section>
 
-      <div
-        id="faqs"
-        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
-      >
-        <FAQs />
-      </div>
+      <Section id="teams" title="Team Section" background="bg-[#fdfdfd]">
+        <p>Content for the Teams section goes here...</p>
+      </Section>
+
+      <Section id="faqs" title="FAQs Section" background="bg-[#fdfdfd]">
+        <p>Content for the FAQs section goes here...</p>
+      </Section>
     </>
   );
 }

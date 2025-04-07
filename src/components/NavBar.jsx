@@ -43,7 +43,7 @@ const Navbar = () => {
       <nav className="lg:px-[6.25rem] flex items-center justify-between z-50 px-6 py-4 border-b border-gray-200 mx-auto fixed w-full bg-opacity-10 backdrop-blur-md">
         <a
           href="/"
-          className="text-2xl font-bold text-transparent poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
+          className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
         >
           LLN '25
         </a>
@@ -54,7 +54,7 @@ const Navbar = () => {
             <a
               key={link.id}
               href={link.href}
-              className="relative py-2 manrope text-black text-sm font-normal hover:text-blue-700 transition duration-300 ease-in-out after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full"
+              className="relative py-2 font-manrope text-black text-sm font-normal hover:text-blue-700 transition duration-300 ease-in-out after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full"
             >
               {link.label}
             </a>
@@ -129,7 +129,7 @@ const Navbar = () => {
               setActiveLink(link.id);
               setIsMenuOpen(false);
             }}
-            className={`relative manrope text-black py-3 px-3 text-sm font-normal hover:text-blue-700 text-start transition duration-300 ease-in-out after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full ${
+            className={`relative font-manrope text-black py-3 px-3 text-sm font-normal hover:text-blue-700 text-start transition duration-300 ease-in-out after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full ${
               activeLink === link.id ? "bg-blue-100 rounded" : " "
             }`}
           >
