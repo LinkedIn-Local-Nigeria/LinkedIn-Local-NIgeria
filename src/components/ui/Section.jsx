@@ -1,7 +1,12 @@
-import React from "react";
 import { twMerge } from "tailwind-merge";
 
-const Section = ({ id, title, children,className, background = "bg-[#fdfdfd]" }) => {
+const Section = ({
+  id,
+  title,
+  children,
+  className,
+  background = "bg-[#fdfdfd]",
+}) => {
   return (
     <section
       id={id}

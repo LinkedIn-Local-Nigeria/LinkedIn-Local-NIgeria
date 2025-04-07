@@ -1,5 +1,4 @@
 import { PaperPlaneIcon } from "@radix-ui/react-icons";
-import React from "react";
 import { twMerge } from "tailwind-merge";
 
 const Button = ({ className, children, ...props }) => {
