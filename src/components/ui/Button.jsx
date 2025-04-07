@@ -10,7 +10,7 @@ const Button = ({ className, children, ...props }) => {
   );
 
   return (
-    <button className={defaultClasses} {...props}>
+    <button type="button" className={defaultClasses} {...props}>
       <PaperPlaneIcon className="-rotate-45" />
       {children || "Button"}
     </button>
