@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Navbar from "./components/NavBar";
+import About from "./pages/About";
+import FAQs from "./pages/FAQs";
+import Speakers from "./pages/Speakers";
+import Teams from "./pages/Teams";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar />
+      <div
+        id="about"
+        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
+      >
+        <About />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div
+        id="speakers"
+        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
+      >
+        <Speakers />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <div
+        id="teams"
+        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
+      >
+        <Teams />
+      </div>
+
+      <div
+        id="faqs"
+        className="bg-[#fdfdfd] border-t border-gray-300 min-h-screen"
+      >
+        <FAQs />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
