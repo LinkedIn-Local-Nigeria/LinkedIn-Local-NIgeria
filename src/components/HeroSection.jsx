@@ -1,9 +1,9 @@
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Flex, Separator, Text } from "@radix-ui/themes";
 import { motion } from "motion/react";
+import { mapdots } from "./constants/mapdots";
 import Button from "./ui/Button";
 import { WorldMap } from "./ui/worldmap";
-import {mapdots} from './constants/mapdots'
 
 // Animation Variants
 const containerVariant = {
@@ -34,7 +34,7 @@ const itemsVariant = {
 export function HeroSection() {
   return (
     <>
-      <WorldMap dots={mapdots} lineColor="#0ea5e9" className="relative" />
+      <WorldMap dots={mapdots} className="relative" />
       <img
         src="/heroimg.svg"
         alt="hero image"
