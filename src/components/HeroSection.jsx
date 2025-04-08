@@ -3,7 +3,7 @@ import { Flex, Separator, Text } from "@radix-ui/themes";
 import { motion } from "motion/react";
 import { mapdots } from "./constants/mapdots";
 import Button from "./ui/Button";
-import { WorldMap } from "./ui/worldmap";
+import { WorldMap } from "./ui/WorldMap";
 
 // Animation Variants
 const containerVariant = {
