@@ -43,7 +43,7 @@ const Navbar = () => {
           href="/"
           className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
         >
-          LLN '25
+          LLN &apos;25
         </a>
 
         {/* Desktop Nav Links */}

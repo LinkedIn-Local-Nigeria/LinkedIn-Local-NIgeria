@@ -7,6 +7,18 @@
   font-style: normal;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0ea5e9;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -15,5 +27,5 @@ html {
 #speakers,
 #teams,
 #faqs {
-  padding-top: 80px; /* Adjust this based on your navbar height */
+  padding-top: 40px; /* Adjust this based on your navbar height */
 }
