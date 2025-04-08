@@ -55,7 +55,7 @@ export function HeroSection() {
           viewport={{ once: true }}
           className="flex items-center gap-2 px-6 py-1 mb-4 text-sm font-light border border-gray-200 rounded font-manrope"
         >
-          You're welcome to
+          You&apos;re welcome to
           <img src="/check.svg" alt="check icon" loading="lazy" />
         </motion.p>
 
