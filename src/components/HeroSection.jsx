@@ -1,6 +1,6 @@
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Flex, Separator, Text } from "@radix-ui/themes";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { mapdots } from "./constants/mapdots";
 import Button from "./ui/Button";
 import { WorldMap } from "./ui/WorldMap";
@@ -60,7 +60,7 @@ export function HeroSection() {
         </motion.p>
 
         {/* title */}
-        <motion.p
+        <motion.h1
           variants={itemsVariant}
           viewport={{ once: true }}
           className="flex flex-wrap items-center justify-center mt-5 space-x-2 text-2xl font-bold text-center text-blue-600 font-poppins md:text-5xl"
@@ -70,7 +70,7 @@ export function HeroSection() {
             <LinkedInLogoIcon className="text-blue-600 h-7 w-7 md:h-14 md:w-14" />{" "}
           </span>
           <span style={{ letterSpacing: "150%" }}>Local Nigeria 2025</span>
-        </motion.p>
+        </motion.h1>
 
         {/* body content */}
         <div className="flex flex-col items-center justify-center w-full gap-4 mt-5">
