@@ -11,12 +11,12 @@ const Section = ({
     <section
       id={id}
       className={twMerge(
-        `text-gray-500 border-t border-gray-300 min-h-screen`,
+        `text-gray-500 border-gray-300`,
         className,
         background
       )}
     >
-      <div className="container py-12 mx-auto">
+      <div className="mx-auto">
         <h2 className="mb-6 text-2xl font-bold">{title}</h2>
         {children}
       </div>
