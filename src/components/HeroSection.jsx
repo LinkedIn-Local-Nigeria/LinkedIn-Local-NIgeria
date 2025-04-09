@@ -1,9 +1,10 @@
-import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Flex, Separator, Text } from "@radix-ui/themes";
-import { motion } from "framer-motion";
-import { mapdots } from "./constants/mapdots";
+
 import Button from "./ui/Button";
+import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { WorldMap } from "./ui/WorldMap";
+import { mapdots } from "./constants/mapdots";
+import { motion } from "framer-motion";
 
 // Animation Variants
 const containerVariant = {
@@ -39,7 +40,7 @@ export function HeroSection() {
         src="/heroimg.avif"
         alt="hero image"
         draggable="false"
-        className="absolute w-full -mt-28 sm:-mt-36 md:mt-[-10rem] lg:mt-[-16rem] xl:mt-[-20rem]"
+        className="absolute w-full -mt-[12rem] sm:-mt-36 md:mt-[-25rem] lg:mt-[-32rem] xl:mt-[-43rem]"
         loading="lazy"
       />
 
