@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import DottedMap from "dotted-map";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-import DottedMap from "dotted-map";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export function WorldMap({
   dots = [],
@@ -11,15 +11,9 @@ export function WorldMap({
   const svgRef = useRef(null);
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [theme, setTheme] = useState("light");
 
   const map = useMemo(() => {
     return new DottedMap({ height: 100, grid: "diagonal" });
-  }, []);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    setTheme(root.classList.contains("dark") ? "dark" : "light");
   }, []);
 
   useEffect(() => {
@@ -45,11 +39,11 @@ export function WorldMap({
   const svgMap = useMemo(() => {
     return map.getSVG({
       radius: 0.22,
-      color: theme === "dark" ? "#FFFFFF40" : "#00000040",
+      color: "#00000040",
       shape: "circle",
-      backgroundColor: theme === "dark" ? "black" : "white",
+      backgroundColor: "#fdfdfd",
     });
-  }, [theme, map]);
+  }, [map]);
 
   const projectPoint = useMemo(
     () => (lat, lng) => {
@@ -72,7 +66,7 @@ export function WorldMap({
   return (
     <div
       ref={containerRef}
-      className={`w-full aspect-[2/1] dark:bg-black bg-white rounded-lg font-sans ${className}`}
+      className={`w-full aspect-[2/1] bg-[#fdfdfd] rounded-lg font-manrope ${className}`}
     >
       {isVisible && (
         <>

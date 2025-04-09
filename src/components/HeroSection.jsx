@@ -36,15 +36,15 @@ export function HeroSection() {
     <>
       <WorldMap dots={mapdots} className="relative" />
       <img
-        src="/heroimg.svg"
+        src="/heroimg.avif"
         alt="hero image"
         draggable="false"
-        className="absolute w-full -mt-36 md:-mt-96"
+        className="absolute w-full -mt-28 sm:-mt-36 md:mt-[-10rem] lg:mt-[-16rem] xl:mt-[-20rem]"
         loading="lazy"
       />
 
       <motion.div
-        className="flex flex-col items-center justify-center px-4 pt-20 pb-20 mx-auto text-center sm:pt-52 md:pt-72 lg:pt-40"
+        className="flex flex-col items-center justify-center px-4 pt-20 pb-20 mx-auto text-center sm:pt-40 md:pt-44 lg:pt-40 xl:pt-48"
         variants={containerVariant}
         initial="hidden"
         whileInView="visible"
