@@ -35,7 +35,6 @@ html {
 .mobile-vertical-lines,
 .desktop-cta-bg,
 .mobile-cta-bg {
-  background-image: url("/desktop-vertical-lines.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -54,7 +53,7 @@ html {
 }
 
 /* For screens smaller than 1024px (mobile) */
-@media (max-width: 367px) {
+@media (max-width: 1023px) {
   .mobile-vertical-lines {
     background-image: url("/mobile-vertical-lines.svg");
   }
