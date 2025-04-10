@@ -12,7 +12,7 @@ const Cta = () => {
             <LinkedInLogoIcon className="w-8 h-8 -mx-1 text-blue-600 lg:h-10 lg:w-10" />{" "}
             g
           </div>
-          Beyound
+          Beyond
         </span>
         <span className="text-4xl font-semibold tracking-tight text-gray-800 lg:text-5xl font-poppins">
           the Narrative
