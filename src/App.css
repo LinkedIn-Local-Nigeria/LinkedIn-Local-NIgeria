@@ -27,5 +27,38 @@ html {
 #speakers,
 #teams,
 #faqs {
-  padding-top: 40px; /* Adjust this based on your navbar height */
+  padding-top: 35px; /* Adjust this based on the navbar height */
+}
+
+/* Custom styles for the desktop and mobile vertical lines */
+.desktop-vertical-lines,
+.mobile-vertical-lines,
+.desktop-cta-bg,
+.mobile-cta-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Media query for responsive vertical lines */
+/* For screens 1024px and larger (desktop) */
+@media (min-width: 1024px) {
+  .desktop-vertical-lines {
+    background-image: url("/desktop-vertical-lines.svg");
+  }
+
+  .desktop-cta-bg {
+    background-image: url("/desktop-cta-bg.svg");
+  }
+}
+
+/* For screens smaller than 1024px (mobile) */
+@media (max-width: 1023px) {
+  .mobile-vertical-lines {
+    background-image: url("/mobile-vertical-lines.svg");
+  }
+
+  .desktop-cta-bg {
+    background-image: url("/mobile-cta-bg.svg");
+  }
 }
