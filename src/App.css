@@ -31,29 +31,11 @@ html {
 }
 
 /* Custom styles for the desktop and mobile vertical lines */
-.desktop-vertical-lines {
-  background-image: url("/desktop-vertical-lines.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.mobile-vertical-lines {
-  background-image: url("/mobile-vertical-lines.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.desktop-cta-bg {
-  background-image: url("/desktop-cta-bg.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
+.desktop-vertical-lines,
+.mobile-vertical-lines,
+.desktop-cta-bg,
 .mobile-cta-bg {
-  background-image: url("/mobile-cta-bg.svg");
+  background-image: url("/desktop-vertical-lines.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
