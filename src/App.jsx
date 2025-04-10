@@ -2,7 +2,7 @@ import { Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import "./App.css";
 import Home from "./components/Home";
-import Layout from "./components/Layout";
+import Layout from "./components/ui/Layout";
 
 function App() {
   return (
