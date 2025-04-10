@@ -8,9 +8,9 @@ const Cta = () => {
       <div className="flex flex-col items-center max-w-xl gap-3 text-center lg:items-start lg:text-left">
         <span className="flex items-center text-4xl font-semibold tracking-tighter text-gray-800 text-nowrap lg:text-5xl font-poppins">
           <div className="flex items-center mr-2">
-            Evolvin{" "}
+            Evolv{" "}
             <LinkedInLogoIcon
-              className="w-8 h-8 -mx-1 text-blue-600 lg:h-10 lg:w-10"
+              className="w-8 h-8 -mx-1 text-blue-600 lg:h-12 lg:w-12"
               aria-label="LinkedIn"
             />{" "}
             g
