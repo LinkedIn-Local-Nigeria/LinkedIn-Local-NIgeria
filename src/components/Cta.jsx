@@ -3,7 +3,11 @@ import Button from "./ui/Button";
 
 const Cta = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start p-[1.5rem] lg:p-[5rem]">
+    <div 
+      className="flex flex-col lg:flex-row justify-between items-center lg:items-start p-[1.5rem] lg:p-[5rem]"
+      role="region" 
+      aria-labelledby="cta-heading"
+    >
       {/* Left side content */}
       <div className="flex flex-col items-center max-w-xl gap-3 text-center lg:items-start lg:text-left">
         <span className="flex items-center text-4xl font-semibold tracking-tighter text-gray-800 text-nowrap lg:text-5xl font-poppins">
