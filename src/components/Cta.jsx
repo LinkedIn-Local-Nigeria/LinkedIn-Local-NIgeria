@@ -6,7 +6,7 @@ const Cta = () => {
     <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start p-[1.5rem] lg:p-[5rem]">
       {/* Left side content */}
       <div className="flex flex-col items-center max-w-xl gap-3 text-center lg:items-start lg:text-left">
-        <h2 className="flex items-center text-4xl font-semibold tracking-tighter text-gray-800 text-nowrap lg:text-5xl font-poppins">
+        <span className="flex items-center text-4xl font-semibold tracking-tighter text-gray-800 text-nowrap lg:text-5xl font-poppins">
           <div className="flex items-center mr-2">
             Evolvin{" "}
             <LinkedInLogoIcon
@@ -16,10 +16,10 @@ const Cta = () => {
             g
           </div>
           Beyond
-        </h2>
-        <h2 className="text-4xl font-semibold tracking-tight text-gray-800 lg:text-5xl font-poppins">
+        </span>
+        <span className="text-4xl font-semibold tracking-tight text-gray-800 lg:text-5xl font-poppins">
           the Narrative
-        </h2>
+        </span>
       </div>
 
       {/* CTA mobile Button */}
