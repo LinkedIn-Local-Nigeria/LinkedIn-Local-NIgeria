@@ -40,7 +40,7 @@ export function HeroSection() {
         src="/heroimg.avif"
         alt="hero image"
         draggable="false"
-        className="absolute w-full -mt-[12rem] sm:-mt-36 md:mt-[-25rem] lg:mt-[-32rem] xl:mt-[-43rem]"
+        className="absolute w-full -mt-[10rem] sm:-mt-36 md:mt-[-12rem] lg:mt-[-19rem] xl:mt-[-20rem]"
         loading="lazy"
       />
 
@@ -92,7 +92,7 @@ export function HeroSection() {
           >
             <Text size="4" className="font-manrope">
               <Flex gap="5" align="center">
-                <h3 className="flex items-center gap-2 text-xl font-bold font-poppins">
+                <h3 className="flex items-center gap-2 font-bold sm:text-xl font-poppins">
                   <img src="/world.svg" alt="world icon" loading="lazy" />
                   5000+
                   <span className="text-sm font-normal font-manrope">
@@ -100,7 +100,7 @@ export function HeroSection() {
                   </span>
                 </h3>
                 <Separator size="2" orientation="vertical" />
-                <h3 className="flex items-center justify-center gap-2 text-xl font-bold font-poppins">
+                <h3 className="flex items-center justify-center gap-2 font-bold sm:text-xl font-poppins">
                   <img src="/country.svg" alt="country icon" loading="lazy" />
                   10+
                   <span className="text-sm font-normal font-manrope">
