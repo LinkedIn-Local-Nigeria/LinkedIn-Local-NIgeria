@@ -40,11 +40,14 @@ const Footer = () => {
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 gap-4 mt-5 lg:grid-cols-3"
+            aria-label="NewsLetter Subscription Form"
           >
             <input
               type="text"
               name="firstName"
               placeholder="First Name"
+              required
+              aria-required="true"
               value={formData.firstName}
               onChange={handleChange}
               className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200"
@@ -53,6 +56,8 @@ const Footer = () => {
               type="email"
               name="email"
               placeholder="Email Address"
+              required
+              aria-required="true"
               value={formData.email}
               onChange={handleChange}
               className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200"
