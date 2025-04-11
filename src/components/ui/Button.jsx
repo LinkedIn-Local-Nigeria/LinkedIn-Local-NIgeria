@@ -1,5 +1,6 @@
 import { PaperPlaneIcon } from "@radix-ui/react-icons";
 import { twMerge } from "tailwind-merge";
+import PropTypes from "prop-types";
 
 const Button = ({ className, children, ...props }) => {
   const defaultClasses = twMerge(
@@ -14,6 +15,11 @@ const Button = ({ className, children, ...props }) => {
       {children || "Button"}
     </button>
   );
+};
+
+Button.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default Button;

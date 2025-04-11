@@ -34,7 +34,9 @@ html {
 .desktop-vertical-lines,
 .mobile-vertical-lines,
 .desktop-cta-bg,
-.mobile-cta-bg {
+.mobile-cta-bg,
+.newsletter-bg-desktop,
+.newsletter-bg-mobile {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -50,6 +52,10 @@ html {
   .desktop-cta-bg {
     background-image: url("/desktop-cta-bg.svg");
   }
+
+  .newsletter-bg-desktop {
+    background-image: url("/newsletter-bg-desktop.svg");
+  }
 }
 
 /* For screens smaller than 1024px (mobile) */
@@ -60,5 +66,9 @@ html {
 
   .desktop-cta-bg {
     background-image: url("/mobile-cta-bg.svg");
+  }
+
+  .newsletter-bg-mobile {
+    background-image: url("/newsletter-bg-mobile.svg");
   }
 }
