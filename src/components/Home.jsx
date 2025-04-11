@@ -1,8 +1,9 @@
+import Container from "./ui/Container";
 import Cta from "./Cta";
 import { EventInfo } from "./EventInfo";
 import { HeroSection } from "./HeroSection";
-import Container from "./ui/Container";
 import Section from "./ui/Section";
+import TeamSection from '../components/TeamSection';
 
 const Home = () => {
   return (
@@ -32,7 +33,7 @@ const Home = () => {
           title="Speakers Section"
           className="min-h-screen border-t"
         >
-          <p>Content for the Teams section goes here...</p>
+         <TeamSection />
         </Section>
 
         <Section
