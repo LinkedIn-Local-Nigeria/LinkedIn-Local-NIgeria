@@ -1,4 +1,3 @@
-
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/ui/Layout';
 import { Theme } from '@radix-ui/themes';
