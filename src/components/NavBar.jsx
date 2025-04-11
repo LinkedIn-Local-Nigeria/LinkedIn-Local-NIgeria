@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import Button from "./ui/Button";
 
 const navLinks = [
@@ -38,12 +39,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="lg:px-[6.25rem] flex items-center justify-between z-50 px-6 py-4 border-b border-gray-200 mx-auto fixed w-full bg-opacity-10 backdrop-blur-md">
+      <nav className="lg:px-[6.25rem] flex items-center justify-between mx-auto container  z-50 px-6 py-4 border-b border-gray-200  fixed w-full bg-opacity-10 backdrop-blur-md">
         <a
           href="/"
           className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
         >
-          LLN '25
+          LLN &apos;25
         </a>
 
         {/* Desktop Nav Links */}
