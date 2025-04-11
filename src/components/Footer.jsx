@@ -26,7 +26,7 @@ const Footer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Subscribed:", formData);
-    setFormData({ firstName: "", email: "" }); // Clear the form after submission is successfull
+    setFormData({ firstName: "", email: "" }); // Clear the form after submission is successful
   };
 
   return (
