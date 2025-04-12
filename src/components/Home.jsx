@@ -4,7 +4,7 @@ import { EventInfo } from "./EventInfo";
 import { HeroSection } from "./HeroSection";
 import Section from "./ui/Section";
 import TeamSection from '../components/TeamSection';
-
+import MissionVision from '../components/MissionVision';
 const Home = () => {
   return (
     <>
@@ -19,6 +19,18 @@ const Home = () => {
         </Section>
 
         {/* Other sections goes here */}
+
+
+
+        <Section
+         id="teams"
+         title=""
+         className="min-h-screen"
+        >
+          <MissionVision />
+
+        </Section>
+
 
         <Section
           id="speakers"
