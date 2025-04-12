@@ -80,9 +80,10 @@ const MissionVision = () => {
 
   {/* Bottom Section with Text */}
   <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent py-12 flex justify-center items-center">
-    <p className="text-[20px]  text-white mt-4 mb-[-35px] text-center w-[80%]">
-      Empowering professionals on LinkedIn to grow 11x faster with strategic design & development.
-    </p>
+  <p className="text-[20px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mt-4 mb-[-35px] text-center w-[80%]">
+  Empowering professionals on LinkedIn to grow 11x faster with strategic design & development.
+</p>
+
   </div>
 </div>
 
