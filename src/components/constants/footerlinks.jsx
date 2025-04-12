@@ -1,6 +1,6 @@
 export const footerLinks = [
   {
-    title: "USEFULL LINKS",
+    title: "USEFUL LINKS",
     links: [
       { label: "About Us", href: "#about" },
       { label: "Speakers", href: "#speakers" },
