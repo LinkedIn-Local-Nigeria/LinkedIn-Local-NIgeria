@@ -23,7 +23,7 @@ const Home = () => {
 
 
         <Section
-         id="teams"
+         id="mission-vision"
          title=""
          className="min-h-screen"
         >

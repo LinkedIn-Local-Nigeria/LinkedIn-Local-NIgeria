@@ -28,11 +28,16 @@ const MissionVision = () => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        videoRef.current
+          .play()
+          .catch((error) => {
+            console.error("Playback failed:", error);
+          });
       }
       setIsPlaying(!isPlaying);
     }
   };
+  
 
   const accordions = [
     {
