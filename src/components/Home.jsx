@@ -3,7 +3,9 @@ import Cta from "./Cta";
 import { EventInfo } from "./EventInfo";
 import { HeroSection } from "./HeroSection";
 import Section from "./ui/Section";
-import TeamSection from '../components/TeamSection';
+import TeamSection from './TeamSection';
+import Events from "./Events";
+import Scoop from "./Scoop";
 
 const Home = () => {
   return (
@@ -30,10 +32,28 @@ const Home = () => {
 
         <Section
           id="teams"
-          title="Speakers Section"
           className="min-h-screen border-t"
         >
-         <TeamSection />
+          <Container>
+            <Events />
+          </Container>
+        </Section>
+        <Section
+          id="teams"
+          className="min-h-screen border-t"
+        >
+          <Container>
+            <Scoop />
+          </Container>
+        </Section>
+
+        <Section
+          id="teams"
+          className="min-h-screen border-t"
+        >
+          <Container>
+            <TeamSection />
+          </Container>
         </Section>
 
         <Section
