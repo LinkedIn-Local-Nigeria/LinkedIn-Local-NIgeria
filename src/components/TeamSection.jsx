@@ -93,7 +93,7 @@ const TeamSection = () => {
         making a lasting impact and bringing innovative ideas to life
       </span>
 
-      <div className='grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+      <div className='grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
         {Teams.map((team, index) => (
           <div
             key={index}
@@ -102,7 +102,7 @@ const TeamSection = () => {
             <img
               src={team.teamImg}
               alt={team.role}
-              className='object-cover w-full h-full mb-4'
+              className='object-cover w-full mb-4 h-60'
             />
             <h3 className='text-2xl font-semibold text-gray-900'>
               {team.name}
