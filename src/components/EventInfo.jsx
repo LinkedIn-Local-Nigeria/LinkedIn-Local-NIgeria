@@ -1,8 +1,8 @@
 import { CalendarIcon } from "@radix-ui/react-icons";
-import { Text } from "@radix-ui/themes";
-import { motion } from "framer-motion";
 import { HiOutlineClock } from "react-icons/hi";
 import { HiOutlineMapPin } from "react-icons/hi2";
+import { Text } from "@radix-ui/themes";
+import { motion } from "framer-motion";
 
 // Animation Variants
 const containerVariant = {
