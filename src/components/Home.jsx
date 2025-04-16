@@ -42,7 +42,7 @@ const Home = () => {
         </Section>
 
         <Section
-          id="teams"
+          id="events"
           className="border-t "
         >
           <Container>
@@ -50,7 +50,7 @@ const Home = () => {
           </Container>
         </Section>
         <Section
-          id="teams"
+          id="scoop"
           className="border-t"
         >
           <Container>
