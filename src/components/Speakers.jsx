@@ -48,7 +48,7 @@ export default function Speakers() {
             <div className="grid grid-cols-1 gap-4 xl:grid-cols-3 md:grid-cols-2">
                 {items.map((item) => (
                     <div key={item.name} className="relative ">
-                        <img src={item.image} alt={`${items.name}'s immage`} />
+                        <img src={item.image} alt={`${item.name}'s image`} />
                         <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black to-transparent">
 
                             <div className="flex flex-col mb-5">
