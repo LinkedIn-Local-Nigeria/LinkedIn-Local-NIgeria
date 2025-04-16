@@ -1,3 +1,6 @@
+import {
+  LinkedInLogoIcon,
+} from '@radix-ui/react-icons'
 
 const items = [
     {
@@ -46,16 +49,20 @@ export default function Speakers() {
                 {items.map((item) => (
                     <div key={item.name} className="relative ">
                         <img src={item.image} alt={`${items.name}'s immage`} />
-                        <div className="absolute flex items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black to-transparent">
+                        <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black to-transparent">
 
                             <div className="flex flex-col mb-5">
                                 <h3 className="ml-5 text-base font-bold text-left text-white font-poppins">{item.name}</h3>
                                 <p className="ml-5 font-manrope text-[.685rem]">{item.role}</p>
                             </div>
+                            <LinkedInLogoIcon className='w-[21.375px] h-[21.375px] mb-5 mr-5' />
+                          
                         </div>
                     </div>
                 ))}
             </div>
+
+            <button className='border border-[#0076B2] flex gap-2 py-4 px-[3.125rem] rounded-[.625rem] font-poppins text-[#0076B2] font-semibold text-base  '>See all our speakers <img src="Icon.svg" alt="" /></button>
         </section>
     )
 }

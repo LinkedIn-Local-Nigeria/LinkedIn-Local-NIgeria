@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
-import Vision from '../assets/vision.svg'
+import  { useRef, useState } from "react";
+
 import PlayBtn from '../assets/Play.svg'
+import Vision from '../assets/vision.svg'
 
 const visionStatements = [
   {
@@ -58,7 +59,7 @@ const MissionVision = () => {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-4 bg-white">
+    <div className="w-full max-w-5xl px-6 py-12 mx-auto bg-white md:p-4">
     
     <div className="w-full max-h-[470px] aspect-video rounded-xl overflow-hidden shadow mb-14 relative"
        onMouseEnter={() => setIsHovered(true)}
@@ -66,8 +67,8 @@ const MissionVision = () => {
     >
     <video
       ref={videoRef} 
-      className="w-full h-full object-cover"
-      src="https://www.w3schools.com/html/mov_bbb.mp4"
+      className="object-cover w-full h-full"
+      src="/LLN-video.mp4"
       autoPlay={false}
       loop
       muted
@@ -79,13 +80,13 @@ const MissionVision = () => {
     <img
       src={PlayBtn}
       onClick={handlePlayPause}  
-      className=" text-white px-6 py-3 rounded-full "
+      className="px-6 py-3 text-white rounded-full "
     />
     </div>
 
   {/* Bottom Section with Text */}
-  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent py-12 flex justify-center items-center">
-  <p className="text-[20px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mt-4 mb-[-35px] text-center w-[80%]">
+  <div className="absolute bottom-0 left-0 flex items-center justify-center w-full py-12 bg-gradient-to-t from-black via-transparent to-transparent">
+  <p className="text-[.625rem] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mt-4 mb-[-35px] text-center w-[60%]">
   Empowering professionals on LinkedIn to grow 11x faster with strategic design & development.
 </p>
 
@@ -94,24 +95,24 @@ const MissionVision = () => {
 
 
       {/* Mission & Vision Section */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-6 xl:grid-cols-2">
         {/* Mission Section */}
-        <div className="bg-white rounded-xl shadow-sm text-left order-2 md:order-1">
-          <h2 className="font-inter font-normal text-[20px] leading-[30px] tracking-[0px] text-zinc-600 text-left mb-3">
+        <div className="order-2 text-left bg-white xl:order-1">
+          <h2 className="font-inter font-normal text-sm md:text-[20px] leading-[30px] tracking-[0px] text-zinc-600 text-left mb-3">
             OUR MISSION AND VISION
           </h2>
-          <h1 className="font-poppins pb-2 text-left font-extrabold text-[40.09px] leading-[45px] tracking-normal text-[#0076B2]">
+          <h1 className="font-poppins pb-2 text-left font-extrabold text-[1.75rem] leading-[1] md:text-[40.09px] md:leading-[45px] tracking-normal text-[#0076B2]">
             We Gather, We Learn, We Evolve.
           </h1>
 
-          <p className="text-gray-700 mb-4 text-left">
+          <p className="mb-4 text-sm text-left text-gray-700 md:text-base leading-[1.5]">
             LinkedIn Local Nigeria is bringing together forward-thinking individuals, thought leaders, 
             and change-makers to address the critical question: How do we collectively reshape Nigeria’s 
             future and chart a path toward sustainable growth?
           </p>
 
           {/* Accordion Section */}
-          <div className="space-y-2">
+          <div className="space-y-6">
             {accordions.map((item, index) => (
               <div
                 key={index}
@@ -130,7 +131,7 @@ const MissionVision = () => {
                 </h2>
 
                 {openIndex === index && (
-                  <div className="pb-2 mb-2 text-gray-600 bg-white">
+                  <div className="pb-2 mb-2 text-sm text-gray-600 bg-white md:test-base">
                     {item.text}
                   </div>
                 )}
@@ -140,7 +141,7 @@ const MissionVision = () => {
         </div>
 
         {/* Vision Section */}
-        <div className="bg-white rounded-xl order-1 md:order-2">
+        <div className="order-1 bg-white rounded-xl xl:order-2">
           {visionStatements.map((statement, index) => (
             <div key={index} className="flex flex-col items-center">
               <img

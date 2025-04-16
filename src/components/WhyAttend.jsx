@@ -46,15 +46,17 @@ export default function WhyAttend() {
                         <div
                         key={index}
                         className={`
-                          flex flex-col items-center p-8 text-center border-gray-300
-                          border-t md:border-t-0 md:border-b md:border-r
-                          md:[&:nth-child(4)]:border-t
-                          md:[&:nth-child(5)]:border-t
-                          md:[&:nth-child(6)]:border-t
-                          md:[&:nth-child(3n)]:border-r
-                          xl:[&:nth-child(3n)]:border-r-0
-                          md:[&:nth-child(n+4)]:border-b-0
-                        `}
+                            flex flex-col items-center p-8 text-center border-gray-300                        
+                            border-b last:border-b-0
+                            md:border-b md:border-r
+                            md:[&:nth-child(2n)]:border-r-0         
+                            md:[&:nth-child(n+5)]:border-b-0       
+                            xl:border-b xl:border-r
+                            xl:[&:nth-child(3n)]:border-r-0      
+                            xl:[&:nth-child(2n)]:border-r
+                            xl:[&:nth-child(4n)]:border-r
+                            xl:[&:nth-child(n+4)]:border-b-0         
+                          `}
                       >
                       
                       
@@ -63,10 +65,10 @@ export default function WhyAttend() {
                                 alt={item.title}
                                 className="w-16 h-16 mb-4"
                             />
-                            <h4 className="mb-2 text-xl font-bold font-poppins text-[#18181B]">
+                            <h4 className="mb-2 md:text-xl font-bold font-poppins text-[#18181B]">
                                 {item.title}
                             </h4>
-                            <p className="font-manrope text-[#52525B]">
+                            <p className="font-manrope text-sm md:text-base text-[#52525B]">
                                 {item.description}
                             </p>
                         </div>

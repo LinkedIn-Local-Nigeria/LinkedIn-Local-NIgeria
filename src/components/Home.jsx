@@ -26,7 +26,7 @@ const Home = () => {
         <Section
           id="mission-vision"
           title=""
-          className="min-h-screen"
+          className=""
         >
           <MissionVision />
 
@@ -34,7 +34,7 @@ const Home = () => {
 
         <Section
           id="speakers"
-          className="min-h-screen"
+          className=""
           background="bg-[#fdfdfd]"
         >
           <WhyAttend />
@@ -62,15 +62,13 @@ const Home = () => {
           id="teams"
           className="border-t"
         >
-          <Container>
-            <TeamSection />
-          </Container>
+          <TeamSection />
         </Section>
 
         <Section
           id="faqs"
           title="FAQs Section"
-          className="min-h-screen border-t"
+          className="border-t "
         >
           <p>Content for the FAQs section goes here...</p>
         </Section>

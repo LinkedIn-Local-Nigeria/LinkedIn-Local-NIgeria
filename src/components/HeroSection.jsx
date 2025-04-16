@@ -37,10 +37,10 @@ export function HeroSection() {
     <>
       <WorldMap dots={mapdots} className="relative" />
       <img
-        src="/heroimg.avif"
+        src="/people.avif"
         alt="hero image"
         draggable="false"
-        className="absolute w-full -mt-[10rem] sm:-mt-36 md:mt-[-12rem] lg:mt-[-19rem] xl:mt-[-20rem]"
+        className="absolute w-full -mt-[7rem] sm:-mt-36 md:mt-[-12rem] lg:mt-[-19rem] xl:mt-[-20rem]"
         loading="lazy"
       />
 
@@ -64,11 +64,11 @@ export function HeroSection() {
         <motion.h1
           variants={itemsVariant}
           viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-center mt-5 space-x-2 text-2xl font-bold text-center text-blue-600 font-poppins md:text-5xl"
+          className="flex flex-wrap items-center justify-center mt-5 space-x-2 text-2xl font-bold text-center text-[#0076B2] font-poppins md:text-5xl"
         >
           <span className="flex items-center">
             Linked
-            <LinkedInLogoIcon className="text-blue-600 h-7 w-7 md:h-14 md:w-14" />{" "}
+            <LinkedInLogoIcon className="text-[#0076B2] h-7 w-7 md:h-14 md:w-14" />{" "}
           </span>
           <span style={{ letterSpacing: "150%" }}>Local Nigeria 2025</span>
         </motion.h1>
@@ -92,18 +92,18 @@ export function HeroSection() {
           >
             <Text size="4" className="font-manrope">
               <Flex gap="5" align="center">
-                <h3 className="flex items-center gap-2 font-bold sm:text-xl font-poppins">
-                  <img src="/world.svg" alt="world icon" loading="lazy" />
+                <h3 className="flex items-center gap-2 text-sm font-bold sm:text-xl font-poppins">
+                  <img className="w-3 md:w-full" src="/world.svg" alt="world icon" loading="lazy" />
                   5000+
-                  <span className="text-sm font-normal font-manrope">
+                  <span className="font-normal text-[.625rem] md:text-sm font-manrope">
                     Attendees
                   </span>
                 </h3>
                 <Separator size="2" orientation="vertical" />
-                <h3 className="flex items-center justify-center gap-2 font-bold sm:text-xl font-poppins">
-                  <img src="/country.svg" alt="country icon" loading="lazy" />
+                <h3 className="flex items-center justify-center gap-2 text-sm font-bold whitespace-nowrap sm:text-xl font-poppins">
+                  <img className="w-3 md:w-full" src="/country.svg" alt="country icon" loading="lazy" />
                   10+
-                  <span className="text-sm font-normal font-manrope">
+                  <span className="text-[.625rem] md:text-sm font-normal font-manrope">
                     World-Class-Speakers
                   </span>
                 </h3>

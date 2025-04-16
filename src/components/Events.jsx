@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
+import  { useEffect, useRef, useState } from "react";
+
+import Button from "./ui/Button";
 import EventImage1 from "../assets/EventImage1.png";
 import EventImage2 from "../assets/EventImage2.jpg";
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import Button from "./ui/Button";
 
 const Events = () => {
   const EventCards = [
@@ -69,20 +70,20 @@ const Events = () => {
   };
 
   return (
-    <section className="flex flex-col md:flex-row justify-between items-start gap-8 px-6 md:px-12 py-10 bg-[#FDFDFD] font-manrope">
+    <section className="flex flex-col xl:flex-row justify-between items-start gap-8 px-4 md:px-10 py-10 bg-[#FDFDFD] font-manrope">
     {/* Left Column: Header, Description, Controls */}
-    <div className="w-full md:w-1/3">
-      <h2 className="text-[#0076B2] text-[35px] leading-[55px] font-semibold font-poppins">
+    <div className="flex flex-col w-full gap-3 xl:w-1/3">
+      <h2 className="text-[#0076B2] text-left md:text-[35px] text-3xl  font-semibold font-poppins">
         Upcoming Event
       </h2>
-      <p className="text-[18px] leading-[28px] text-gray-700 mt-4">
+      <p className="text-sm md:text-[18px] md:leading-[28px] text-gray-700 text-left ">
         Mark your calendar for our exciting mini-events, including Twitter Spaces, Campus Tours, and IG Lives, designed to inspire and connect!
       </p>
       {/* Controls */}
-      <div className="flex items-center gap-4 mt-6 justify-start">
+      <div className="items-center justify-start hidden gap-4 mt-6 xl:flex">
         <button
           onClick={() => scroll("left")}
-          className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 disabled:opacity-50"
+          className="flex items-center justify-center w-10 h-10 border border-[#0076B2] rounded-full disabled:opacity-50"
           disabled={currentIndex === 0}
         >
           <ChevronLeftIcon className="w-5 h-5 text-gray-700" />
@@ -92,7 +93,7 @@ const Events = () => {
         </div>
         <button
           onClick={() => scroll("right")}
-          className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 disabled:opacity-50"
+          className="flex items-center justify-center w-10 h-10 border rounded-full border-[#0076B2]  disabled:opacity-50"
           disabled={currentIndex === EventCards.length - 1}
         >
           <ChevronRightIcon className="w-5 h-5 text-gray-700" />
@@ -103,22 +104,22 @@ const Events = () => {
     {/* Right Column: Slider */}
     <div
       ref={sliderRef}
-      className="w-full md:w-2/3 flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-4"
+      className="flex w-full gap-6 pb-4 overflow-x-auto xl:w-2/3 scroll-smooth no-scrollbar"
     >
       {EventCards.map((event) => (
         <div
           key={event.id}
-          className="min-w-[300px] max-w-[330px] shrink-0 relative border border-gray-200 rounded-xl shadow-md"
+          className="min-w-[300px]  shrink-0 relative border border-gray-200 "
           style={{ height: "420px" }}
         >
           <img
             src={event.imageUrl}
             alt={event.title}
-            className="w-full h-full object-cover rounded-xl"
+            className="object-cover w-full h-full "
           />
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-xl text-white">
-            <p className="text-sm font-medium">{event.date} / {event.time}</p>
-            <p className="text-lg font-semibold mt-1">{event.description}</p>
+          <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 to-transparent rounded-b-xl">
+            <p className="text-sm font-medium text-left">{event.date} / {event.time}</p>
+            <p className="mt-1 text-lg font-semibold text-left">{event.description}</p>
             <Button className="mt-4 w-full bg-[#0076B2] hover:bg-[#005c8f]">Get Your Ticket</Button>
           </div>
         </div>

@@ -81,13 +81,13 @@ const TeamSection = () => {
   return (
     <section
       className={twMerge(
-        `text-gray-700 bg-[#fdfdfd] flex flex-col gap-6 w-full py-12 md:px-[7.25rem] font-manrope`
+        `text-gray-700 bg-[#fdfdfd] flex flex-col items-center gap-6 w-full py-12 md:px-[7.25rem]  px-4 font-manrope`
       )}
     >
-      <h1 className='text-4xl font-[800px] leading-[50px] text-center md:text-5xl text-[#0076B2] font-poppins '>
+      <h1 className='md:text-4xl text-2xl leading-[50px] text-center md:text-5xl text-[#0076B2] font-semibold font-poppins '>
         Meet the Team
       </h1>
-      <span className='text-[20px] text-center md:text-xl text-[#52525B] font-poppins pb-18'>
+      <span className='text-sm text-center md:w-3/4 md:text-xl text-[#52525B] font-poppins pb-18'>
         Behind every greate event is a dedicated team. Get to know the
         passionate individuals driving this experience, each commmitted to
         making a lasting impact and bringing innovative ideas to life
@@ -97,12 +97,12 @@ const TeamSection = () => {
         {Teams.map((team, index) => (
           <div
             key={index}
-            className='flex flex-col items-start h-full gap-2 text-left bg-white'
+            className='flex flex-col items-start w-full h-full gap-2 text-left bg-white'
           >
             <img
               src={team.teamImg}
               alt={team.role}
-              className='object-cover w-[249.375px] mb-4 h-[263.625px]'
+              className='object-cover w-full md:w-[249.375px] mb-4 md:h-[263.625px]'
             />
             <h3 className='text-[17.81px] leading-[26.72px] font-semibold text-[#101828]'>
               {team.name}
