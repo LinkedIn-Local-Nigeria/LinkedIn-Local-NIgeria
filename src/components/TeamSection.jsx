@@ -81,13 +81,13 @@ const TeamSection = () => {
   return (
     <section
       className={twMerge(
-        `text-gray-700 bg-[#fdfdfd] min-h-screen flex flex-col gap-6 w-full py-12 md:px-[7.25rem]`
+        `text-gray-700 bg-[#fdfdfd] flex flex-col gap-6 w-full py-12 md:px-[7.25rem] font-manrope`
       )}
     >
-      <h1 className='text-4xl font-bold text-center md:text-5xl font-poppins '>
+      <h1 className='text-4xl font-[800px] leading-[50px] text-center md:text-5xl text-[#0076B2] font-poppins '>
         Meet the Team
       </h1>
-      <span className='text-lg text-center md:text-xl font-poppins pb-18'>
+      <span className='text-[20px] text-center md:text-xl text-[#52525B] font-poppins pb-18'>
         Behind every greate event is a dedicated team. Get to know the
         passionate individuals driving this experience, each commmitted to
         making a lasting impact and bringing innovative ideas to life
@@ -102,39 +102,39 @@ const TeamSection = () => {
             <img
               src={team.teamImg}
               alt={team.role}
-              className='object-cover w-full mb-4 h-60'
+              className='object-cover w-[249.375px] mb-4 h-[263.625px]'
             />
-            <h3 className='text-2xl font-semibold text-gray-900'>
+            <h3 className='text-[17.81px] leading-[26.72px] font-semibold text-[#101828]'>
               {team.name}
             </h3>
-            <p className='text-lg text-gray-500'>{team.role}</p>
-            <p className='mt-2 mb-4 text-lg text-gray-400'>
+            <p className='text-lg text-[#0076B2]'>{team.role}</p>
+            <p className='mt-2 mb-4 text-[14.25px] text-[#667085]'>
               {team.description}
             </p>
-            <div className='flex gap-3 mt-auto'>
+            <div className='flex gap-1 mt-auto'>
               <a
                 href={team.LinkedInURL}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-blue-400 transition hover:text-blue-600'
+                className='text-[#98A2B3] transition'
               >
-                <TwitterLogoIcon className='w-9 h-9' />
+                <TwitterLogoIcon className='w-[21.375px] h-[21.375px]' />
               </a>
               <a
                 href={team.LinkedInURL}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-gray-500 transition hover:text-blue-800'
+                className='text-gray-500 transition'
               >
-                <LinkedInLogoIcon className='w-9 h-9' />
+                <LinkedInLogoIcon className='w-[21.375px] h-[21.375px]' />
               </a>
               <a
                 href={team.LinkedInURL}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-gray-500 transition hover:text-blue-800'
+                className='text-gray-500 transition'
               >
-                <GlobeIcon className='w-9 h-9' />
+                <GlobeIcon className='w-[21.375px] h-[21.375px]' />
               </a>
             </div>
           </div>

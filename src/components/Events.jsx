@@ -46,18 +46,17 @@ const Events = () => {
 
   useEffect(() => {
     if (sliderRef.current) {
-      const containerWidth = sliderRef.current.offsetWidth;
-      const computedCardWidth = containerWidth / 1.2;
-      setCardWidth(computedCardWidth);
+      const containerWidth = (sliderRef.current.offsetWidth) / 1.0;
+      setCardWidth(containerWidth);
     }
   }, []);
 
   const scroll = (direction) => {
     const maxIndex = EventCards.length - 1;
-    let newIndex =
+    const newIndex =
       direction === "left"
-        ? Math.max(currentIndex - 1, 0)
-        : Math.min(currentIndex + 1, maxIndex);
+        ? Math.max(currentIndex - 2, 0)
+        : Math.min(currentIndex + 2, maxIndex);
 
     if (sliderRef.current) {
       sliderRef.current.scrollBy({
@@ -70,78 +69,63 @@ const Events = () => {
   };
 
   return (
-    <section className="flex flex-col lg:flex-row gap-10 font-manrope justify-center items-center bg-[#FDFDFD] py-10 px-4 md:px-12">
-      {/* Text Section */}
-      <div className="flex flex-col items-start justify-center max-w-2xl gap-6 text-start">
-        <h1 className="text-[#0076B2] text-4xl font-semibold text-left font-poppins">
-          Upcoming Events
-        </h1>
-        <span className="max-w-2xl text-lg text-start gray-600 text-t">
-          Mark your calendar for our exciting mini-events, including Twitter
-          Spaces, Campus Tours, and IG Lives, designed to inspire and connect!
-        </span>
-      </div>
-
-      {/* Slider + Buttons */}
-      <div className="relative w-full max-w-[90vw] lg:max-w-3xl overflow-hidden">
-        {/* Left button */}
+    <section className="flex flex-col md:flex-row justify-between items-start gap-8 px-6 md:px-12 py-10 bg-[#FDFDFD] font-manrope">
+    {/* Left Column: Header, Description, Controls */}
+    <div className="w-full md:w-1/3">
+      <h2 className="text-[#0076B2] text-[35px] leading-[55px] font-semibold font-poppins">
+        Upcoming Event
+      </h2>
+      <p className="text-[18px] leading-[28px] text-gray-700 mt-4">
+        Mark your calendar for our exciting mini-events, including Twitter Spaces, Campus Tours, and IG Lives, designed to inspire and connect!
+      </p>
+      {/* Controls */}
+      <div className="flex items-center gap-4 mt-6 justify-start">
         <button
           onClick={() => scroll("left")}
-          className="absolute z-20 flex items-center justify-center w-10 h-10 text-gray-600 transition -translate-y-1/2 bg-white border border-gray-400 rounded-full shadow-md top-1/2 left-2 hover:bg-gray-100"
+          className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 disabled:opacity-50"
           disabled={currentIndex === 0}
         >
-          <ChevronLeftIcon className="w-5 h-5" />
+          <ChevronLeftIcon className="w-5 h-5 text-gray-700" />
         </button>
-
-        {/* Cards container */}
-        <div
-          ref={sliderRef}
-          className="flex gap-6 py-6 overflow-x-auto scroll-smooth no-scrollbar"
-        >
-          {EventCards.map((event) => (
-            <div
-              key={event.id}
-              className="relative shrink-0"
-              style={{
-                width: `${cardWidth}px`,
-                maxWidth: `${cardWidth}px`,
-                height: "550px",
-              }}
-            >
-              <img
-                src={event.imageUrl}
-                alt={event.title}
-                className="object-cover w-full h-full shadow-md rounded-xl"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-left text-white bg-gradient-to-t from-black/80 to-transparent">
-                <p className="mt-2 text-lg font-medium">
-                  {event.date} / {event.time}
-                </p>
-                <p className="mt-1 text-2xl font-bold">{event.description}</p>
-
-                <Button className="w-full mt-4 text-lg">
-                  Get Your Ticket
-                </Button>
-              </div>
-            </div>
-          ))}
-
-          {/* Slide counter */}
-          <div className="absolute z-30 items-center justify-center px-3 py-1 text-sm text-center text-white translate-x-1/2 rounded-full bottom-6 right-1/2 bg-black/70">
-            {currentIndex + 1} / {EventCards.length}
-          </div>
+        <div className="px-4 py-1 bg-[#fff] text-black rounded-full text-[18px]">
+          {currentIndex + 1} / {EventCards.length}
         </div>
-
-        {/* Right button */}
         <button
           onClick={() => scroll("right")}
-          className="absolute z-20 flex items-center justify-center w-10 h-10 text-gray-600 transition -translate-y-1/2 bg-white border border-gray-400 rounded-full shadow-md top-1/2 right-2 hover:bg-gray-100"
+          className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-100 disabled:opacity-50"
           disabled={currentIndex === EventCards.length - 1}
         >
-          <ChevronRightIcon className="w-5 h-5" />
+          <ChevronRightIcon className="w-5 h-5 text-gray-700" />
         </button>
       </div>
-    </section>
+    </div>
+  
+    {/* Right Column: Slider */}
+    <div
+      ref={sliderRef}
+      className="w-full md:w-2/3 flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-4"
+    >
+      {EventCards.map((event) => (
+        <div
+          key={event.id}
+          className="min-w-[300px] max-w-[330px] shrink-0 relative border border-gray-200 rounded-xl shadow-md"
+          style={{ height: "420px" }}
+        >
+          <img
+            src={event.imageUrl}
+            alt={event.title}
+            className="w-full h-full object-cover rounded-xl"
+          />
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-xl text-white">
+            <p className="text-sm font-medium">{event.date} / {event.time}</p>
+            <p className="text-lg font-semibold mt-1">{event.description}</p>
+            <Button className="mt-4 w-full bg-[#0076B2] hover:bg-[#005c8f]">Get Your Ticket</Button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+  
   );
 };
 
