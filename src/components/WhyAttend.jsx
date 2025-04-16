@@ -1,28 +1,78 @@
+const items = [
+    {
+        image: "people.svg",
+        title: "5000+ Attendees",
+        description: "A Virtual and Physical mix of professionals, entrepreneurs, innovators, young creator and decision-makers from across industries."
+    },
+    {
+        image: "chartbar.svg",
+        title: "60+ Countries",
+        description: "A diverse global audience with insights from other economies."
+    },
+    {
+        image: "Group.svg",
+        title: "30+ Exhibitors",
+        description: "Companies and organizations showcasing solutions, technologies, and ideas driving Nigeria’s future."
+    },
+    {
+        image: "pitch.svg",
+        title: "10+ Pitches and Showcase",
+        description: "Opportunities to pitch cutting-edge innovations and startups solving real world problems.."
+    },
+    {
+        image: "person-add.svg",
+        title: "10+ world class speakers",
+        description: "Visionaries, entrepreneurs, and industry leaders sharing actionable insights."
+    },
+    {
+        image: "result.svg",
+        title: "Result",
+        description: "A Virtual and Physical mix of professionals, entrepreneurs, innovators, young creator and decision-makers from across industries."
+    },
 
+]
 export default function WhyAttend() {
     return (
         <section className="bg-[#FAFCFF] flex flex-col gap-12 w-full justify-center py-20 px-6 md:px-16">
             <div className="flex flex-col items-center justify-center gap-4">
                 <h3 className="font-poppins text-[#0076B2] font-bold text-3xl md:text-[3.125rem] leading-[1.2] ">Why is it worth attending?</h3>
-                <p className="text-center md:w-3/4 xl:w-[40%] font-normal md:text-[1.125rem] font-manrope text-[#52525B] ">Gain valuable insights, expand your network, and discover new opportunities for growth and success.</p>
+                <p className="text-center md:w-3/5 xl:w-[45%] font-normal md:text-[1.125rem] font-manrope text-[#52525B] ">Gain valuable insights, expand your network, and discover new opportunities for growth and success.</p>
             </div>
 
-            <div className="grid grid-cols-3 gap-8">
-                <div className="flex col-span-3 divide-x divide-gray-300">
-                    <div className="w-1/3 px-4">fkf</div>
-                    <div className="w-1/3 px-4">kff</div>
-                    <div className="w-1/3 px-4">fjf</div>
-                </div>
+            <div className="grid grid-cols-1 gap-0 border-gray-300 md:grid-cols-2 xl:grid-cols-3">
+                {items.map((item, index) => {
 
-                <hr className="col-span-3 border-t border-gray-300" />
-
-                <div className="flex col-span-3 divide-x divide-gray-300">
-                    <div className="w-1/3 px-4">ff</div>
-                    <div className="w-1/3 px-4">nnf</div>
-                    <div className="w-1/3 px-4">jff</div>
-                </div>
+                    return (
+                        <div
+                        key={index}
+                        className={`
+                          flex flex-col items-center p-8 text-center border-gray-300
+                          border-t md:border-t-0 md:border-b md:border-r
+                          md:[&:nth-child(4)]:border-t
+                          md:[&:nth-child(5)]:border-t
+                          md:[&:nth-child(6)]:border-t
+                          md:[&:nth-child(3n)]:border-r
+                          xl:[&:nth-child(3n)]:border-r-0
+                          md:[&:nth-child(n+4)]:border-b-0
+                        `}
+                      >
+                      
+                      
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-16 h-16 mb-4"
+                            />
+                            <h4 className="mb-2 text-xl font-bold font-poppins text-[#18181B]">
+                                {item.title}
+                            </h4>
+                            <p className="font-manrope text-[#52525B]">
+                                {item.description}
+                            </p>
+                        </div>
+                    );
+                })}
             </div>
-
 
         </section>
     )

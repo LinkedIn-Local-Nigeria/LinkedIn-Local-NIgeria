@@ -6,7 +6,9 @@ import { HeroSection } from "./HeroSection";
 import MissionVision from '../components/MissionVision';
 import Scoop from "./Scoop";
 import Section from "./ui/Section";
+import Speakers from "../components/Speakers"
 import TeamSection from '../components/TeamSection';
+import WhyAttend from "../components/WhyAttend";
 
 const Home = () => {
   return (
@@ -21,31 +23,27 @@ const Home = () => {
           </Container>
         </Section>
 
-        {/* Other sections goes here */}
-
-
-
         <Section
-         id="mission-vision"
-         title=""
-         className="min-h-screen"
+          id="mission-vision"
+          title=""
+          className="min-h-screen"
         >
           <MissionVision />
 
         </Section>
-
 
         <Section
           id="speakers"
           className="min-h-screen"
           background="bg-[#fdfdfd]"
         >
-          <p>Content for the Speakers section goes here...</p>
+          <WhyAttend />
+          <Speakers />
         </Section>
 
         <Section
           id="teams"
-          className="min-h-screen border-t"
+          className="border-t "
         >
           <Container>
             <Events />
@@ -53,7 +51,7 @@ const Home = () => {
         </Section>
         <Section
           id="teams"
-          className="min-h-screen border-t"
+          className="border-t"
         >
           <Container>
             <Scoop />
@@ -62,7 +60,7 @@ const Home = () => {
 
         <Section
           id="teams"
-          className="min-h-screen border-t"
+          className="border-t"
         >
           <Container>
             <TeamSection />
