@@ -81,7 +81,7 @@ const TeamSection = () => {
   return (
     <section
       className={twMerge(
-        `text-gray-700 bg-[#fdfdfd] min-h-screen flex flex-col gap-6 w-full py-12 md:px-[7.25rem] font-manrope`
+        `text-gray-700 bg-[#fdfdfd] flex flex-col gap-6 w-full py-12 md:px-[7.25rem] font-manrope`
       )}
     >
       <h1 className='text-4xl font-[800px] leading-[50px] text-center md:text-5xl text-[#0076B2] font-poppins '>
