@@ -17,7 +17,7 @@ const items = [
     {
         image: "pitch.svg",
         title: "10+ Pitches and Showcase",
-        description: "Opportunities to pitch cutting-edge innovations and startups solving real world problems.."
+        description: "Opportunities to pitch cutting-edge innovations and startups solving real world problems."
     },
     {
         image: "person-add.svg",
@@ -27,9 +27,8 @@ const items = [
     {
         image: "result.svg",
         title: "Result",
-        description: "A Virtual and Physical mix of professionals, entrepreneurs, innovators, young creator and decision-makers from across industries."
+        description: "Culmination of insights, connections, and opportunities that drive measurable business outcomes and social impact."
     },
-
 ]
 export default function WhyAttend() {
     return (
