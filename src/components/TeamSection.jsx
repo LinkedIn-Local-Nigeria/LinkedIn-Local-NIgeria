@@ -84,7 +84,7 @@ const TeamSection = () => {
         `text-gray-700 bg-[#fdfdfd] flex flex-col items-center gap-6 w-full py-12 md:px-[7.25rem]  px-4 font-manrope`
       )}
     >
-      <h1 className='md:text-4xl text-2xl leading-[50px] text-center md:text-5xl text-[#0076B2] font-semibold font-poppins '>
+      <h1 className='text-2xl leading-[50px] text-center md:text-5xl text-[#0076B2] font-semibold font-poppins'>
         Meet the Team
       </h1>
       <span className='text-sm text-center md:w-3/4 md:text-xl text-[#52525B] font-poppins pb-18'>
