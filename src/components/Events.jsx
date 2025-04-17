@@ -85,6 +85,7 @@ const Events = () => {
           onClick={() => scroll("left")}
           className="flex items-center justify-center w-10 h-10 border border-[#0076B2] rounded-full disabled:opacity-50"
           disabled={currentIndex === 0}
+          aria-label="Previous events"
         >
           <ChevronLeftIcon className="w-5 h-5 text-gray-700" />
         </button>
@@ -93,11 +94,13 @@ const Events = () => {
         </div>
         <button
           onClick={() => scroll("right")}
-          className="flex items-center justify-center w-10 h-10 border rounded-full border-[#0076B2]  disabled:opacity-50"
+          className="flex items-center justify-center w-10 h-10 border rounded-full border-[#0076B2] disabled:opacity-50"
           disabled={currentIndex === EventCards.length - 1}
+          aria-label="Next events"
         >
           <ChevronRightIcon className="w-5 h-5 text-gray-700" />
         </button>
+      </div>
       </div>
     </div>
   
