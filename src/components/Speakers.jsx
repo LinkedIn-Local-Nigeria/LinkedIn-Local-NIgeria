@@ -55,7 +55,14 @@ export default function Speakers() {
                                 <h3 className="ml-5 text-base font-bold text-left text-white font-poppins">{item.name}</h3>
                                 <p className="ml-5 font-manrope text-[.685rem]">{item.role}</p>
                             </div>
-                            <LinkedInLogoIcon className='w-[21.375px] h-[21.375px] mb-5 mr-5' />
+                            <a 
+                              href={item.linkedinUrl || '#'} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              aria-label={`${item.name}'s LinkedIn profile`}
+                            >
+                              <LinkedInLogoIcon className='w-[21.375px] h-[21.375px] mb-5 mr-5' />
+                            </a>
                           
                         </div>
                     </div>
