@@ -39,16 +39,16 @@ const items = [
 
 export default function Speakers() {
     return (
-        <section className="flex flex-col items-center justify-center gap-12 px-4 py-20 md:px-16">
+        <section className="flex flex-col items-center justify-center gap-12 px-4 py-20 xl:px-16">
             <div className="flex flex-col items-center justify-center gap-4">
                 <h3 className="font-poppins text-[#0076B2] font-bold text-3xl md:text-[3.125rem] leading-[1.2] ">Meet our Incredible Speakers</h3>
                 <p className="text-center md:w-3/5 xl:w-[55%] font-normal md:text-[1.125rem] font-manrope text-[#52525B] ">Prepare to be inspired by a lineup of visionary leaders, innovators, and change-makers who are shaping the future of Nigeria and the global landscape.</p>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 xl:grid-cols-3 md:grid-cols-2">
+            <div className="grid w-full grid-cols-1 gap-4 md:max-w-5xl md: xl:grid-cols-3 md:grid-cols-2">
                 {items.map((item) => (
                     <div key={item.name} className="relative ">
-                        <img src={item.image} alt={`${item.name}'s image`} />
+                        <img className='w-full ' src={item.image} alt={`${item.name}'s image`} />
                         <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black to-transparent">
 
                             <div className="flex flex-col mb-5">

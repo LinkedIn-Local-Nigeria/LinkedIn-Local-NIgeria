@@ -45,9 +45,7 @@ const Home = () => {
           id="events"
           className="border-t "
         >
-          <Container>
             <Events />
-          </Container>
         </Section>
         <Section
           id="scoop"

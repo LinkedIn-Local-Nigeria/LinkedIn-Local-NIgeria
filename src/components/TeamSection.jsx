@@ -17,71 +17,98 @@ import { twMerge } from 'tailwind-merge'
 const TeamSection = () => {
   const Teams = [
     {
-      name: 'Olivia Rhye',
+      name: 'Oladotun Ajayi',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg,
-      role: 'Founder & CEO',
+      teamImg: '/Oladotun-Ajayi.avif',
+      role: 'Lead LLN',
       description:
-        'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.'
+        'It is possible to do great things from a small place'
     },
     {
-      name: 'Phoenix Baker',
+      name: 'Emmanuel Nduka',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg1,
-      role: 'Engineering Manager',
-      description: 'Lead engineering teams at Figma, Pitch and Protocol Labs.'
+      teamImg: '/Emmanuel-Nduka.avif',
+      role: 'Co-Lead LLN',
+      description: 'No man can do these things except God be with him'
     },
     {
-      name: 'Lana Steiner',
+      name: 'Tomide Williams',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg2,
-      role: 'Product Manager',
-      description: 'Former PM for Linear, Lambda School and On Deck'
+      teamImg: '/Tomide-Williams.avif',
+      role: 'Team Management Lead',
+      description: "If it's got to be, its' up to me"
     },
     {
-      name: 'Demi Wilkinson',
+      name: 'Chioma Arah',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg3,
-      role: 'Frontend Developer',
+      teamImg: '/Chioma-Arah.avif',
+      role: 'Head, PR & Event Marketing',
       description:
-        'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.'
+        'Do the best you can until you know better'
     },
     {
-      name: 'Candice Wu',
+      name: 'Goshen Mmoneke',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg4,
-      role: 'Backend Developer',
-      description: 'Lead backend dev at Clearbit, Former Clearbit and Loom'
+      teamImg: '/Goshen-Mmoneke.avif',
+      role: 'Head, Awards Management',
+      description: "There is nothing small about Goshen"
     },
     {
-      name: 'Natali Craig',
+      name: 'Tosin Olomu',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg5,
-      role: 'Product Designer',
+      teamImg: '/Tosin-Olomu.avif',
+      role: 'Head, Media',
       description:
-        'Founding design team at Figma, Former Pleo, Stripe and Tile.'
+        'You can do it'
     },
     {
-      name: 'Drew Cano',
+      name: 'Alabi Joshua',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg6,
-      role: 'UX Researcher',
-      description:
-        'Lead user research for Slack, Contractor for Netflix and Udacity'
+      teamImg: "/Alabi-Joshua.avif",
+      role: 'Head, Logistics',
+      description: "Can't find your quote sir...."
     },
     {
-      name: 'Orlando Diggs',
+      name: 'Bernice Orji',
       LinkedInURL: 'https://linkedin.com/in/tangafoaf',
-      teamImg: TeamImg7,
-      role: 'Customer Success',
-      description: 'Lead CX at Wealthsimple. Former PagerDuty and Sqreen'
-    }
+      teamImg: "/Bernice-Orji.avif",
+      role: 'Head, Community',
+      description: 'God is with her, she cannot fail'
+    },
+    {
+      name: 'Clinton Okhai ',
+      LinkedInURL: 'https://linkedin.com/in/tangafoaf',
+      teamImg: '/Clinton-Okhai.avif',
+      role: 'Head, Ticketing ',
+      description: "Growth is your ultimate purpose your destiny is to multiply"
+    },
+    {
+      name: 'Ebenezer Ogunbode',
+      LinkedInURL: 'https://linkedin.com/in/tangafoaf',
+      teamImg: '/Ebenezer-Ogunbode.avif',
+      role: 'Head, Event Management',
+      description: "Don't do it afraid, do it by faith"
+    },
+    {
+      name: 'Faizat Hussein',
+      LinkedInURL: 'https://linkedin.com/in/tangafoaf',
+      teamImg: "/Faizat-Hussein.avif",
+      role: 'Head, Content & Social Media',
+      description: "Dare to advance"
+    },
+    {
+      name: 'Isreal Aluko',
+      LinkedInURL: 'https://linkedin.com/in/eazyisreal',
+      teamImg: "/Isreal-Aluko.avif",
+      role: 'Head, Web Development',
+      description: 'Do it afraid'
+    },
   ]
 
   return (
     <section
       className={twMerge(
-        `text-gray-700 bg-[#fdfdfd] flex flex-col items-center gap-6 w-full py-12 md:px-[7.25rem]  px-4 font-manrope`
+        `text-gray-700 bg-[#fdfdfd] flex flex-col items-center gap-6 w-full py-12 md:px-6 xl:px-[7.25rem]  px-4 font-manrope`
       )}
     >
       <h1 className='text-2xl leading-[50px] text-center md:text-5xl text-[#0076B2] font-semibold font-poppins'>
@@ -102,12 +129,12 @@ const TeamSection = () => {
             <img
               src={team.teamImg}
               alt={team.role}
-              className='object-cover w-full md:w-[249.375px] mb-4 md:h-[263.625px]'
+              className='object-cover w-full xl:w-[249.375px] mb-4 xl:h-[263.625px]'
             />
             <h3 className='text-[17.81px] leading-[26.72px] font-semibold text-[#101828]'>
               {team.name}
             </h3>
-            <p className='text-lg text-[#0076B2]'>{team.role}</p>
+            <p className='text-sm md:text-base text-[#0076B2]'>{team.role}</p>
             <p className='mt-2 mb-4 text-[14.25px] text-[#667085]'>
               {team.description}
             </p>
