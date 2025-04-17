@@ -101,14 +101,10 @@ const MissionVision = () => {
           className="w-full h-full object-cover"
           src={ViVid}
           autoPlay={false}
-          loop
-          muted
           playsInline
         />
         <div
-          className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
-            isHovered && !isPlaying ? "block" : "hidden"
-          }`}
+          className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 block`}
         >
           <img
             src={PlayBtn}
