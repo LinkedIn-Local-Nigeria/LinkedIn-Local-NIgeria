@@ -78,10 +78,15 @@ const MissionVision = () => {
     className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 ${isHovered && !isPlaying ? "block" : "hidden"}`}
     >
     <img
-      src={PlayBtn}
-      onClick={handlePlayPause}  
-      className="px-6 py-3 text-white rounded-full "
-    />
+      <img
+        src={PlayBtn}
+        onClick={handlePlayPause}  
+        className="px-6 py-3 text-white rounded-full cursor-pointer"
+        alt="Play video"
+        aria-label="Play video"
+        role="button"
+        tabIndex="0"
+      />
     </div>
 
   {/* Bottom Section with Text */}
