@@ -3,7 +3,7 @@ import ScoopImage from "../assets/Scoop.svg";
 
 const NewsletterCTA = () => {
   return (
-    <section className="flex flex-col-reverse items-center justify-between gap-10 px-4 py-16 bg-white font-manrope font- lg:flex-row">
+    <section className="flex flex-col-reverse items-center justify-between gap-10 px-4 py-16 bg-white font-manrope lg:flex-row">
       {/* Text Side */}
       <div className="flex flex-col ax-w-xl text-left r lg:text-left mb-36">
         <h2 className="md:text-[50px] text-left text-[1.725rem] font-extrabold text-[#0076B2] font-poppins mb-4 leading-[55.3px]">
