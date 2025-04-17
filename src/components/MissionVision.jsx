@@ -13,9 +13,9 @@ const visionStatements = [
 const MissionVision = () => {
 
   const [openIndex, setOpenIndex] = useState(null);
-  const [activeAcc, setactiveAcc] = useState(null);
+  const [activeAcc, setActiveAcc] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);  // State to track if video is playing
-  const [isHovered, setIsHovered] = useState(true);  
+  const [isHovered, setIsHovered] = useState(false);  
 
   const videoRef = useRef(null);  
 
