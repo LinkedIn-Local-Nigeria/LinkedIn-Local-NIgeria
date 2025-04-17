@@ -23,6 +23,10 @@ html {
   scroll-behavior: smooth;
 }
 
+/* *{
+  outline: 1px solid red;
+} */
+
 #about,
 #speakers,
 #teams,
@@ -71,4 +75,12 @@ html {
   .newsletter-bg-mobile {
     background-image: url("/newsletter-bg-mobile.svg");
   }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;    
 }

@@ -1,9 +1,14 @@
 import Container from "./ui/Container";
 import Cta from "./Cta";
 import { EventInfo } from "./EventInfo";
+import Events from "./Events";
 import { HeroSection } from "./HeroSection";
+import MissionVision from '../components/MissionVision';
+import Scoop from "./Scoop";
 import Section from "./ui/Section";
+import Speakers from "../components/Speakers"
 import TeamSection from '../components/TeamSection';
+import WhyAttend from "../components/WhyAttend";
 
 const Home = () => {
   return (
@@ -18,28 +23,50 @@ const Home = () => {
           </Container>
         </Section>
 
-        {/* Other sections goes here */}
+        <Section
+          id="mission-vision"
+          title=""
+          className=""
+        >
+          <MissionVision />
+
+        </Section>
 
         <Section
           id="speakers"
-          className="min-h-screen"
+          className=""
           background="bg-[#fdfdfd]"
         >
-          <p>Content for the Speakers section goes here...</p>
+          <WhyAttend />
+          <Speakers />
+        </Section>
+
+        <Section
+          id="events"
+          className="border-t "
+        >
+            <Events />
+        </Section>
+        <Section
+          id="scoop"
+          className="border-t"
+        >
+          <Container>
+            <Scoop />
+          </Container>
         </Section>
 
         <Section
           id="teams"
-          title="Speakers Section"
-          className="min-h-screen border-t"
+          className="border-t"
         >
-         <TeamSection />
+          <TeamSection />
         </Section>
 
         <Section
           id="faqs"
           title="FAQs Section"
-          className="min-h-screen border-t"
+          className="border-t "
         >
           <p>Content for the FAQs section goes here...</p>
         </Section>
