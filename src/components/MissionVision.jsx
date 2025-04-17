@@ -123,7 +123,7 @@ const MissionVision = () => {
       </div>
 
       {/* Mission & Vision Section */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-6 xl:grid-cols-2">
         {/* Mission Section */}
         <motion.div
           className="bg-white rounded-xl shadow-sm text-left order-2 md:order-1"
@@ -153,7 +153,7 @@ const MissionVision = () => {
           </motion.p>
 
           {/* Accordion Section */}
-          <div className="space-y-2">
+          <div className="space-y-6">
             {accordions.map((item, index) => (
               <motion.div
                 key={index}

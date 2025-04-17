@@ -1,8 +1,8 @@
 import { CalendarIcon } from "@radix-ui/react-icons";
-import { Text } from "@radix-ui/themes";
-import { motion } from "framer-motion";
 import { HiOutlineClock } from "react-icons/hi";
 import { HiOutlineMapPin } from "react-icons/hi2";
+import { Text } from "@radix-ui/themes";
+import { motion } from "framer-motion";
 
 // Animation Variants
 const containerVariant = {
@@ -45,10 +45,10 @@ export function EventInfo() {
             variants={itemsVariant}
             viewport={{ once: true }}
           >
-            <div className="p-3 border-2 border-blue-600 rounded-full">
-              <CalendarIcon className="w-5 h-5 text-blue-600 lg:h-8 lg:w-8" />
+            <div className="p-3 border-2 border-[#0076B2] rounded-full">
+              <CalendarIcon className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
             </div>
-            <h3 className="text-2xl font-extrabold text-blue-600 lg:text-4xl font-poppins">
+            <h3 className="text-2xl font-extrabold text-[#0076B2] lg:text-4xl font-poppins">
               24th July 2025
             </h3>
           </motion.div>
@@ -71,10 +71,10 @@ export function EventInfo() {
             variants={itemsVariant}
             viewport={{ once: true }}
           >
-            <div className="p-3 border-2 border-blue-600 rounded-full">
-              <HiOutlineMapPin className="w-5 h-5 text-blue-600 lg:h-8 lg:w-8" />
+            <div className="p-3 border-2 border-[#0076B2] rounded-full">
+              <HiOutlineMapPin className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
             </div>
-            <h3 className="text-2xl font-extrabold text-blue-600 lg:text-4xl font-poppins">
+            <h3 className="text-2xl font-extrabold text-[#0076B2] lg:text-4xl font-poppins">
               Lagos Nigeria
             </h3>
           </motion.div>
@@ -96,10 +96,10 @@ export function EventInfo() {
             variants={itemsVariant}
             viewport={{ once: true }}
           >
-            <div className="p-3 border-2 border-blue-600 rounded-full">
-              <HiOutlineClock className="w-5 h-5 text-blue-600 lg:h-8 lg:w-8" />
+            <div className="p-3 border-2 border-[#0076B2] rounded-full">
+              <HiOutlineClock className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
             </div>
-            <h3 className="text-2xl font-extrabold text-blue-600 uppercase lg:text-4xl font-poppins">
+            <h3 className="text-2xl font-extrabold text-[#0076B2] uppercase lg:text-4xl font-poppins">
               10AM
             </h3>
           </motion.div>
