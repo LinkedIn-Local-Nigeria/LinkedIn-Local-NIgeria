@@ -53,7 +53,7 @@ const Events = () => {
   }, []);
 
   const scroll = (direction) => {
-    const maxIndex = EventCards.length - 1;
+    const maxIndex = Math.max(0, EventCards.length - 2);
     const newIndex =
       direction === "left"
         ? Math.max(currentIndex - 2, 0)
