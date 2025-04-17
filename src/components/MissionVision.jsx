@@ -131,7 +131,7 @@ const MissionVision = () => {
                 </h2>
 
                 {openIndex === index && (
-                  <div className="pb-2 mb-2 text-sm text-gray-600 bg-white md:test-base">
+                  <div className="pb-2 mb-2 text-sm text-gray-600 bg-white md:text-base">
                     {item.text}
                   </div>
                 )}
