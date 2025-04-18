@@ -1,13 +1,14 @@
-import { useState } from "react";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
-import { footerLinks } from "./constants/footerlinks";
+
 import Button from "./ui/Button";
 import Container from "./ui/Container";
+import { footerLinks } from "./constants/footerlinks";
+import { useState } from "react";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
