@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import Button from "./ui/Button";
+import { motion } from "framer-motion"; // Importing framer motion
 
 const navLinks = [
   { id: 1, label: "About Us", href: "#about" },
@@ -39,7 +40,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="lg:px-[6.25rem] flex items-center justify-between mx-auto container  z-50 px-6 py-4 border-b border-gray-200  fixed w-full bg-opacity-10 backdrop-blur-md">
+      <nav className="lg:px-[6.25rem] flex items-center justify-between mx-auto container z-50 px-6 py-4 border-b border-gray-200 fixed w-full bg-opacity-10 backdrop-blur-md">
         <a
           href="/"
           className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
@@ -65,9 +66,11 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button
+          <motion.button
             className="text-black transition ease-in-out cursor-pointer focus:outline-none duration-400"
             onClick={toggleMenu}
+            animate={{ rotate: isMenuOpen ? 45 : 0 }} // Rotate button when menu is open
+            transition={{ duration: 0.3 }}
           >
             <svg
               className="w-6 h-6 text-black"
@@ -80,26 +83,30 @@ const Navbar = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="1"
-                d={
-                  isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"
-                }
+                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
               />
             </svg>
-          </button>
+          </motion.button>
         </div>
       </nav>
 
       {/* Backdrop Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"></div>
+        <motion.div
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
       )}
 
       {/* Slide-In Mobile Menu sheet */}
-      <nav
+      <motion.nav
         ref={menuRef}
-        className={`z-50 fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        } lg:hidden flex flex-col gap-3 px-8 py-6`}
+        className="z-50 fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg flex flex-col gap-3 px-8 py-6 lg:hidden"
+        initial={{ x: "100%" }}
+        animate={{ x: isMenuOpen ? "0" : "100%" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
         <div className="flex justify-end">
           <button onClick={toggleMenu} className="text-black">
@@ -140,9 +147,10 @@ const Navbar = () => {
 
         {/* CTA mobile Button */}
         <Button className="w-full mt-2">Get your ticket</Button>
-      </nav>
+      </motion.nav>
     </>
   );
 };
 
 export default Navbar;
+

@@ -11,9 +11,10 @@ const containerVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
       when: "beforeChildren",
-      staggerChildren: 0.3,
+      staggerChildren: 0.2,
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -24,9 +25,19 @@ const itemsVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      type: "spring",
+      stiffness: 80,
+      damping: 15,
     },
+  },
+};
+
+const dividerVariant = {
+  hidden: { clipPath: "inset(0% 100% 0% 0%)", opacity: 0 },
+  visible: {
+    clipPath: "inset(0% 0% 0% 0%)",
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
@@ -40,10 +51,12 @@ export function EventInfo() {
     >
       <Text size="4" className="flex flex-col items-center">
         <div className="flex flex-col items-center justify-center gap-10 lg:flex-row">
+          {/* Date */}
           <motion.div
             className="flex items-center gap-3"
             variants={itemsVariant}
-            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             <div className="p-3 border-2 border-[#0076B2] rounded-full">
               <CalendarIcon className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
@@ -55,21 +68,20 @@ export function EventInfo() {
 
           {/* Divider */}
           <motion.div
-            variants={itemsVariant}
-            viewport={{ once: true }}
+            variants={dividerVariant}
             className="hidden lg:block w-[0.10rem] bg-gray-100 h-14"
           />
-
           <motion.div
-            variants={itemsVariant}
-            viewport={{ once: true }}
+            variants={dividerVariant}
             className="block w-60 h-[0.10rem] bg-gray-100 lg:hidden"
           />
 
+          {/* Location */}
           <motion.div
             className="flex items-center gap-3"
             variants={itemsVariant}
-            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             <div className="p-3 border-2 border-[#0076B2] rounded-full">
               <HiOutlineMapPin className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
@@ -81,20 +93,20 @@ export function EventInfo() {
 
           {/* Divider */}
           <motion.div
-            variants={itemsVariant}
-            viewport={{ once: true }}
+            variants={dividerVariant}
             className="hidden lg:block w-[0.10rem] bg-gray-100 h-14"
           />
           <motion.div
-            variants={itemsVariant}
-            viewport={{ once: true }}
+            variants={dividerVariant}
             className="block h-[0.10rem] bg-gray-100 w-60 lg:hidden"
           />
 
+          {/* Time */}
           <motion.div
             className="flex items-center gap-3"
             variants={itemsVariant}
-            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             <div className="p-3 border-2 border-[#0076B2] rounded-full">
               <HiOutlineClock className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
