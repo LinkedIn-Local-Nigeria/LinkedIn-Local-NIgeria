@@ -2,6 +2,7 @@ import Container from "./ui/Container";
 import Cta from "./Cta";
 import { EventInfo } from "./EventInfo";
 import Events from "./Events";
+import Faq from "../components/Faq"
 import { HeroSection } from "./HeroSection";
 import MissionVision from '../components/MissionVision';
 import Scoop from "./Scoop";
@@ -33,11 +34,17 @@ const Home = () => {
         </Section>
 
         <Section
-          id="speakers"
           className=""
           background="bg-[#fdfdfd]"
         >
           <WhyAttend />
+        </Section>
+
+        <Section
+          id="speakers"
+          className=""
+          background="bg-[#fdfdfd]"
+        >
           <Speakers />
         </Section>
 
@@ -45,7 +52,7 @@ const Home = () => {
           id="events"
           className="border-t "
         >
-            <Events />
+          <Events />
         </Section>
         <Section
           id="scoop"
@@ -65,10 +72,10 @@ const Home = () => {
 
         <Section
           id="faqs"
-          title="FAQs Section"
+          title=""
           className="border-t "
         >
-          <p>Content for the FAQs section goes here...</p>
+          <Faq/>
         </Section>
 
         <Section className="desktop-cta-bg mobile-cta-bg">

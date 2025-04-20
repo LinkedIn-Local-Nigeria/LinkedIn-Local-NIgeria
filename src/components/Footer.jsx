@@ -112,7 +112,7 @@ const Footer = () => {
           <div className="grid gap-10 text-left lg:gap-40 sm:grid-cols-2 md:col-span-3 md:grid-cols-3">
             {footerLinks.map((section, idx) => (
               <div key={idx}>
-                <h4 className="mb-3 font-semibold text-blue-600 text-medium font-poppins">
+                <h4 className="mb-3 font-semibold text-[#0076B2] text-medium font-poppins">
                   {section.title}
                 </h4>
                 <ul className="space-y-2">

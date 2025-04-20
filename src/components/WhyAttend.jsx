@@ -44,7 +44,7 @@ export default function WhyAttend() {
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, type: "spring", stiffness: 80 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           Why is it worth attending?
         </motion.h3>
@@ -54,7 +54,7 @@ export default function WhyAttend() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, type: "spring", stiffness: 80, delay: 0.2 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           Gain valuable insights, expand your network, and discover new opportunities for growth and success.
         </motion.p>
@@ -85,7 +85,7 @@ export default function WhyAttend() {
               type: "spring",
               stiffness: 60,
             }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             <img src={item.image} alt={item.title} className="w-16 h-16 mb-4" />
             <h4 className="mb-2 md:text-xl font-bold font-poppins text-[#18181B]">{item.title}</h4>

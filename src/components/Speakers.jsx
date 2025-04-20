@@ -126,7 +126,7 @@ function SpeakerCard({ item, index }) {
 
 export default function Speakers() {
     const sectionRef = useRef(null);
-    const sectionInView = useInView(sectionRef, { once: false, threshold: 0.3 });
+    const sectionInView = useInView(sectionRef, { once: true, threshold: 0.3 });
     const controls = useAnimation();
 
     useEffect(() => {
@@ -135,7 +135,7 @@ export default function Speakers() {
         } else {
             controls.set('hidden');
         }
-    }, [sectionInView]);
+    }, [controls, sectionInView]);
 
     return (
         <section

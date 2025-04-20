@@ -1,5 +1,5 @@
-import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Button from "./ui/Button";
+import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 
 const Cta = () => {
   return (
@@ -14,7 +14,7 @@ const Cta = () => {
           <div className="flex items-center mr-2">
             Evolv{" "}
             <LinkedInLogoIcon
-              className="w-8 h-8 -mx-1 text-blue-600 lg:h-12 lg:w-12"
+              className="w-8 h-8 -mx-1 text-[#0076B2] lg:h-12 lg:w-12"
               aria-label="LinkedIn"
             />{" "}
             g

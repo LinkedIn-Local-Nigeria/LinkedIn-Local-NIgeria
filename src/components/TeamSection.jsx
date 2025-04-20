@@ -109,7 +109,7 @@ const TeamSection = () => {
   }
 
   const [ref, inView] = useInView({
-    triggerOnce: false, 
+    triggerOnce: true, 
     threshold: 0.2
   })
 
@@ -177,7 +177,7 @@ const TeamCard = ({ team, index }) => {
   
   
   const { ref, inView } = useInView({
-    triggerOnce: false, 
+    triggerOnce: true, 
     threshold: 0.2, 
   });
 
