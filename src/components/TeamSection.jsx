@@ -136,20 +136,18 @@ const TeamSection = () => {
         initial='hidden'
         animate={controls}
         variants={variants}
-        className='text-2xl leading-[50px] text-center md:text-5xl text-[#0076B2] font-semibold font-poppins'
+        className='text-2xl text-center w-3/5 md:text-5xl text-[#0076B2] font-semibold font-poppins'
       >
-        Meet the Team
+        Behind every great event is a dedicated team. 
       </motion.h1>
 
       <motion.span
         initial='hidden'
         animate={controls}
         variants={variants}
-        className='text-sm text-center md:w-3/4 md:text-xl text-[#52525B] font-poppins pb-18'
+        className='text-[.725rem] text-center w-[90%] md:w-3/4 md:text-xl text-[#52525B] font-poppins pb-18'
       >
-        Behind every great event is a dedicated team. Get to know the
-        passionate individuals driving this experience, each committed to
-        making a lasting impact and bringing innovative ideas to life
+        Get to know the passionate individuals driving this experience—creators, community builders, and visionaries committed to making a lasting impact. 
       </motion.span>
 
       <div className='grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
