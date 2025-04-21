@@ -155,13 +155,13 @@ export default function Speakers() {
                 }}
                 className="flex flex-col items-center justify-center gap-4"
             >
-                <h3 className="font-poppins text-[#0076B2] font-bold text-3xl md:text-[3.125rem] leading-[1.2]">
-                    Meet our Incredible Speakers
+                <h3 className="font-poppins text-[#0076B2] md:w-[55%] font-bold text-2xl md:text-3xl md:text-[3.125rem] leading-[1.2]">
+                    More than profiles. Real people. Real stories.
+
                 </h3>
-                <p className="text-center md:w-3/5 xl:w-[55%] font-normal md:text-[1.125rem] font-manrope text-[#52525B]">
-                    Prepare to be inspired by a lineup of visionary leaders, innovators, and
-                    change-makers who are shaping the future of Nigeria and the global
-                    landscape.
+                <p className="text-center text-sm w-5/6 md:w-3/5 xl:w-[55%] font-normal md:text-[1.125rem] font-manrope text-[#52525B]">
+                    These are the voices shaping industries, changing the narrative, influencing conversations, and building what’s next.
+
                 </p>
             </motion.div>
 

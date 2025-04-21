@@ -90,7 +90,7 @@ export function HeroSection() {
             className="max-w-xl mx-auto text-sm font-normal font-manrope md:text-lg text-neutral-500"
           >
             Evolving Beyond the Narrative: An opportunity to connect, learn, and
-            grow with professionals who are shaping the future!
+            grow with professionals who are shaping the future.
           </motion.p>
 
           <motion.div variants={itemsVariant} className="pb-8">
@@ -105,7 +105,7 @@ export function HeroSection() {
                   />
                   5000+
                   <span className="font-normal text-[.625rem] md:text-sm font-manrope">
-                    Attendees
+                  Changemakers 
                   </span>
                 </h3>
                 <Separator size="2" orientation="vertical" />

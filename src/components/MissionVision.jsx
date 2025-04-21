@@ -68,19 +68,29 @@ const MissionVision = () => {
   const accordions = [
     {
       count: 1,
-      title: "Our mission",
-      text: "To equip Nigerian youth with the networks, skills, and ideas necessary to drive innovation, ethical leadership, and sustainable growth.",
+      title: "About LinkedIn Local Nigeria",
+      type: "paragraph",
+      text: [
+        "LinkedIn Local Nigeria (LLN) is the heart of this movement in Nigeria’s largest professional community. From Lagos to Abuja, Kaduna to Jos, Ogbomoso to Abeokuta, LinkedIn Locals have been hosted to bring local LinkedIn communities together",
+        "Now, LLN 2025 is the flagship national gathering of trailblazers committed to moving beyond stereotypes, reshaping perspectives, and creating a Nigeria driven by bold, progressive stories and new possibilities."
+      ],
     },
     {
       count: 2,
-      title: "Fueling Progress Through Community",
-      text: "We embrace creativity and tech to find better ways to serve our clients.",
-    },
-    {
-      count: 3,
-      title: "Evolving Beyond the Narrative",
-      text: "We build tools and paths that help individuals take control of their finances.",
-    },
+      title: "Who’s It For?",
+      type: "list",
+      text: [
+        "Young Professionals & Graduates",
+        "Entrepreneurs & Startup Founders",
+        "Business Executives & Decision-Makers",
+        "Thought Leaders & Industry Experts",
+        "Influencers & Creators",
+        "Investors & VCs",
+        "Tech Enthusiasts & AI Innovators",
+        "NGO & Government Representatives",
+        "Media, Creatives & Freelancers"
+      ]
+    }
   ];
 
   return (
@@ -132,10 +142,10 @@ const MissionVision = () => {
           variants={itemsVariant}
         >
           <motion.h2
-           className="font-inter font-normal text-sm md:text-[20px] leading-[30px] tracking-[0px] text-zinc-600 text-left mb-3"
+            className="font-inter font-normal text-sm md:text-[20px] uppercase leading-[30px] tracking-[0px] text-zinc-600 text-left mb-3"
             variants={itemsVariant}
           >
-            OUR MISSION AND VISION
+            About LinkedIn Local
           </motion.h2>
 
           <motion.h1
@@ -147,11 +157,9 @@ const MissionVision = () => {
 
           <motion.p
             className="mb-4 text-sm text-left text-gray-700 md:text-base leading-[1.5]"
-            variants={itemsVariant}
-          >
-            LinkedIn Local Nigeria is bringing together forward-thinking individuals, thought leaders,
-            and change-makers to address the critical question: How do we collectively reshape Nigeria’s
-            future and chart a path toward sustainable growth?
+            variants={itemsVariant}>
+            LinkedIn Local is a global movement turning digital connections into real conversations.
+            It’s where professionals step out from behind their profiles and meet in person to build relationships, exchange ideas, and spark meaningful collaboration.
           </motion.p>
 
           {/* Accordion Section */}
@@ -180,12 +188,23 @@ const MissionVision = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
                   >
-                    {item.text}
+                    {item.type === "list" ? (
+                      <ul className="list-disc ml-6 space-y-1">
+                        {item.text.map((point, i) => (
+                          <li className="text-sm md:text-base" key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      item.text.map((paragraph, i) => (
+                        <p key={i} className="mb-2 text-sm md:text-base">{paragraph}</p>
+                      ))
+                    )}
                   </motion.div>
                 )}
               </motion.div>
             ))}
           </div>
+
         </motion.div>
 
         {/* Vision Section */}

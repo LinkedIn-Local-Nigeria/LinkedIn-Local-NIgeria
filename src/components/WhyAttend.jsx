@@ -3,33 +3,33 @@ import { motion } from 'framer-motion';
 const items = [
   {
     image: "people.svg",
-    title: "5000+ Attendees",
-    description: "A Virtual and Physical mix of professionals, entrepreneurs, innovators, young creator and decision-makers from across industries.",
-  },
-  {
-    image: "chartbar.svg",
-    title: "60+ Countries",
-    description: "A diverse global audience with insights from other economies.",
-  },
-  {
-    image: "Group.svg",
-    title: "30+ Exhibitors",
-    description: "Companies and organizations showcasing solutions, technologies, and ideas driving Nigeria’s future.",
+    title: "5000+ Attendees (virtual + physical)",
+    description: "Founders, creators, doers, and decision-makers from across Nigeria and beyond. ",
   },
   {
     image: "pitch.svg",
     title: "10+ Pitches and Showcase",
-    description: "Opportunities to pitch cutting-edge innovations and startups solving real world problems.",
+    description: "Discover startups building tomorrow’s solutions—today",
+  },
+  {
+    image: "chartbar.svg",
+    title: "6+ Countries Represented",
+    description: "Diverse global insights with a distinctly African heartbeat.",
   },
   {
     image: "person-add.svg",
-    title: "10+ world class speakers",
-    description: "Visionaries, entrepreneurs, and industry leaders sharing actionable insights.",
+    title: "10+ World-Class speakers",
+    description: "Visionaries, trailblazers, and thought leaders sharing bold, actionable ideas",
+  },
+  {
+    image: "Group.svg",
+    title: "10+ Exhibitors",
+    description: "Tech, tools, and platforms driving the future of Nigeria. ",
   },
   {
     image: "result.svg",
-    title: "Result",
-    description: "Culmination of insights, connections, and opportunities that drive measurable business outcomes and social impact.",
+    title: "Unfiltered Conversations",
+    description:  "Real people, real stories, real impact.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function WhyAttend() {
           transition={{ duration: 0.6, type: "spring", stiffness: 80 }}
           viewport={{ once: true }}
         >
-          Why is it worth attending?
+         Why Attend LLN 2025? 
         </motion.h3>
 
         <motion.p
@@ -56,7 +56,7 @@ export default function WhyAttend() {
           transition={{ duration: 0.6, type: "spring", stiffness: 80, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Gain valuable insights, expand your network, and discover new opportunities for growth and success.
+         It’s not just an event. It’s an experience. 
         </motion.p>
       </div>
 

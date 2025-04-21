@@ -62,7 +62,7 @@ export function EventInfo() {
               <CalendarIcon className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
             </div>
             <h3 className="text-2xl font-extrabold text-[#0076B2] lg:text-4xl font-poppins">
-              24th July 2025
+              26th July 2025
             </h3>
           </motion.div>
 
