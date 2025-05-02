@@ -1,17 +1,28 @@
-import "@radix-ui/themes/styles.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import AllSpeakers from "./components/AllSpeakers";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import SpeakerDetail from "./components/SpeakerDetails"
 import "./App.css";
 
-import Home from "./components/Home";
-import Layout from "./components/ui/Layout";
-import { Theme } from "@radix-ui/themes";
-
 function App() {
+  const path = window.location.pathname;
+
+  if (path.startsWith("/speaker/")) {
+    return <SpeakerDetail />;
+  }
+  
   return (
-    <Layout>
-      <Theme>
-        <Home />
-      </Theme>
-    </Layout>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/AllSpeakers" element={<AllSpeakers />} />
+        <Route path="/speaker/:slug" element={<SpeakerDetail />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
