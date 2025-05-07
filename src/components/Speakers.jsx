@@ -5,7 +5,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { speakerData } from "./constants/speakers";
 
-const data = speakerData.splice(0, 6).map((item) => ({
+// Get the first 6 speakers for the initial display
+// This is a temporary solution until we have a backend to fetch data from
+const data = speakerData.slice(0, 6).map((item) => ({
   id: item.id,
   name: item.name,
   image: item.image,
@@ -15,17 +17,6 @@ const data = speakerData.splice(0, 6).map((item) => ({
 
 // Card Component
 function SpeakerCard({ data, index }) {
-  SpeakerCard.propTypes = {
-    data: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
-      linkedinUrl: PropTypes.string,
-    }).isRequired,
-    index: PropTypes.number.isRequired,
-  };
-
   const ref = useRef(null);
   const isInView = useInView(ref, { threshold: 0.3 });
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -101,6 +92,18 @@ function SpeakerCard({ data, index }) {
     </motion.div>
   );
 }
+
+// ✅ PropTypes moved here, outside the component
+SpeakerCard.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    linkedinUrl: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 // Speakers Section
 export default function Speakers() {

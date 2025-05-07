@@ -1,4 +1,6 @@
-export const speakerData = [
+import slugify from "slugify";
+
+const rawSpeakerData = [
   {
     id: 1,
     image: "tunde.svg",
@@ -62,8 +64,18 @@ export const speakerData = [
     role: "Founder, Chess in Slums Africa",
     link: "https://www.linkedin.com/in/tundeonakoya",
   },
-  // .......... more speakers
-].map((speaker) => ({
-  ...speaker,
-  slug: speaker.name.replace(/\s+/g, "-"),
-}));
+];
+
+// Generate slugs and ensure uniqueness
+const slugCount = {};
+export const speakerData = rawSpeakerData.map((speaker) => {
+  let baseSlug = slugify(speaker.name, { lower: true, strict: true });
+  let slug = baseSlug;
+
+  if (slugCount[baseSlug]) {
+    slug = `${baseSlug}-${slugCount[baseSlug]}`;
+  }
+  slugCount[baseSlug] = (slugCount[baseSlug] || 0) + 1;
+
+  return { ...speaker, slug };
+});

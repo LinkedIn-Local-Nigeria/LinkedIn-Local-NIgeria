@@ -7,12 +7,6 @@ import SpeakerDetail from "./components/SpeakerDetails"
 import "./App.css";
 
 function App() {
-  const path = window.location.pathname;
-
-  if (path.startsWith("/speaker/")) {
-    return <SpeakerDetail />;
-  }
-  
   return (
     <Router>
       <Navbar />

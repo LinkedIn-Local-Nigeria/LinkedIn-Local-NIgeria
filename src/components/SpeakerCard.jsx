@@ -85,14 +85,14 @@ export default function SpeakerCards({ speaker, index = 0 }) {
             </div>
             {/* External LinkedIn URL */}
             {speaker.linkedinUrl && (
-              <Link
-                to={speaker.linkedinUrl && speaker.linkedinUrl}
+              <a
+                href={speaker.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${speaker.name}'s LinkedIn profile`}
               >
                 <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white" />
-              </Link>
+              </a>
             )}
           </div>
         </motion.div>
@@ -104,10 +104,9 @@ export default function SpeakerCards({ speaker, index = 0 }) {
 SpeakerCards.propTypes = {
   speaker: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     linkedinUrl: PropTypes.string,
-    role: PropTypes.string.isRequired,
   }).isRequired,
   index: PropTypes.number,
 };
