@@ -1,10 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import AllSpeakers from "./components/AllSpeakers";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import SpeakerDetail from "./components/SpeakerDetails"
 import "./App.css";
+
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+import AllSpeakers from "./components/AllSpeakers";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Navbar from "./components/NavBar";
+import SpeakerDetail from "./components/SpeakerDetails"
 
 function App() {
   return (
