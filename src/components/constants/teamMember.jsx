@@ -46,7 +46,7 @@ export const teamMembers = [
     LinkedInURL: "https://linkedin.com/in/tangafoaf",
     teamImg: "/Alabi-Joshua.avif",
     role: "Head, Logistics",
-    description: "Can't find your quote sir....",
+    description: "Fortis Fortuna Adiuvat",
   },
   {
     name: "Bernice Orji",
@@ -82,6 +82,27 @@ export const teamMembers = [
     teamImg: "/Isreal-Aluko.avif",
     role: "Head, Web Development",
     description: "Do it afraid",
+    },
+  {
+    name: "Modupe Oreye",
+    LinkedInURL: "https://linkedin.com/in/eazyisreal",
+    teamImg: "/Modupe-Oreye.avif",
+    role: " Quality Assurance Office",
+    description: "Your playing Small won't serve you.",
+    },
+  {
+    name: "Gabriel Ikenna",
+    LinkedInURL: "https://linkedin.com/in/eazyisreal",
+    teamImg: "/Gabriel-Ikenna.avif",
+    role: "Head, Brand Design",
+    description: "Life is not that deep",
+    },
+  {
+    name: "Tijesunimi Okunola",
+    LinkedInURL: "https://linkedin.com/in/eazyisreal",
+    teamImg: "/Tijesunimi-Okunola.avif",
+    role: "Head, Delegates & Attendes",
+    description: "Life is not that deep",
     },
   //Add more team members here as needed
 ];

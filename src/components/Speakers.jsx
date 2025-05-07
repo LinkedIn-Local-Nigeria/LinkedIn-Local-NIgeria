@@ -1,8 +1,9 @@
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+
+import { Link } from "react-router-dom";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { speakerData } from "./constants/speakers";
 
 // Get the first 6 speakers for the initial display
@@ -137,8 +138,7 @@ export default function Speakers() {
         className="flex flex-col items-center justify-center gap-4"
       >
         <h3
-          className="font-poppins text-[#0076B2] font-bold w-4/6 text-2xl md:text-3xl md:text-[3.125rem]"
-          style={{ lineHeight: "3.4rem" }}
+          className="font-poppins text-[#0076B2] font-bold w-4/6 text-2xl md:text-3xl md:text-[3.125rem] md:leading-[3.5rem]"
         >
           More than profiles. Real people. Real stories.
         </h3>

@@ -1,10 +1,15 @@
-import { useState } from "react";
-import { speakerData } from "./constants/speakers";
+import { useEffect, useState } from "react";
+
 import SpeakerCards from "./SpeakerCard";
+import { speakerData } from "./constants/speakers";
 
 export default function AllSpeakers() {
   const [currentPage, setCurrentPage] = useState(1);
   const speakersPerPage = 9;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const indexOfLastSpeaker = currentPage * speakersPerPage;
   const indexOfFirstSpeaker = indexOfLastSpeaker - speakersPerPage;
@@ -15,7 +20,7 @@ export default function AllSpeakers() {
   const totalPages = Math.ceil(speakerData.length / speakersPerPage);
 
   return (
-    <div className="px-24 py-40">
+    <div className="px-6 py-40 lg:px-24">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {currentSpeakers.map((speaker) => (
           <SpeakerCards key={speaker.id} speaker={speaker} />

@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
 import Button from "./ui/Button";
-import { motion } from "framer-motion"; // Importing framer motion
+import { HashLink } from 'react-router-hash-link';
+import { motion } from "framer-motion";
 
 const navLinks = [
-  { id: 1, label: "About Us", href: "#about" },
-  { id: 2, label: "Speakers", href: "#speakers" },
-  { id: 3, label: "Teams", href: "#teams" },
-  { id: 4, label: "FAQs", href: "#faqs" },
+  { id: 1, label: "About Us", href: "/#about" },
+  { id: 2, label: "Speakers", href: "/#speakers" },
+  { id: 3, label: "Teams", href: "/#teams" },
+  { id: 4, label: "FAQs", href: "/#faqs" },
 ];
 
 const Navbar = () => {
@@ -51,13 +52,18 @@ const Navbar = () => {
         {/* Desktop Nav Links */}
         <div className="hidden gap-6 lg:flex">
           {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
+            <HashLink
+                key={link.id}
+                smooth
+                to={link.href}
+                onClick={() => {
+                  setActiveLink(link.id);
+                  setIsMenuOpen(false);
+            }}
               className="relative py-2 font-manrope text-black text-sm font-normal hover:text-blue-700 transition duration-300 ease-in-out after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full"
             >
               {link.label}
-            </a>
+            </HashLink>
           ))}
         </div>
 
@@ -69,7 +75,7 @@ const Navbar = () => {
           <motion.button
             className="text-black transition ease-in-out cursor-pointer focus:outline-none duration-400"
             onClick={toggleMenu}
-            animate={{ rotate: isMenuOpen ? 45 : 0 }} // Rotate button when menu is open
+            animate={{ rotate: isMenuOpen ? 45 : 0 }} 
             transition={{ duration: 0.3 }}
           >
             <svg
@@ -103,7 +109,7 @@ const Navbar = () => {
       {/* Slide-In Mobile Menu sheet */}
       <motion.nav
         ref={menuRef}
-        className="z-50 fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg flex flex-col gap-3 px-8 py-6 lg:hidden"
+        className="fixed top-0 right-0 z-50 flex flex-col w-3/4 h-full max-w-xs gap-3 px-8 py-6 bg-white shadow-lg lg:hidden"
         initial={{ x: "100%" }}
         animate={{ x: isMenuOpen ? "0" : "100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}

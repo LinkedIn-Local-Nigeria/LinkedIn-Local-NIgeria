@@ -84,7 +84,6 @@ const rawSpeakerData = [
   },
 ];
 
-// Generate slugs and ensure uniqueness
 const slugCount = {};
 export const speakerData = rawSpeakerData.map((speaker) => {
   let baseSlug = slugify(speaker.name, { lower: true, strict: true });
