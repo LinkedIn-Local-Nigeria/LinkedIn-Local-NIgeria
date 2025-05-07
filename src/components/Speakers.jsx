@@ -93,7 +93,6 @@ function SpeakerCard({ data, index }) {
   );
 }
 
-// ✅ PropTypes moved here, outside the component
 SpeakerCard.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string.isRequired,

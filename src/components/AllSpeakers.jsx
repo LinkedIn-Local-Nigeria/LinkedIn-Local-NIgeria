@@ -15,11 +15,7 @@ export default function AllSpeakers() {
   const totalPages = Math.ceil(speakerData.length / speakersPerPage);
 
   return (
-    <div className="p-6 py-40">
-      {/* <h2 className="my-12 text-3xl font-bold text-black font-poppins">
-        All Speakers
-      </h2> */}
-
+    <div className="px-24 py-40">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {currentSpeakers.map((speaker) => (
           <SpeakerCards key={speaker.id} speaker={speaker} />
@@ -31,10 +27,7 @@ export default function AllSpeakers() {
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                setCurrentPage(index + 1);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
+              onClick={() => setCurrentPage(index + 1)}
               className={`px-4 py-2 rounded transition duration-200 ${
                 currentPage === index + 1
                   ? "bg-blue-600 text-white"
