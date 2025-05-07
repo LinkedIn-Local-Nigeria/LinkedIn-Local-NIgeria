@@ -1,6 +1,5 @@
 
 export const mapdots = [
-  // Existing 20 (from your list)
   { start: { lat: 64.2008, lng: -149.4937 }, end: { lat: 34.0522, lng: -118.2437 } }, // Alaska → LA
   { start: { lat: 6.5244, lng: 3.3792 }, end: { lat: 40.7128, lng: -74.0060 } }, // Lagos → NYC
   { start: { lat: 64.2008, lng: -149.4937 }, end: { lat: -15.7975, lng: -47.8919 } }, // Alaska → Brasilia
@@ -20,8 +19,6 @@ export const mapdots = [
   { start: { lat: 50.1109, lng: 8.6821 }, end: { lat: 35.6762, lng: 139.6503 } }, // Frankfurt → Tokyo
   { start: { lat: 37.7749, lng: -122.4194 }, end: { lat: 49.2827, lng: -123.1207 } }, // SF → Vancouver
   { start: { lat: 31.2304, lng: 121.4737 }, end: { lat: 22.3193, lng: 114.1694 } }, // Shanghai → Hong Kong
-
-  // Additional 60 Global Routes
   { start: { lat: 19.4326, lng: -99.1332 }, end: { lat: 34.0522, lng: -118.2437 } }, // Mexico City → LA
   { start: { lat: 52.5200, lng: 13.4050 }, end: { lat: 35.6895, lng: 139.6917 } }, // Berlin → Tokyo
   { start: { lat: 41.9028, lng: 12.4964 }, end: { lat: -33.4489, lng: -70.6693 } }, // Rome → Santiago
@@ -57,7 +54,6 @@ export const mapdots = [
   { start: { lat: -12.0464, lng: -77.0428 }, end: { lat: 41.3851, lng: 2.1734 } }, // Lima → Barcelona
   { start: { lat: -8.8390, lng: 13.2894 }, end: { lat: 6.3150, lng: -10.8014 } }, // Luanda → Monrovia
   { start: { lat: 50.0755, lng: 14.4378 }, end: { lat: 52.2297, lng: 21.0122 } }, // Prague → Warsaw
-
   { start: { lat: 19.4326, lng: -99.1332 }, end: { lat: 34.0522, lng: -118.2437 } }, // Mexico City → LA
   { start: { lat: 52.5200, lng: 13.4050 }, end: { lat: 35.6895, lng: 139.6917 } }, // Berlin → Tokyo
   { start: { lat: 41.9028, lng: 12.4964 }, end: { lat: -33.4489, lng: -70.6693 } }, // Rome → Santiago

@@ -31,7 +31,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-5 mt-10 text-gray-600 bg-[#F8FAFC] border-t md:px-16">
+    <footer className="py-5 text-gray-600 bg-[#F8FAFC] border-t md:px-16">
       <Container>
         {/* Newsletter Section */}
         <div className="p-6 mx-auto mb-16 rounded-md lg:p-16 max-w-7xl newsletter-bg-desktop newsletter-bg-mobile">
