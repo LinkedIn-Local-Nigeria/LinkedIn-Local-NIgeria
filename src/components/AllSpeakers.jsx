@@ -15,10 +15,10 @@ export default function AllSpeakers() {
   const totalPages = Math.ceil(speakerData.length / speakersPerPage);
 
   return (
-    <div className="p-6">
-      <h2 className="my-12 text-3xl font-bold text-black font-poppins">
+    <div className="p-6 py-40">
+      {/* <h2 className="my-12 text-3xl font-bold text-black font-poppins">
         All Speakers
-      </h2>
+      </h2> */}
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {currentSpeakers.map((speaker) => (
