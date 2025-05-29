@@ -5,6 +5,7 @@
   text-align: center;
   font-optical-sizing: auto;
   font-style: normal;
+  height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -50,30 +51,30 @@ html {
 /* For screens 1024px and larger (desktop) */
 @media (min-width: 1024px) {
   .desktop-vertical-lines {
-    background-image: url("/desktop-vertical-lines.svg");
+    background-image: url('/desktop-vertical-lines.svg');
   }
 
   .desktop-cta-bg {
-    background-image: url("/desktop-cta-bg.svg");
+    background-image: url('/desktop-cta-bg.svg');
   }
 
   .newsletter-bg-desktop {
-    background-image: url("/newsletter-bg-desktop.svg");
+    background-image: url('/newsletter-bg-desktop.svg');
   }
 }
 
 /* For screens smaller than 1024px (mobile) */
 @media (max-width: 1023px) {
   .mobile-vertical-lines {
-    background-image: url("/mobile-vertical-lines.svg");
+    background-image: url('/mobile-vertical-lines.svg');
   }
 
   .desktop-cta-bg {
-    background-image: url("/mobile-cta-bg.svg");
+    background-image: url('/mobile-cta-bg.svg');
   }
 
   .newsletter-bg-mobile {
-    background-image: url("/newsletter-bg-mobile.svg");
+    background-image: url('/newsletter-bg-mobile.svg');
   }
 }
 .no-scrollbar::-webkit-scrollbar {
@@ -82,5 +83,5 @@ html {
 
 .no-scrollbar {
   -ms-overflow-style: none;
-  scrollbar-width: none;    
+  scrollbar-width: none;
 }
