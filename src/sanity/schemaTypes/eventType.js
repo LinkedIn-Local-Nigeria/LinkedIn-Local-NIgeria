@@ -17,8 +17,11 @@ export const eventType = defineType({
     }),
     defineField({
       name: 'cta',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      type: 'object',
+      fields: [
+        defineField({name: 'url', type: 'string'}),
+        defineField({name: 'label', type: 'string'}),
+      ],
     }),
     defineField({
       name: 'dateAndTime',
@@ -29,6 +32,6 @@ export const eventType = defineType({
     defineField({
       name: 'image',
       type: 'image',
-    })
+    }),
   ],
 })

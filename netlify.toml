@@ -11,10 +11,9 @@
 # Enables Single Page App (SPA) routing (if needed)
 
 [[redirects]]
-  from = "/studio/*"
-  to = "/studio"
-  status = 301
-  force = true
+from = "/studio/*"
+to = "/studio/index.html"
+status = 200
 
 
 [[redirects]]
