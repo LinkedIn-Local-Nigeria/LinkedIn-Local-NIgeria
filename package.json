@@ -1,13 +1,16 @@
 {
   "name": "linkedin-local-nigeria",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+    "version": "0.0.0",
+    "type": "module",
+    
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cd lln-project && sanity build --output ../../dist/studio --yes",
+    "build": "vite build && npm run build:sanity",
+    "build:sanity": "cd lln-project && sanity build --output-dir \"$(realpath ../dist)/studio\" --no-prompt",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "npx serve dist"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.2",
