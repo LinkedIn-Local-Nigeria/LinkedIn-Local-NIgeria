@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && sanity build src/sanity --output ./dist/studio",
+    "build": "vite build && cd src/sanity && sanity build --output ../../dist/studio --yes"
     "lint": "eslint .",
     "preview": "vite preview"
   },
