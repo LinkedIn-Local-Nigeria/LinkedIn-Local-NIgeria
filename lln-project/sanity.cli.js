@@ -2,8 +2,8 @@ import {defineCliConfig} from 'sanity/cli'
 
 export default defineCliConfig({
   api: {
-    projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
-    dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
+    projectId: process.env.VITE_SANITY_PROJECT_ID|| "vmtuwbwx",
+    dataset: process.env.VITE_SANITY_DATASET || 'production',
   },
   basePath: '/studio', // This can be changed to any path preferred
   /**
