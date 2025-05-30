@@ -4,11 +4,12 @@ import {
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+
 import PropTypes from "prop-types";
-import { twMerge } from "tailwind-merge";
 import { teamMembers } from "./constants/teamMember";
+import { twMerge } from "tailwind-merge";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -61,6 +62,20 @@ const TeamSection = () => {
 
 const TeamCard = ({ team, index }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const socialLinks = [
+    {
+      icon: TwitterLogoIcon,
+      url: team.twitterURL,
+    },
+    {
+      icon: LinkedInLogoIcon,
+      url: team.LinkedInURL,
+    },
+    {
+      icon: GlobeIcon,
+      url: team.websiteURL,
+    },
+  ];
 
   return (
     <motion.div
@@ -79,16 +94,18 @@ const TeamCard = ({ team, index }) => {
       <p className="text-sm text-[#0076B2]">{team.role}</p>
       <p className="text-[14px] text-[#667085] mb-3">{team.description}</p>
       <div className="flex gap-2 mt-auto">
-        {[TwitterLogoIcon, LinkedInLogoIcon, GlobeIcon].map((Icon, i) => (
-          <a
-            key={i}
-            href={team.LinkedInURL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#98A2B3] hover:text-[#0076B2]"
-          >
-            <Icon className="w-5 h-5" />
-          </a>
+        {socialLinks.map(({ icon: Icon, url }, i) => (
+          url && (
+            <a
+              key={i}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#98A2B3] hover:text-[#0076B2]"
+            >
+              <Icon className="w-5 h-5" />
+            </a>
+          )
         ))}
       </div>
     </motion.div>
@@ -99,6 +116,8 @@ TeamCard.propTypes = {
   team: PropTypes.shape({
     name: PropTypes.string.isRequired,
     LinkedInURL: PropTypes.string.isRequired,
+    twitterURL: PropTypes.string.isRequired,
+    websiteURL: PropTypes.string.isRequired,
     teamImg: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

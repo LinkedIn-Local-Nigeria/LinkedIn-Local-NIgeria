@@ -1,11 +1,11 @@
 import {defineConfig} from 'sanity'
+import {schemaTypes} from './schemaTypes'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'LLN Project',
+  title: 'Linkedin Local Nigeria Studio',
   basePath: '/studio',
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
