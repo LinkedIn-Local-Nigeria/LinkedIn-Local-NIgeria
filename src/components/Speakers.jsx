@@ -4,19 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import PropTypes from "prop-types";
-import { speakerData } from "./constants/speakers";
+import sanityClient from '../sanity/sanityClient'
+import { speakersQuery } from "./lib/queries";
 
-// Get the first 6 speakers for the initial display
-// This is a temporary solution until we have a backend to fetch data from
-const data = speakerData.slice(0, 6).map((item) => ({
-  id: item.id,
-  name: item.name,
-  image: item.image,
-  role: item.role,
-  linkedinUrl: item.link,
-}));
-
-// Card Component
 function SpeakerCard({ data, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { threshold: 0.3 });
@@ -72,7 +62,7 @@ function SpeakerCard({ data, index }) {
       />
 
       {/* Gradient & Content */}
-      <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black/70 to-transparent z-10">
+      <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black/70 to-transparent z-10 pointer-events-none">
         <div className="flex flex-col mb-5">
           <h3 className="ml-5 text-2xl font-bold text-left text-white font-poppins">
             {data.name}
@@ -87,7 +77,7 @@ function SpeakerCard({ data, index }) {
           rel="noopener noreferrer"
           aria-label={`${data.name}'s LinkedIn profile`}
         >
-          <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white" />
+          <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white pointer-events-auto" />
         </Link>
       </div>
     </motion.div>
@@ -107,9 +97,25 @@ SpeakerCard.propTypes = {
 
 // Speakers Section
 export default function Speakers() {
+  const [speakers, setSpeakers] = useState([]);
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, { once: true, threshold: 0.3 });
   const controls = useAnimation();
+
+
+  useEffect(() => {
+    const getSpeakers = async () => {
+      try {
+        const res = await sanityClient.fetch(speakersQuery);
+        console.table(res)
+        setSpeakers(res.slice(0, 6)); // only first 6
+      } catch (err) {
+        console.error("Error fetching speakers:", err);
+      }
+    };
+
+    getSpeakers();
+  }, []);
 
   useEffect(() => {
     if (sectionInView) {
@@ -149,10 +155,23 @@ export default function Speakers() {
       </motion.div>
 
       <div className="grid w-full grid-cols-1 gap-4 md:max-w-5xl md:grid-cols-2 xl:grid-cols-3">
-        {data.map((item, index) => (
-          <SpeakerCard key={item.id} data={item} index={index} />
-        ))}
+        {speakers.length > 0 ? (
+          speakers.map((item, index) => (
+            <SpeakerCard key={item._id || index} data={item} index={index} />
+          ))
+        ) : (
+          <motion.div
+            className="py-8 text-lg text-center text-gray-500 col-span-full font-manrope"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            No speakers available at the moment. Please check back later.
+          </motion.div>
+
+        )}
       </div>
+
 
       <motion.div
         whileHover={{ scale: 1.05 }}
