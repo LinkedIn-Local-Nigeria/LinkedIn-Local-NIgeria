@@ -3,12 +3,10 @@ import './App.css'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 import AllSpeakers from './components/AllSpeakers'
-import Footer from './components/Footer'
 import Home from './components/Home'
-import Navbar from './components/NavBar'
-import SpeakerDetail from './components/SpeakerDetails'
-import SanityStudio from './components/SanityStudio'
 import Layout from './components/ui/Layout'
+import SanityStudio from './components/SanityStudio'
+import SpeakerDetail from './components/SpeakerDetails'
 
 function App () {
   return (
