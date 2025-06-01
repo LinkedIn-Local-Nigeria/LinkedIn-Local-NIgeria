@@ -88,7 +88,7 @@ const TeamCard = ({ team, index }) => {
       <img
         src={team.teamImg}
         alt={team.role}
-        className="object-cover w-full md:h-[400px] xl:w-[249.375px] mb-4 xl:h-[263.625px]"
+        className="object-cover w-full md:h-[400px] xl:w-[290.375px] mb-4 xl:h-[290.625px]"
       />
       <h3 className="text-lg font-semibold text-[#101828]">{team.name}</h3>
       <p className="text-sm text-[#0076B2]">{team.role}</p>

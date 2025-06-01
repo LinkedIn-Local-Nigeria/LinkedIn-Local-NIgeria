@@ -146,7 +146,7 @@ const Events = () => {
               </a>
             ) : (
               <Link to={ctaUrl}>
-                <Button className="mt-4 w-full bg-[#0076B2] hover:bg-[#005c8f] transform transition-transform duration-300 ease-out hover:scale-105">
+                <Button className="w-full mt-4 transition-transform duration-300 ease-out transform hover:scale-105">
                   {ctaLabel}
                 </Button>
               </Link>
@@ -158,7 +158,7 @@ const Events = () => {
   }
 
   return (
-    <section className="flex flex-col xl:flex-row justify-between items-start gap-8 px-4 xl:px-0 py-10 bg-[#FDFDFD] font-manrope">
+    <section className="flex flex-col lg:flex-row justify-between items-start gap-8 px-4 xl:px-0 py-10 bg-[#FDFDFD] font-manrope">
       <Container>
         <div className="flex flex-col justify-end w-full gap-3 ml-auto xl:w-3/4">
           <motion.h2

@@ -41,58 +41,67 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="lg:px-[6.25rem] flex items-center justify-between mx-auto container z-50 px-6 py-4 border-b border-gray-200 fixed w-full bg-opacity-10 backdrop-blur-md">
-        <a
-          href="/"
-          className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
-        >
-          LLN &apos;25
-        </a>
-
-        {/* Desktop Nav Links */}
-        <div className="hidden gap-6 lg:flex">
-          {navLinks.map((link) => (
-            <HashLink
-                key={link.id}
-                smooth
-                to={link.href}
-                onClick={() => {
-                  setActiveLink(link.id);
-                  setIsMenuOpen(false);
-            }}
-              className="relative py-2 font-manrope text-black text-sm font-normal hover:text-blue-700 transition duration-300 ease-in-out after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full"
-            >
-              {link.label}
-            </HashLink>
-          ))}
-        </div>
-
-        {/* CTA Desktop Button */}
-        <Button className="hidden lg:flex">Get your ticket</Button>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <motion.button
-            className="text-black transition ease-in-out cursor-pointer focus:outline-none duration-400"
-            onClick={toggleMenu}
-            animate={{ rotate: isMenuOpen ? 45 : 0 }} 
-            transition={{ duration: 0.3 }}
+      <nav className="fixed z-50 w-full border-b border-gray-200 bg-opacity-10 backdrop-blur-md">
+        <div className="lg:px-[6.25rem] flex items-center justify-between max-w-7xl container px-6 py-4">
+          <a
+            href="/"
+            className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
           >
-            <svg
-              className="w-6 h-6 text-black"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            LLN &apos;25
+          </a>
+
+          {/* Desktop Nav Links */}
+          <div className="hidden gap-6 lg:flex">
+            {navLinks.map((link) => (
+              <HashLink
+                  key={link.id}
+                  smooth
+                  to={link.href}
+                  onClick={() => {
+                    setActiveLink(link.id);
+                    setIsMenuOpen(false);
+              }}
+                className="relative py-2 font-manrope text-black text-sm font-normal hover:text-blue-700 transition duration-300 ease-in-out after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full"
+              >
+                {link.label}
+              </HashLink>
+            ))}
+          </div>
+
+          {/* CTA Desktop Button */}
+          <a 
+            href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hidden lg:inline-block"
+          >
+            <Button>Get your ticket</Button>
+          </a>
+
+          {/* Mobile Menu Button - Changed from md:hidden to lg:hidden */}
+          <div className="lg:hidden">
+            <motion.button
+              className="text-black transition ease-in-out cursor-pointer focus:outline-none duration-400"
+              onClick={toggleMenu}
+              animate={{ rotate: isMenuOpen ? 45 : 0 }} 
+              transition={{ duration: 0.3 }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1"
-                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
-              />
-            </svg>
-          </motion.button>
+              <svg
+                className="w-6 h-6 text-black"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
+                  d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+                />
+              </svg>
+            </motion.button>
+          </div>
         </div>
       </nav>
 
@@ -152,11 +161,17 @@ const Navbar = () => {
         <hr className="border-t border-gray-200" />
 
         {/* CTA mobile Button */}
-        <Button className="w-full mt-2">Get your ticket</Button>
+        <a 
+          href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block w-full mt-2"
+        >
+          <Button className="w-full">Get your ticket</Button>
+        </a>
       </motion.nav>
     </>
   );
 };
 
 export default Navbar;
-

@@ -125,13 +125,17 @@ export function HeroSection() {
             </Text>
           </motion.div>
 
-          <motion.div
+          <motion.a
+            href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75"
+            target="_blank"
+            rel="noopener noreferrer"
             variants={itemsVariant}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
+            className="inline-block"
           >
             <Button className="w-[300px]">Get your ticket</Button>
-          </motion.div>
+          </motion.a>
         </div>
       </motion.div>
     </motion.div>

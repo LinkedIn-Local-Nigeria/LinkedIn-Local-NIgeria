@@ -5,10 +5,12 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import AllSpeakers from './components/AllSpeakers'
 import Home from './components/Home'
 import Layout from './components/ui/Layout'
+import PrivacyPolicy from "./components/PrivacyPolicy";
 import SanityStudio from './components/SanityStudio'
 import SpeakerDetail from './components/SpeakerDetails'
+import TermsOfuse from "./components/TermsOfuse";
 
-function App () {
+function App() {
   return (
     <Router>
       <Routes>
@@ -17,6 +19,22 @@ function App () {
           element={
             <Layout>
               <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path='/terms-of-use'
+          element={
+            <Layout>
+              <TermsOfuse />
+            </Layout>
+          }
+        />
+        <Route
+          path='/privacy-policy'
+          element={
+            <Layout>
+              <PrivacyPolicy />
             </Layout>
           }
         />
@@ -36,6 +54,7 @@ function App () {
             </Layout>
           }
         />
+
         {/* Sanity CMS dashboard */}
         <Route path='/studio/*' element={<SanityStudio />} />
       </Routes>

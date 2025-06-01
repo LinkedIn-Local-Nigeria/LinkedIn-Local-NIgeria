@@ -3,9 +3,9 @@ import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 
 const Cta = () => {
   return (
-    <div 
+    <div
       className="flex flex-col lg:flex-row justify-between items-center lg:items-start p-[1.5rem] lg:p-[5rem]"
-      role="region" 
+      role="region"
       aria-labelledby="cta-heading"
     >
       {/* Left side content */}
@@ -26,10 +26,17 @@ const Cta = () => {
         </span>
       </div>
 
-      {/* CTA mobile Button */}
-      <Button className="w-full mt-4 lg:w-[150px] lg:mt-0">
-        Get your ticket
-      </Button>
+      {/* CTA Button wrapped in styled anchor */}
+      <a 
+        href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="w-full  mt-4 lg:w-[150px] lg:mt-0 flex"
+      >
+        <Button className="w-full">
+          Get your ticket
+        </Button>
+      </a>
     </div>
   );
 };
