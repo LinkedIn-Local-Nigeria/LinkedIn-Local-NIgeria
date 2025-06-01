@@ -23,9 +23,16 @@ const NewsletterCTA = () => {
         >
           Sign up now for exclusive updates and be the first to know about event news, speakers, and more!
         </motion.p>
-        <Button className="flex gap-2 text-white bg-[#0076B2] w-full xl:w-1/2 hover:bg-[#0076B2] px-6 py-3 leading-[20.27px] text-base font-medium rounded-md">
-          Join Our Community
-        </Button>
+        <a 
+          href="https://chat.whatsapp.com/E4dv58mY9ax2v7qvbLEItI" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block w-full xl:w-1/2"
+        >
+          <Button className="flex gap-2 text-white  w-full px-6 py-3 leading-[20.27px] text-base font-medium rounded-md transition-colors duration-300">
+            Join Our Community
+          </Button>
+        </a>
       </div>
 
       {/* Image Side */}

@@ -1,5 +1,4 @@
 import {
-  FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaTwitter,
@@ -15,6 +14,12 @@ const Footer = () => {
     firstName: "",
     email: "",
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+
+
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqnSCngwQ7llqZ8ZtBEgxpMxaWDIPgGqtT-j_pyvdWODlR_0zvk9znDvFYCjvk5owxvA/exec";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,10 +29,58 @@ const Footer = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Subscribed:", formData);
-    setFormData({ firstName: "", email: "" }); // Clear the form after submission is successful
+    
+    console.log("Form submitted with data:", formData);
+    
+    // Validate form data
+    if (!formData.firstName.trim() || !formData.email.trim()) {
+      setSubmitMessage("Please fill in all required fields.");
+      setTimeout(() => setSubmitMessage(""), 5000);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      console.log("Sending request to:", GOOGLE_SCRIPT_URL);
+      
+      // Try sending as URL-encoded form data instead of JSON
+      const formDataToSend = new URLSearchParams();
+      formDataToSend.append('firstName', formData.firstName);
+      formDataToSend.append('email', formData.email);
+      
+      console.log("Sending form data:", formDataToSend.toString());
+      
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formDataToSend,
+      });
+
+      console.log( response + "Request sent successfully");
+      
+      // Since we're using no-cors mode, we can't read the response
+      // But if we reach this point without error, submission likely succeeded
+      setSubmitMessage("Thank you for subscribing! We'll be in touch soon.");
+      setFormData({ firstName: "", email: "" });
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitMessage(""), 5000);
+      
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitMessage("Sorry, there was an error. Please try again later.");
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => setSubmitMessage(""), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -38,6 +91,18 @@ const Footer = () => {
           <h4 className="pb-4 text-4xl font-semibold text-gray-100 font-poppins">
             Subscribe to our newsletter
           </h4>
+          
+          {/* Success/Error Message */}
+          {submitMessage && (
+            <div className={`mb-4 p-3 rounded ${
+              submitMessage.includes('Thank you') 
+                ? 'bg-green-100 text-green-700 border border-green-300' 
+                : 'bg-red-100 text-red-700 border border-red-300'
+            }`}>
+              {submitMessage}
+            </div>
+          )}
+          
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 gap-4 mt-5 lg:grid-cols-3"
@@ -51,7 +116,8 @@ const Footer = () => {
               aria-required="true"
               value={formData.firstName}
               onChange={handleChange}
-              className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200"
+              disabled={isSubmitting}
+              className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200 disabled:opacity-50"
             />
             <input
               type="email"
@@ -61,10 +127,15 @@ const Footer = () => {
               aria-required="true"
               value={formData.email}
               onChange={handleChange}
-              className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200"
+              disabled={isSubmitting}
+              className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200 disabled:opacity-50"
             />
-            <Button className="h-12 bg-black hover:bg-gray-800">
-              Subscribe Now
+            <Button 
+              type="submit"
+              className="h-12 bg-black hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Subscribing..." : "Subscribe Now"}
             </Button>
           </form>
         </div>
@@ -81,25 +152,19 @@ const Footer = () => {
 
             {/* socials */}
             <div className="flex space-x-4 text-gray-600">
-              <a href="#" className="p-2 border rounded-full bg-none">
-                <FaFacebookF
-                  className=" hover:text-blue-600"
-                  aria-label="Facebook"
-                />
-              </a>
-              <a href="#" className="p-2 border rounded-full bg-none">
+              <a href="https://x.com/LinkedinLocalN" className="p-2 border rounded-full bg-none">
                 <FaTwitter
                   className="hover:text-blue-400"
                   aria-label="Twitter"
                 />
               </a>
-              <a href="#" className="p-2 border rounded-full bg-none">
+              <a href="https://www.instagram.com/linkedinlocalnigeria/" className="p-2 border rounded-full bg-none">
                 <FaInstagram
                   className="hover:text-pink-500"
                   aria-label="Instagram"
                 />
               </a>
-              <a href="#" className="p-2 border rounded-full bg-none">
+              <a href="https://www.linkedin.com/company/linkedin-local-nigeriaa/" className="p-2 border rounded-full bg-none">
                 <FaLinkedinIn
                   className="hover:text-blue-700"
                   aria-label="LinkedIn"

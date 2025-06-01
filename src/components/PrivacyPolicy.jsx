@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { WorldMap } from "./ui/WorldMap";
 import { mapdots } from "./constants/mapdots";
 
@@ -49,10 +50,10 @@ export default function PrivacyPolicy() {
   }, [activeSection]);
 
   return (
-    <div className="bg-white min-h-screen font-manrope overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-white font-manrope">
       {/* WorldMap background section */}
       <div className="w-full aspect-[2/1] mt-16 relative overflow-hidden">
-        <WorldMap dots={mapdots} className="w-full h-full" />
+        <WorldMap className="w-full h-full" />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <h1
             className="text-center"
@@ -70,7 +71,7 @@ export default function PrivacyPolicy() {
         </div>
       </div>
       <div className="w-full px-0">
-        <div className="space-y-12 max-w-7xl mt-20 ml-4 md:ml-20 mb-20 px-4">
+        <div className="px-4 mt-20 mb-20 ml-4 space-y-12 max-w-7xl md:ml-20">
           <section>
             <h3 className="mb-6 font-poppins font-semibold text-left text-[28px] md:text-[40px] leading-snug text-[#0076B2]">
               1. Information We Collect

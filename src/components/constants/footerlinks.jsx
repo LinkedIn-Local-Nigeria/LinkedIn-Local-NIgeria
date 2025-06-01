@@ -11,7 +11,6 @@ export const footerLinks = [
   {
     title: "HELP",
     links: [
-      { label: "Customer Support", href: "#support" },
       { label: "Terms & Conditions", href: "/terms-of-use" },
       { label: "Privacy Policy", href: "/privacy-policy" },
     ],
@@ -19,8 +18,8 @@ export const footerLinks = [
   {
     title: "PRODUCTS",
     links: [
-      { label: "Free e-Books", href: "#ebooks" },
-      { label: "Youtube Playlist", href: "#playlists" },
+      { label: "Free e-Books", href: "/#ebooks" },
+      { label: "Youtube Playlist", href: "/#playlists" },
     ],
   },
 ];
