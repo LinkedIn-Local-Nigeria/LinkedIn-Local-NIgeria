@@ -1,57 +1,96 @@
-<!doctype html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Linked Local Nigeria - Connect and Grow</title>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="canonical" href="https://linkedinlocalnigeria.com/" />
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Connect with local professionals and grow your network with Linked Local Nigeria." />
-  <meta name="keywords" content="LinkedIn, Networking, Nigeria, Local Professionals, Careers, Jobs" />
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Linked Local Nigeria - Connect and Grow" />
+  <meta
+    name="description"
+    content="Connect with local professionals and grow your network with Linked Local Nigeria. Discover new opportunities and build meaningful relationships."
+  />
+  <meta
+    name="keywords"
+    content="LinkedIn, Linked Local Nigeria, Networking Events, Nigeria Professionals, Business Connections, Career Development, Jobs, Community"
+  />
   <meta name="author" content="Linked Local Nigeria" />
-  <meta name="robots" content="index, follow" />
+  <meta
+    name="robots"
+    content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+  />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Linked Local Nigeria - Connect and Grow" />
-  <meta property="og:description" content="Connect with local professionals and grow your network with Linked Local Nigeria." />
-  <meta property="og:image" content="https://linkedinlocal.com/images/preview.jpg" />
-  <meta property="og:url" content="https://linkedinlocal.com" />
+  <meta
+    property="og:description"
+    content="Connect with local professionals and grow your network with Linked Local Nigeria."
+  />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="en_NG" />
+  <meta property="og:url" content="https://linkedinlocalnigeria.com" />
   <meta property="og:site_name" content="Linked Local Nigeria" />
+  <meta property="og:locale" content="en_NG" />
+  <meta property="og:image" content="/public/instagram-og.png" />
+  <meta property="og:image:secure_url" content="/public/instagram-og.png" />
+  <meta
+    property="og:image:alt"
+    content="Linked Local Nigeria - Connect and Grow"
+  />
 
-  <!-- Twitter -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Linked Local Nigeria - Connect and Grow" />
-  <meta name="twitter:description" content="Connect with local professionals and grow your network with Linked Local Nigeria." />
-  <meta name="twitter:image" content="https://linkedinlocal.com/images/preview.jpg/" />
+  <meta
+    name="twitter:title"
+    content="Linked Local Nigeria - Connect and Grow"
+  />
+  <meta
+    name="twitter:description"
+    content="Build your network locally. Discover events, jobs, and connections with Linked Local Nigeria."
+  />
   <meta name="twitter:site" content="@LinkedLocalNG" />
   <meta name="twitter:creator" content="@LinkedLocalNG" />
+  <meta name="twitter:image" content="/public/twitter-og.png" />
 
   <!-- LinkedIn -->
-  <meta name="linkedin:site" content="https://linkedinlocalnigeria.com" />
+  <meta property="og:image:linkedin" content="/public/linkedin-og.png" />
 
-  <!-- Schema.org / Google+ -->
+  <!-- Instagram (uses Open Graph fallback) -->
+  <meta property="og:image:instagram" content="/public/instagram-og.png" />
+
+  <!-- WhatsApp (uses Open Graph image by default) -->
+  <!-- To optimize for WhatsApp, use 1200x630 JPG, well-compressed -->
+  <meta property="og:image:whatsapp" content="/public/whatsapp-og.png" />
+
+  <!-- Structured Data / Schema.org -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
+      "@type": "Organization",
       "name": "Linked Local Nigeria",
-      "url": "https://linkedinlocal.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://linkedinlocal.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "url": "https://linkedinlocalnigeria.com",
+      "logo": "https://linkedinlocalnigeria.com/images/logo.png",
+      "sameAs": [
+        "https://twitter.com/LinkedLocalNG",
+        "https://instagram.com/LinkedLocalNG",
+        "https://linkedin.com/company/linkedlocalnigeria"
+      ]
     }
-    </script>
-</head>
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-14HNRQQREW"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
-</html>
+    gtag("config", "G-14HNRQQREW");
+  </script>
+</head>
