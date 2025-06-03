@@ -1,18 +1,18 @@
 export const teamMembers = [
   {
     name: "Oladotun Ajayi",
-    LinkedInURL: "https://linkedin.com/in/tangafoaf",
+    LinkedInURL: "https://www.linkedin.com/in/oladotun-ajayi-precious",
     twitterURL: "",
-    websiteURL: "",
+    websiteURL: "https://www.instagram.com/_oladotunajayi?igsh=MXNpbjh2Y2JxdnQ4bw==",
     teamImg: "/Oladotun-Ajayi.avif",
     role: "Lead LLN",
     description: "It is possible to do great things from a small place",
   },
   {
     name: "Emmanuel Nduka",
-    LinkedInURL: "https://linkedin.com/in/tangafoaf",
+    LinkedInURL: "https://www.linkedin.com/in/emmanuel-nduka",
     twitterURL: "",
-    websiteURL: "",
+    websiteURL: "https://www.instagram.com/emmanuel_ndukka?igsh=MXVxYzd4MWd0bHR1cA==",
     teamImg: "/Emmanuel-Nduka.avif",
     role: "Co-Lead LLN",
     description: "No man can do these things except God be with him",

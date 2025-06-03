@@ -7,6 +7,7 @@ import {
 import Button from "./ui/Button";
 import Container from "./ui/Container";
 import { footerLinks } from "./constants/footerlinks";
+import toast from "react-hot-toast";
 import { useState } from "react";
 
 const Footer = () => {
@@ -14,12 +15,11 @@ const Footer = () => {
     firstName: "",
     email: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState("");
 
-
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqnSCngwQ7llqZ8ZtBEgxpMxaWDIPgGqtT-j_pyvdWODlR_0zvk9znDvFYCjvk5owxvA/exec";
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxqnSCngwQ7llqZ8ZtBEgxpMxaWDIPgGqtT-j_pyvdWODlR_0zvk9znDvFYCjvk5owxvA/exec";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,53 +31,33 @@ const Footer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log("Form submitted with data:", formData);
-    
-    // Validate form data
+
     if (!formData.firstName.trim() || !formData.email.trim()) {
-      setSubmitMessage("Please fill in all required fields.");
-      setTimeout(() => setSubmitMessage(""), 5000);
+      toast.error("Please fill in all required fields.");
       return;
     }
-    
+
     setIsSubmitting(true);
-    setSubmitMessage("");
 
     try {
-      console.log("Sending request to:", GOOGLE_SCRIPT_URL);
-      
-      // Try sending as URL-encoded form data instead of JSON
       const formDataToSend = new URLSearchParams();
-      formDataToSend.append('firstName', formData.firstName);
-      formDataToSend.append('email', formData.email);
-      
-      console.log("Sending form data:", formDataToSend.toString());
-      
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
+      formDataToSend.append("firstName", formData.firstName);
+      formDataToSend.append("email", formData.email);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         body: formDataToSend,
+        mode: "no-cors",
       });
 
-      console.log( response + "Request sent successfully");
-      
-      // Since we're using no-cors mode, we can't read the response
-      // But if we reach this point without error, submission likely succeeded
-      setSubmitMessage("Thank you for subscribing! We'll be in touch soon.");
+      toast.success("Thank you for subscribing!");
       setFormData({ firstName: "", email: "" });
-      
-      // Clear success message after 5 seconds
-      setTimeout(() => setSubmitMessage(""), 5000);
-      
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmitMessage("Sorry, there was an error. Please try again later.");
-      
-      // Clear error message after 5 seconds
-      setTimeout(() => setSubmitMessage(""), 5000);
+      toast.error("Something went wrong. Try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -91,18 +71,7 @@ const Footer = () => {
           <h4 className="pb-4 text-4xl font-semibold text-gray-100 font-poppins">
             Subscribe to our newsletter
           </h4>
-          
-          {/* Success/Error Message */}
-          {submitMessage && (
-            <div className={`mb-4 p-3 rounded ${
-              submitMessage.includes('Thank you') 
-                ? 'bg-green-100 text-green-700 border border-green-300' 
-                : 'bg-red-100 text-red-700 border border-red-300'
-            }`}>
-              {submitMessage}
-            </div>
-          )}
-          
+
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 gap-4 mt-5 lg:grid-cols-3"
@@ -113,7 +82,6 @@ const Footer = () => {
               name="firstName"
               placeholder="First Name"
               required
-              aria-required="true"
               value={formData.firstName}
               onChange={handleChange}
               disabled={isSubmitting}
@@ -124,13 +92,12 @@ const Footer = () => {
               name="email"
               placeholder="Email Address"
               required
-              aria-required="true"
               value={formData.email}
               onChange={handleChange}
               disabled={isSubmitting}
               className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200 disabled:opacity-50"
             />
-            <Button 
+            <Button
               type="submit"
               className="h-12 bg-black hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isSubmitting}
@@ -152,23 +119,23 @@ const Footer = () => {
 
             {/* socials */}
             <div className="flex space-x-4 text-gray-600">
-              <a href="https://x.com/LinkedinLocalN" className="p-2 border rounded-full bg-none">
-                <FaTwitter
-                  className="hover:text-blue-400"
-                  aria-label="Twitter"
-                />
+              <a
+                href="https://x.com/LinkedinLocalN"
+                className="p-2 border rounded-full bg-none"
+              >
+                <FaTwitter className="hover:text-blue-400" />
               </a>
-              <a href="https://www.instagram.com/linkedinlocalnigeria/" className="p-2 border rounded-full bg-none">
-                <FaInstagram
-                  className="hover:text-pink-500"
-                  aria-label="Instagram"
-                />
+              <a
+                href="https://www.instagram.com/linkedinlocalnigeria/"
+                className="p-2 border rounded-full bg-none"
+              >
+                <FaInstagram className="hover:text-pink-500" />
               </a>
-              <a href="https://www.linkedin.com/company/linkedin-local-nigeriaa/" className="p-2 border rounded-full bg-none">
-                <FaLinkedinIn
-                  className="hover:text-blue-700"
-                  aria-label="LinkedIn"
-                />
+              <a
+                href="https://www.linkedin.com/company/linkedin-local-nigeriaa/"
+                className="p-2 border rounded-full bg-none"
+              >
+                <FaLinkedinIn className="hover:text-blue-700" />
               </a>
             </div>
           </div>
@@ -198,7 +165,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-5 mt-10 text-sm tracking-wide text-center text-gray-500 border-t font-manrope">
-          &copy;copyrights {new Date().getFullYear()} LinkedIn Local Nigeria.
+          &copy; {new Date().getFullYear()} LinkedIn Local Nigeria.
         </div>
       </Container>
     </footer>
