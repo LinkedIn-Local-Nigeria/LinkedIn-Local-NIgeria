@@ -95,33 +95,38 @@ export function HeroSection() {
 
           <motion.div variants={itemsVariant} className="pb-8">
             <Text size="4" className="font-manrope">
-              <Flex gap="5" align="center">
-                <h3 className="flex items-center gap-2 text-sm font-bold sm:text-xl font-poppins">
+              <div className="flex flex-col items-center text-center lg:flex-row lg:gap-5 lg:text-left">
+                {/* First Item */}
+                <div className="flex items-center gap-2 text-sm font-bold sm:text-xl font-poppins">
                   <img
-                    className="w-3 md:w-full"
+                    className="w-4"
                     src="/world.svg"
                     alt="world icon"
                     loading="lazy"
                   />
                   5000+
-                  <span className="font-normal text-[.625rem] md:text-sm font-manrope">
-                  Changemakers 
+                  <span className="font-normal text-[0.625rem] md:text-sm font-manrope">
+                    Changemakers
                   </span>
-                </h3>
-                <Separator size="2" orientation="vertical" />
-                <h3 className="flex items-center justify-center gap-2 text-sm font-bold whitespace-nowrap sm:text-xl font-poppins">
+                </div>
+
+                {/* Vertical Divider (Only visible on large screens) */}
+                <div className="hidden h-6 mx-2 border-l border-gray-300 lg:block" />
+
+                {/* Second Item */}
+                <div className="flex items-center gap-2 text-sm font-bold sm:text-xl font-poppins">
                   <img
-                    className="w-3 md:w-full"
+                    className="w-4"
                     src="/country.svg"
                     alt="country icon"
                     loading="lazy"
                   />
                   10+
-                  <span className="text-[.625rem] md:text-sm font-normal font-manrope">
-                    World-Class-Speakers
+                  <span className="font-normal text-[0.625rem] md:text-sm font-manrope">
+                    World-Class Speakers
                   </span>
-                </h3>
-              </Flex>
+                </div>
+              </div>
             </Text>
           </motion.div>
 
