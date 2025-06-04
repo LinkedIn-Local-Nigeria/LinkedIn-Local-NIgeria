@@ -49,7 +49,7 @@ const Events = () => {
 
   useEffect(() => {
     const getEvents = async () => {
-      const query = `*[_type == "event"]{
+      const query = `*[_type == "event"] |order(dateAndTime desc){
         title,
         description,
         dateAndTime,
