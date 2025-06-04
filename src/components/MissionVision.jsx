@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-import PlayBtn from '../assets/Play.svg';
+// import PlayBtn from '../assets/Play.svg';
 import ViVid from '../assets/vivid.mp4';
 import Vision from '../assets/vision.svg';
 import { motion } from "framer-motion";
@@ -43,8 +43,8 @@ const itemsVariant = {
 const MissionVision = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [activeAcc, setactiveAcc] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isHovered, setIsHovered] = useState(true);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const [isHovered, setIsHovered] = useState(true);
   const videoRef = useRef(null);
 
   const toggleOpen = (index) => {
@@ -52,18 +52,18 @@ const MissionVision = () => {
     setactiveAcc(index);
   };
 
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play().catch((error) => {
-          console.error("Playback failed:", error);
-        });
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  // const handlePlayPause = () => {
+  //   if (videoRef.current) {
+  //     if (isPlaying) {
+  //       videoRef.current.pause();
+  //     } else {
+  //       videoRef.current.play().catch((error) => {
+  //         console.error("Playback failed:", error);
+  //       });
+  //     }
+  //     setIsPlaying(!isPlaying);
+  //   }
+  // };
 
   const accordions = [
     {
@@ -104,17 +104,19 @@ const MissionVision = () => {
       {/* Video Section */}
       <div
         className="w-full max-h-[470px] aspect-video rounded-xl overflow-hidden shadow mb-14 relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        // onMouseEnter={() => setIsHovered(true)}
+        // onMouseLeave={() => setIsHovered(false)}
       >
         <video
           ref={videoRef}
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full cursor-pointer"
           src={ViVid}
           autoPlay={false}
           playsInline
+          controls
+          controlsList="nodownload"
         />
-        <div
+        {/* <div
           className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 block`}
         >
           <img
@@ -123,15 +125,15 @@ const MissionVision = () => {
             className="cursor-pointer"
             alt="Play Button"
           />
-        </div>
+        </div> */}
 
         {/* Bottom Section with Text */}
-        <div className="absolute bottom-0 left-0 flex items-center justify-center w-full py-12 bg-gradient-to-t from-black to-transparent">
+        {/* <div className="absolute bottom-0 left-0 flex items-center justify-center w-full py-12 bg-gradient-to-t from-black to-transparent">
           <p className="text-[.625rem] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mt-4 mb-[-35px] text-center w-[60%]">
             Empowering professionals on LinkedIn to grow 11x faster with strategic design & development.
           </p>
 
-        </div>
+        </div> */}
       </div>
 
       {/* Mission & Vision Section */}
@@ -157,9 +159,12 @@ const MissionVision = () => {
 
           <motion.p
             className="mb-4 text-sm text-left text-gray-700 md:text-base leading-[1.5]"
-            variants={itemsVariant}>
-            LinkedIn Local is a global movement turning digital connections into real conversations.
-            It’s where professionals step out from behind their profiles and meet in person to build relationships, exchange ideas, and spark meaningful collaboration.
+            variants={itemsVariant}
+          >
+            LinkedIn Local is a global movement turning digital connections into
+            real conversations. It’s where professionals step out from behind
+            their profiles and meet in person to build relationships, exchange
+            ideas, and spark meaningful collaboration.
           </motion.p>
 
           {/* Accordion Section */}
@@ -167,7 +172,7 @@ const MissionVision = () => {
             {accordions.map((item, index) => (
               <motion.div
                 key={index}
-                className={`border-b overflow-hidden ${activeAcc === index ? 'border-[#0076B2]' : 'border-[#0076B21A]'}`}
+                className={`border-b overflow-hidden ${activeAcc === index ? "border-[#0076B2]" : "border-[#0076B21A]"}`}
                 variants={itemsVariant}
               >
                 <h1 className="w-[32px] h-[32px] gap-[6px] pt-[4px] pb-[4px] pl-[12px] rounded-[16px] bg-[#0076B21A] text-[#0076B2]">
@@ -189,14 +194,18 @@ const MissionVision = () => {
                     transition={{ duration: 0.4 }}
                   >
                     {item.type === "list" ? (
-                      <ul className="list-disc ml-6 space-y-1">
+                      <ul className="ml-6 space-y-1 list-disc">
                         {item.text.map((point, i) => (
-                          <li className="text-sm md:text-base" key={i}>{point}</li>
+                          <li className="text-sm md:text-base" key={i}>
+                            {point}
+                          </li>
                         ))}
                       </ul>
                     ) : (
                       item.text.map((paragraph, i) => (
-                        <p key={i} className="mb-2 text-sm md:text-base">{paragraph}</p>
+                        <p key={i} className="mb-2 text-sm md:text-base">
+                          {paragraph}
+                        </p>
                       ))
                     )}
                   </motion.div>
@@ -204,7 +213,6 @@ const MissionVision = () => {
               </motion.div>
             ))}
           </div>
-
         </motion.div>
 
         {/* Vision Section */}
