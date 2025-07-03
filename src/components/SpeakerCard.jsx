@@ -50,9 +50,10 @@ export default function SpeakerCards({ speaker, index = 0 }) {
           className="relative overflow-hidden"
         >
           <img
-            className="object-cover w-full"
+            className="object-cover h-64 w-full"
             src={speaker.image}
             alt={speaker.name}
+            loading="lazy"
           />
 
           {/* Frosted Overlay */}
