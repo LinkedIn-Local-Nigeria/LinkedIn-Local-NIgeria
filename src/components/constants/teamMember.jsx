@@ -123,7 +123,7 @@ export const teamMembers = [
     websiteURL: "https://www.instagram.com/ikennajustingabriel",
     teamImg: "/Gabriel-Ikenna.avif",
     role: "Head, Brand Design",
-    description: "Life is not that deep",
+    description: "I can do all things through Christ who strengthens me",
   },
   {
     name: "Tijesunimi Okunola",
@@ -132,7 +132,7 @@ export const teamMembers = [
     websiteURL: "https://www.instagram.com/okunolatijesunimi_abike",
     teamImg: "/Tijesunimi-Okunola.avif",
     role: "Head, Delegates & Attendes",
-    description: "Life is not that deep",
+    description: "With God, Nothing is Impossible",
   },
   {
     name: "Mayowa Kolawole",

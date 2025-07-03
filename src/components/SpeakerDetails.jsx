@@ -57,7 +57,7 @@ export default function SpeakerDetail() {
           <img
             src={urlFor(speaker.image).url()}
             alt={speaker.name}
-            className="h-[500px] md:-translate-x-4 md:translate-y-4 object-cover w-full"
+            className="object-cover w-full h-full aspect-[3/4] rounded-lg md:-translate-x-4 md:translate-y-4"
             loading="lazy"
           />
         </div>
