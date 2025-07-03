@@ -50,7 +50,7 @@ export function HeroSection() {
         src="/group-pic.png"
         alt="hero image"
         draggable="false"
-        className="absolute w-full -mt-[3rem] sm:-mt-36 md:mt-[-5rem] lg:mt-[-19rem] xl:mt-[-10rem]"
+        className="absolute w-full -mt-[3rem] sm:-mt-36 md:mt-[-5rem] lg:mt-[-19rem]"
         loading="lazy"
         initial={{ y: 0 }}
         whileInView={{ y: -30 }}
