@@ -87,7 +87,7 @@ export function EventInfo() {
               <HiOutlineMapPin className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
             </div>
             <h3 className="text-2xl font-extrabold text-[#0076B2] lg:text-4xl font-poppins">
-              Lagos Nigeria
+              Trinity Towers VI, Lagos.
             </h3>
           </motion.div>
 
@@ -112,7 +112,7 @@ export function EventInfo() {
               <HiOutlineClock className="w-5 h-5 text-[#0076B2] lg:h-8 lg:w-8" />
             </div>
             <h3 className="text-2xl font-extrabold text-[#0076B2] uppercase lg:text-4xl font-poppins">
-              10AM
+              8:00 AM
             </h3>
           </motion.div>
         </div>
