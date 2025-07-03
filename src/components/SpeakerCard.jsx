@@ -47,7 +47,7 @@ export default function SpeakerCards({ speaker, index = 0 }) {
               },
             },
           }}
-          className="relative overflow-hidden"
+          className="relative aspect-[3/4]  overflow-hidden"
         >
           <img
             className="object-cover h-full w-full"
