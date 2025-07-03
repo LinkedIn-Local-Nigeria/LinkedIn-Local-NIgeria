@@ -30,7 +30,7 @@ export default function AllSpeakers() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [currentPage]);
 
 
     if (loading) {
