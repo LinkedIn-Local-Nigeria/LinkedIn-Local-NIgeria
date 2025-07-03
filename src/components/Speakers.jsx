@@ -39,7 +39,7 @@ function SpeakerCard({ data, index }) {
           transition: { duration: 0.8, delay: index * 0.2, ease: "easeOut" },
         },
       }}
-      className="relative overflow-hidden rounded-[1rem] shadow-lg border border-gray-200"
+      className="relative overflow-hidden aspect-[3/4] rounded-[1rem] shadow-lg border border-gray-200"
     >
       <img className="object-cover w-full" src={data.image} alt={data.name} />
 
