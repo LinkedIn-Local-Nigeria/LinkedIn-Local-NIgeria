@@ -41,7 +41,7 @@ function SpeakerCard({ data, index }) {
       }}
       className="relative overflow-hidden rounded-[1rem] shadow-lg border border-gray-200"
     >
-      <img className="object-cover w-full" src={data.image} alt={data.name} />
+      <img className="object-cover h-64 w-full" src={data.image} alt={data.name} />
 
       {/* Frosted Overlay */}
       <motion.div
