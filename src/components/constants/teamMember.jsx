@@ -123,7 +123,7 @@ export const teamMembers = [
     websiteURL: "https://www.instagram.com/ikennajustingabriel",
     teamImg: "/Gabriel-Ikenna.avif",
     role: "Head, Brand Design",
-    description: "I can do all things through christ who strengthes me",
+    description: "I can do all things through Christ who strengthens me",
   },
   {
     name: "Tijesunimi Okunola",
