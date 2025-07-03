@@ -1,9 +1,13 @@
 import { useRef, useState } from "react";
 
-// import PlayBtn from '../assets/Play.svg';
 import ViVid from '../assets/vivid.mp4';
-import Vision from '../assets/vision.svg';
+import Vision from '/vision.png';
 import { motion } from "framer-motion";
+
+// import PlayBtn from '../assets/Play.svg';
+
+
+
 
 // Animation Variants
 

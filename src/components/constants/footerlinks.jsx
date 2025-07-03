@@ -11,7 +11,7 @@ export const footerLinks = [
   {
     title: "HELP",
     links: [
-      { label: "Terms & Conditions", href: "/terms-of-use" },
+      { label: "Terms Of Use", href: "/terms-of-use" },
       { label: "Privacy Policy", href: "/privacy-policy" },
     ],
   },

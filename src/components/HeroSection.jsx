@@ -47,7 +47,7 @@ export function HeroSection() {
       <WorldMap dots={mapdots} className="relative" />
 
       <motion.img
-        src="/people.avif"
+        src="/group-pic.png"
         alt="hero image"
         draggable="false"
         className="absolute w-full -mt-[3rem] sm:-mt-36 md:mt-[-5rem] lg:mt-[-19rem] xl:mt-[-10rem]"
