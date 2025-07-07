@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import SpeakerCards from "./SpeakerCard";
-import sanityClient from '../sanity/sanityClient'
+import sanityClient from "../sanity/sanityClient";
 import { speakersQuery } from "./lib/queries";
 
 export default function AllSpeakers() {
@@ -9,16 +9,17 @@ export default function AllSpeakers() {
   const [speakerData, setSpeakerData] = useState([]);
   const [loading, setLoading] = useState(true);
   const speakersPerPage = 9;
+  const topRef = useRef(null); 
 
   useEffect(() => {
     const getSpeakers = async () => {
       try {
         const res = await sanityClient.fetch(speakersQuery);
-        console.table(res)
+        console.table(res);
         setSpeakerData(res);
       } catch (err) {
         console.error("Error fetching speakers:", err);
-      }finally {
+      } finally {
         setLoading(false);
       }
     };
@@ -26,25 +27,28 @@ export default function AllSpeakers() {
     getSpeakers();
   }, []);
 
-
-
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, [currentPage]);
 
-
-    if (loading) {
+  if (loading) {
     return (
-      <p className="pt-20 text-center text-gray-500">Loading speaker details...</p>
+      <p className="pt-20 text-center text-gray-500">
+        Loading speaker details...
+      </p>
     );
   }
 
-if (!loading && speakerData.length === 0) {
-  return (
-    <p className="pt-20 text-center text-red-500">No speakers found.</p>
-  );
-}
-  
+  if (!loading && speakerData.length === 0) {
+    return (
+      <p className="pt-20 text-center text-red-500">No speakers found.</p>
+    );
+  }
+
   const indexOfLastSpeaker = currentPage * speakersPerPage;
   const indexOfFirstSpeaker = indexOfLastSpeaker - speakersPerPage;
   const currentSpeakers = speakerData.slice(
@@ -55,6 +59,8 @@ if (!loading && speakerData.length === 0) {
 
   return (
     <div className="px-6 py-40 lg:px-24">
+      <div ref={topRef} className="h-0" />
+
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {currentSpeakers.map((speaker) => (
           <SpeakerCards key={speaker._id} speaker={speaker} />
@@ -72,6 +78,7 @@ if (!loading && speakerData.length === 0) {
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-800 hover:bg-gray-300"
               }`}
+              aria-label={`Go to page ${index + 1}`}
             >
               {index + 1}
             </button>

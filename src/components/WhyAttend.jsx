@@ -40,7 +40,7 @@ export default function WhyAttend() {
       {/* Title Section */}
       <div className="flex flex-col items-center justify-center gap-4">
         <motion.h3
-          className="font-poppins text-[#0076B2] font-bold text-3xl md:text-[3.125rem] leading-[1.2]"
+          className="font-poppins text-[#0076B2] font-bold text-2xl sm:text-3xl md:text-[3.125rem] leading-[1.2]"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, type: "spring", stiffness: 80 }}
