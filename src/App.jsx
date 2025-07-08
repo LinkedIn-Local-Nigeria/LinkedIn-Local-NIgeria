@@ -9,6 +9,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import SanityStudio from './components/SanityStudio'
 import SpeakerDetail from './components/SpeakerDetails'
 import TermsOfuse from "./components/TermsOfuse";
+import Blog from './components/Blog'
 
 function App() {
   return (
@@ -53,6 +54,10 @@ function App() {
               <SpeakerDetail />
             </Layout>
           }
+        />
+        <Route
+          path='/blog'
+          element={<Blog />}
         />
 
         {/* Sanity CMS dashboard */}
