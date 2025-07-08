@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Container from "./ui/Container";
 import BlogImg1 from "../assets/business.png";
-import NavBar from "./NavBar";
+import BlogNavBar from "./BlogNavBar";
 import Footer from "./Footer";
 
 // Placeholder images
@@ -33,7 +33,7 @@ const blogPosts = [
 const Blog = () => {
   return (
     <div className="bg-white min-h-screen w-full">
-      <NavBar />
+      <BlogNavBar />
       <div className="pt-24"> {/* Add top padding to account for fixed NavBar */}
         <section className="py-16">
           <div className="max-w-screen-xl mx-auto px-2">
@@ -53,7 +53,7 @@ const Blog = () => {
               </div>
               {/* Right: Image */}
               <div className="flex justify-center md:-ml-16">
-                <img src={BlogImg1} alt="LinkedIn" style={{ width: 1000, height: 350 }} className="rounded-xl object-cover max-w-full" />
+                <img src="/images/first_blog.png" alt="LinkedIn" style={{ width: 1000, height: 350 }} className="rounded-xl object-cover max-w-full" />
               </div>
             </div>
           </div>
