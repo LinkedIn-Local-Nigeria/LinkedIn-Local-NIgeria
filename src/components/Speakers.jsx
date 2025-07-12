@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import PropTypes from "prop-types";
 import sanityClient from '../sanity/sanityClient'
+import slugify from "slugify";
 import { speakersQuery } from "./lib/queries";
 
 function SpeakerCard({ data, index }) {
@@ -27,60 +28,73 @@ function SpeakerCard({ data, index }) {
   }, [fadeControls, glassControls, hasAnimated, isInView]);
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={fadeControls}
-      variants={{
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.8, delay: index * 0.2, ease: "easeOut" },
-        },
-      }}
-      className="relative overflow-hidden aspect-[3/4] rounded-[1rem] shadow-lg border border-gray-200"
-    >
-      <img className="object-cover w-full h-full" src={data.image} alt={data.name} />
-
-      {/* Frosted Overlay */}
-      <motion.div
-        className="absolute inset-0 z-20 bg-white/10 backdrop-blur-md"
-        initial="frosted"
-        animate={glassControls}
-        variants={{
-          frosted: { opacity: 1 },
-          clear: {
-            opacity: 0,
-            transition: {
-              delay: 0.5 + index * 0.2,
-              duration: 1.5,
-              ease: "easeInOut",
+    <div className="block">
+      {/* Wrap the entire card in a Link to speaker details */}
+      <Link
+        to={`/speaker/${slugify(data.name, { lower: true })}`}
+        className="relative block"
+      >
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={fadeControls}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: index * 0.2, ease: "easeOut" },
             },
-          },
-        }}
-      />
-
-      {/* Gradient & Content */}
-      <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black/70 to-transparent z-10 pointer-events-none">
-        <div className="flex flex-col mb-5">
-          <h3 className="ml-5 text-2xl font-bold text-left text-white font-poppins">
-            {data.name}
-          </h3>
-          <p className="ml-5 text-sm text-left text-white font-manrope">
-            {data.role}
-          </p>
-        </div>
-        <Link
-          to={data.linkedinUrl || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${data.name}'s LinkedIn profile`}
+          }}
+          className="relative overflow-hidden aspect-[3/4] rounded-[1rem] shadow-lg border border-gray-200"
         >
-          <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white pointer-events-auto" />
-        </Link>
-      </div>
-    </motion.div>
+          <img className="object-cover w-full h-full" src={data.image} alt={data.name} />
+
+          {/* Frosted Overlay */}
+          <motion.div
+            className="absolute inset-0 z-20 bg-white/10 backdrop-blur-md"
+            initial="frosted"
+            animate={glassControls}
+            variants={{
+              frosted: { opacity: 1 },
+              clear: {
+                opacity: 0,
+                transition: {
+                  delay: 0.5 + index * 0.2,
+                  duration: 1.5,
+                  ease: "easeInOut",
+                },
+              },
+            }}
+          />
+
+          {/* Gradient & Content */}
+          <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black/70 to-transparent z-10">
+            <div className="flex flex-col mb-5">
+              <h3 className="ml-5 text-2xl font-bold text-left text-white font-poppins">
+                {data.name}
+              </h3>
+              <p className="ml-5 text-sm text-left text-white font-manrope">
+                {data.role}
+              </p>
+            </div>
+            {/* LinkedIn link - needs to prevent event bubbling */}
+            {data.linkedinUrl && (
+              <a
+                href={data.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${data.name}'s LinkedIn profile`}
+                onClick={(e) => e.stopPropagation()} // Prevent navigation to speaker details
+                className="relative z-30"
+              >
+                <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white" />
+              </a>
+            )}
+          </div>
+        </motion.div>
+      </Link>
+    </div>
   );
 }
 
@@ -101,7 +115,6 @@ export default function Speakers() {
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, { once: true, threshold: 0.3 });
   const controls = useAnimation();
-
 
   useEffect(() => {
     const getSpeakers = async () => {
@@ -168,10 +181,8 @@ export default function Speakers() {
           >
             No speakers available at the moment. Please check back later.
           </motion.div>
-
         )}
       </div>
-
 
       <motion.div
         whileHover={{ scale: 1.05 }}

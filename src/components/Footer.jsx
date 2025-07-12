@@ -19,7 +19,7 @@ const Footer = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxqnSCngwQ7llqZ8ZtBEgxpMxaWDIPgGqtT-j_pyvdWODlR_0zvk9znDvFYCjvk5owxvA/exec";
+    "https://script.google.com/macros/s/AKfycbwQOoz486dNB4bV7BjM4RaGJ7d4kDSJuMSa7Qw8BFs0FoWsYichBps8y1IoYf6O36I5GQ/exec";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,28 +38,67 @@ const Footer = () => {
     }
 
     setIsSubmitting(true);
+    console.log('=== REACT FORM DEBUG START ===');
+    console.log('Form data to submit:', formData);
 
-    try {
-      const formDataToSend = new URLSearchParams();
-      formDataToSend.append("firstName", formData.firstName);
-      formDataToSend.append("email", formData.email);
-
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formDataToSend,
-        mode: "no-cors",
-      });
+    try {      
+      setTimeout(async () => {
+        try {
+          console.log('Trying body URLSearchParams as backup...');
+          
+          const bodyParams = new URLSearchParams();
+          bodyParams.append("firstName", formData.firstName.trim());
+          bodyParams.append("email", formData.email.trim());
+          
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: bodyParams,
+            mode: "no-cors",
+          });
+          
+          console.log('Body URLSearchParams method completed');
+          
+        } catch (bodyError) {
+          console.error('Body method error:', bodyError);
+        }
+      }, 500);
 
       toast.success("Thank you for subscribing!");
       setFormData({ firstName: "", email: "" });
+      console.log('✅ Form submission completed successfully');
+
     } catch (error) {
-      console.error("Submission error:", error);
-      toast.error("Something went wrong. Try again later.");
+      console.error("❌ Primary submission error:", error);
+      
+      try {
+        console.log('Trying manual form construction...');
+        
+        const manualBody = `firstName=${encodeURIComponent(formData.firstName.trim())}&email=${encodeURIComponent(formData.email.trim())}`;
+        console.log('Manual body:', manualBody);
+        
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: manualBody,
+          mode: "no-cors",
+        });
+        
+        console.log('Manual form construction completed');
+        toast.success("Thank you for subscribing!");
+        setFormData({ firstName: "", email: "" });
+        
+      } catch (manualError) {
+        console.error("Manual form construction error:", manualError);
+        toast.error("Something went wrong. Please try again later.");
+      }
     } finally {
       setIsSubmitting(false);
+      console.log('=== REACT FORM DEBUG END ===');
     }
   };
 
@@ -107,7 +146,6 @@ const Footer = () => {
           </form>
         </div>
 
-        {/* Footer Main Section */}
         <div className="flex flex-col justify-between gap-20 mx-auto my-10 lg:my-24 lg:flex-row">
           <div className="flex flex-col items-start space-y-4">
             <a
@@ -117,7 +155,6 @@ const Footer = () => {
               LLN &apos;25
             </a>
 
-            {/* socials */}
             <div className="flex space-x-4 text-gray-600">
               <a
                 href="https://x.com/LinkedinLocalN"
@@ -140,7 +177,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Footer Links */}
           <div className="grid gap-10 text-left lg:gap-40 sm:grid-cols-2 md:col-span-3 md:grid-cols-3">
             {footerLinks.map((section, idx) => (
               <div key={idx}>

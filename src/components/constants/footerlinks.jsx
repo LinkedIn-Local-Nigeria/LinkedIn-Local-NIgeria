@@ -2,10 +2,10 @@ export const footerLinks = [
   {
     title: "USEFUL LINKS",
     links: [
-      { label: "About Us", href: "#about" },
-      { label: "Speakers", href: "#speakers" },
-      { label: "Teams", href: "#teams" },
-      { label: "FAQs", href: "#faqs" },
+      { label: "About Us", href: "/#about" },
+      { label: "Speakers", href: "/#speakers" },
+      { label: "Teams", href: "/#teams" },
+      { label: "FAQs", href: "/#faqs" },
     ],
   },
   {

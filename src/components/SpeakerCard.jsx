@@ -1,9 +1,10 @@
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { useEffect, useRef, useState } from "react";
+
 import { Link } from "react-router-dom";
-import slugify from "slugify";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
+import PropTypes from "prop-types";
+import slugify from "slugify";
 
 export default function SpeakerCards({ speaker, index = 0 }) {
   const ref = useRef(null);
@@ -26,7 +27,6 @@ export default function SpeakerCards({ speaker, index = 0 }) {
 
   return (
     <div className="block">
-      {/* Internal Navigation */}
       <Link
         to={`/speaker/${slugify(speaker.name, { lower: true })}`}
         className="relative block"
@@ -50,13 +50,12 @@ export default function SpeakerCards({ speaker, index = 0 }) {
           className="relative aspect-[3/4] rounded-[1rem] overflow-hidden"
         >
           <img
-            className="object-cover h-full w-full"
+            className="object-cover w-full h-full"
             src={speaker.image}
             alt={speaker.name}
             loading="lazy"
           />
 
-          {/* Frosted Overlay */}
           <motion.div
             className="absolute inset-0 z-20 bg-white/10 backdrop-blur-md"
             initial="frosted"
@@ -74,7 +73,6 @@ export default function SpeakerCards({ speaker, index = 0 }) {
             }}
           />
 
-          {/* Gradient & Content */}
           <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64  rounded-[25px] bg-gradient-to-t from-black/70 to-transparent z-10">
             <div className="flex flex-col mb-5">
               <h3 className="ml-5 text-2xl font-bold text-left text-white font-poppins">
@@ -84,7 +82,6 @@ export default function SpeakerCards({ speaker, index = 0 }) {
                 {speaker.role}
               </p>
             </div>
-            {/* External LinkedIn URL */}
             {speaker.linkedinUrl && (
               <a
                 href={speaker.linkedinUrl}
