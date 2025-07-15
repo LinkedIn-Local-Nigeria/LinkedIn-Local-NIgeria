@@ -131,7 +131,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.a
-            href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75"
+            href="https://tix.africa/discover/lln25"
             target="_blank"
             rel="noopener noreferrer"
             variants={itemsVariant}
