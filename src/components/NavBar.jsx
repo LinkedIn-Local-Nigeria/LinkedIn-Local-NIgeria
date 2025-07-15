@@ -70,7 +70,7 @@ const Navbar = () => {
 
           {/* CTA Desktop Button */}
           <a 
-            href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75" 
+            href="https://tix.africa/discover/lln25" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hidden lg:inline-block"
@@ -162,7 +162,7 @@ const Navbar = () => {
 
         {/* CTA mobile Button */}
         <a 
-          href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75" 
+          href="https://tix.africa/discover/lln25" 
           target="_blank" 
           rel="noopener noreferrer"
           className="block w-full mt-2"
