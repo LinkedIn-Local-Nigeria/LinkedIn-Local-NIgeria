@@ -28,7 +28,7 @@ const Cta = () => {
 
       {/* CTA Button wrapped in styled anchor */}
       <a 
-        href="https://www.zikoro.com/live-events/b8f110c0f42a4fee8f75" 
+        href="https://tix.africa/discover/lln25" 
         target="_blank" 
         rel="noopener noreferrer"
         className="w-full  mt-4 lg:w-[150px] lg:mt-0 flex"
