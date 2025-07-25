@@ -1,13 +1,14 @@
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import { Link } from "react-router-dom";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import PropTypes from "prop-types";
 import slugify from "slugify";
+import { useNavigate } from "react-router-dom";
 
 export default function SpeakerCards({ speaker, index = 0 }) {
   const ref = useRef(null);
+  const navigate = useNavigate();
   const isInView = useInView(ref, { threshold: 0.3 });
   const [hasAnimated, setHasAnimated] = useState(false);
   const fadeControls = useAnimation();
@@ -25,11 +26,23 @@ export default function SpeakerCards({ speaker, index = 0 }) {
     }
   }, [isInView, hasAnimated, fadeControls, glassControls]);
 
+  const handleCardClick = (e) => {
+    // Don't navigate if clicking on LinkedIn link
+    if (!e.target.closest('[data-linkedin-link]')) {
+      navigate(`/speaker/${slugify(speaker.name, { lower: true })}`);
+    }
+  };
+
+  const handleLinkedInClick = (e) => {
+    // Prevent the card click event from firing
+    e.stopPropagation();
+  };
+
   return (
     <div className="block">
-      <Link
-        to={`/speaker/${slugify(speaker.name, { lower: true })}`}
-        className="relative block"
+      <div
+        className="relative block cursor-pointer"
+        onClick={handleCardClick}
       >
         <motion.div
           ref={ref}
@@ -88,13 +101,16 @@ export default function SpeakerCards({ speaker, index = 0 }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${speaker.name}'s LinkedIn profile`}
+                data-linkedin-link
+                onClick={handleLinkedInClick}
+                className="relative z-30"
               >
-                <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white" />
+                <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white hover:text-blue-300 transition-colors" />
               </a>
             )}
           </div>
         </motion.div>
-      </Link>
+      </div>
     </div>
   );
 }

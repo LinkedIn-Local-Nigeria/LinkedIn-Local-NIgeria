@@ -1,8 +1,108 @@
+// import { Flex, Text } from "@radix-ui/themes";
+
+// import Button from "./ui/Button";
+// import { LinkedInLogoIcon } from "@radix-ui/react-icons";
+// import  WorldMap  from "./ui/WorldMap";
+// import { mapdots } from "./constants/mapdots";
+// import { memo } from "react";
+// import { motion } from "framer-motion";
+
+// const containerVariant = {
+//   hidden: { opacity: 0 },
+//   visible: { opacity: 1, transition: { duration: 0.6 } },
+// };
+
+// const itemsVariant = {
+//   hidden: { opacity: 0 },
+//   visible: { opacity: 1, transition: { duration: 0.5 } },
+// };
+
+// const HeroSection = memo(() => {
+//   return (
+//     <motion.div
+//       variants={containerVariant}
+//       initial="hidden"
+//       animate="visible"
+//       className="relative"
+//     >
+//       <WorldMap dots={mapdots} className="relative" />
+//       <motion.img
+//         src="/group-pic.webp"
+//         alt="hero image"
+//         draggable="false"
+//         width="1056"
+//         height="495"
+//         className="absolute w-full -mt-[4rem] sm:-mt-40 lg:mt-[-19rem]"
+//       />
+//       <motion.div
+//         className="flex flex-col items-center justify-center px-4 pt-20 pb-20 mx-auto text-center sm:pt-40 md:pt-44 lg:pt-40 xl:pt-48"
+//         variants={containerVariant}
+//       >
+//         <motion.p
+//           variants={itemsVariant}
+//           className="flex items-center gap-2 px-6 py-1 mb-4 text-sm font-light border border-gray-200 rounded font-manrope"
+//         >
+//           You're welcome to
+//           <img src="/check.svg" alt="check icon" width="16" height="16" />
+//         </motion.p>
+//         <motion.h1
+//           variants={itemsVariant}
+//           className="flex flex-wrap items-center justify-center mt-5 space-x-2 text-2xl font-bold text-center text-[#0076B2] font-poppins md:text-5xl"
+//         >
+//           <span className="flex items-center">
+//             Linked
+//             <LinkedInLogoIcon className="text-[#0076B2] h-7 w-7 md:h-14 md:w-14" />
+//           </span>
+//           <span>Local Nigeria</span>
+//         </motion.h1>
+//         <div className="flex flex-col items-center justify-center w-full gap-4 mt-5">
+//           <motion.p
+//             variants={itemsVariant}
+//             className="max-w-xl mx-auto text-sm font-normal font-manrope md:text-lg text-neutral-500"
+//           >
+//             Evolving Beyond the Narrative: An opportunity to connect, learn, and grow with professionals who are shaping the future.
+//           </motion.p>
+//           <motion.div variants={itemsVariant} className="pb-8">
+//             <Text size="4" className="font-manrope">
+//               <div className="flex flex-col items-center text-center lg:flex-row lg:gap-5 lg:text-left">
+//                 <div className="flex items-center gap-2 text-sm font-bold sm:text-xl font-poppins">
+//                   <img className="w-4" src="/world.svg" alt="world icon" width="16" height="16" />
+//                   5000+
+//                   <span className="font-normal text-[0.625rem] md:text-sm font-manrope">Changemakers</span>
+//                 </div>
+//                 <div className="hidden h-6 mx-2 border-l border-gray-300 lg:block" />
+//                 <div className="flex items-center gap-2 text-sm font-bold sm:text-xl font-poppins">
+//                   <img className="w-4" src="/country.svg" alt="country icon" width="16" height="16" />
+//                   10+
+//                   <span className="font-normal text-[0.625rem] md:text-sm font-manrope">World-Class Speakers</span>
+//                 </div>
+//               </div>
+//             </Text>
+//           </motion.div>
+//           <motion.a
+//             href="https://tix.africa/discover/lln25"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             variants={itemsVariant}
+//             className="inline-block"
+//           >
+//             <Button className="w-[300px]">Get your ticket</Button>
+//           </motion.a>
+//         </div>
+//       </motion.div>
+//     </motion.div>
+//   );
+// });
+
+// HeroSection.displayName = "HeroSection";
+
+// export default HeroSection;
+
 import { Flex, Separator, Text } from "@radix-ui/themes";
 
 import Button from "./ui/Button";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { WorldMap } from "./ui/WorldMap";
+import WorldMap  from "./ui/WorldMap";
 import { mapdots } from "./constants/mapdots";
 import { motion } from "framer-motion";
 
@@ -35,7 +135,7 @@ const pageTransition = {
 };
 
 
-export function HeroSection() {
+export default function HeroSection() {
   return (
     <motion.div
       variants={pageTransition}

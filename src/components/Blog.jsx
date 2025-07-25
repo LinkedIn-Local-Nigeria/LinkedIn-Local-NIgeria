@@ -1,13 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Container from "./ui/Container";
 import BlogImg1 from "../assets/people.png";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-
-// Placeholder images
 import BlogImg2 from "../assets/possible.png";
 import BlogImg3 from "../assets/throwback.png";
+import Container from "./ui/Container";
+import Footer from "./Footer";
+import { Link } from "react-router-dom";
+import NavBar from "./NavBar";
+
+// Placeholder images
+
+
 
 const blogPosts = [
   {
@@ -34,19 +35,18 @@ const Blog = () => {
   return (
     <div className="bg-white min-h-screen w-full">
       <NavBar />
-      <div className="pt-24"> {/* Add top padding to account for fixed NavBar */}
+      <div className="pt-24"> 
         <section className="py-16">
           <div className="max-w-screen-xl mx-auto px-4">
             <div
               className="grid grid-cols-1 md:grid-cols-2 items-center"
               style={{ gap: 57 }}
             >
-              {/* Left: Text */}
               <div
                 style={{ width: 569, height: 368, borderRadius: 9.22 }}
                 className="flex flex-col justify-center text-left -mt-16 ml-16"
               >
-                <h1 className="text-4xl md:text-6xl font-extrabold text-[#1790D0] leading-tight mb-4 text-left">
+                <h1 className="md:text-5xl font-extrabold text-[#1790D0] leading-tight mb-4 text-left">
                   Your Front Row Seat <br />
                   to Nigeria’s Career <br />
                   Evolution

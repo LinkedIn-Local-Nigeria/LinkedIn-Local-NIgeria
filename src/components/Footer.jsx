@@ -38,13 +38,10 @@ const Footer = () => {
     }
 
     setIsSubmitting(true);
-    console.log('=== REACT FORM DEBUG START ===');
-    console.log('Form data to submit:', formData);
 
     try {      
       setTimeout(async () => {
         try {
-          console.log('Trying body URLSearchParams as backup...');
           
           const bodyParams = new URLSearchParams();
           bodyParams.append("firstName", formData.firstName.trim());
@@ -59,7 +56,6 @@ const Footer = () => {
             mode: "no-cors",
           });
           
-          console.log('Body URLSearchParams method completed');
           
         } catch (bodyError) {
           console.error('Body method error:', bodyError);

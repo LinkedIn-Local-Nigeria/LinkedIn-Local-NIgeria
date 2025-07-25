@@ -1,10 +1,9 @@
-import {  Studio } from "sanity";
-import config from "../sanity/sanity.config"
+import { Studio } from "sanity";
+import config from "../sanity/sanity.config";
+import { memo } from "react";
 
 const SanityStudio = () => {
-  return (
-    <Studio config={config} id={'app'} />
-  )
-}
+  return <Studio config={config} id="sanity-studio" />;
+};
 
-export default SanityStudio
+export default memo(SanityStudio);

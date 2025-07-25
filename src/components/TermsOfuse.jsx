@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 
-import { WorldMap } from "./ui/WorldMap";
-import { mapdots } from "./constants/mapdots";
+import WorldMap  from "./ui/WorldMap";
 
 const sections = [
   "Information We Collect",
