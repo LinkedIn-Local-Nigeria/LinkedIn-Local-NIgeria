@@ -3,12 +3,15 @@ import './App.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
-import Home from './components/Home';
 import Layout from './components/ui/Layout';
 import ScrollToHashElement from './components/lib/ScrollToHashElement';
 
-// const Home = lazy(() => import('./components/Home'));
-const Blog = lazy(() => import('./components/Blog'));
+// import Home from './components/Home';
+
+
+
+const Home = lazy(() => import('./components/Home'));
+// const Blog = lazy(() => import('./components/Blog'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const TermsOfUse = lazy(() => import('./components/TermsOfuse'));
 const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
