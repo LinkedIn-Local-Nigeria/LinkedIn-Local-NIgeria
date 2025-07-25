@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "generate-map": "node generate-map.js",
-    "build": "vite build && npm run generate-map && npm run build:sanity",
+    "build": "npm install --legacy-peer-deps && vite build && npm run generate-map && npm run build:sanity",
     "build:sanity": "node build-sanity.js",
     "lint": "eslint .",
     "postinstall": "npm install --legacy-peer-deps",
