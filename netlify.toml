@@ -6,6 +6,7 @@
 [build.environment]
   NODE_VERSION = "18"
   GO_VERSION = "1.19"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 
 # Enables Single Page App (SPA) routing (if needed)
