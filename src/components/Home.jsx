@@ -5,57 +5,60 @@ import { Suspense, lazy, memo } from "react";
 import Container from "./ui/Container";
 import { EventInfo } from "./EventInfo";
 import { Helmet } from "react-helmet-async";
-import HeroSection  from "./HeroSection";
+import HeroSection from "./HeroSection";
 import PropTypes from "prop-types";
 import Section from "./ui/Section";
 
+// Lazy load components with better error handling
 const BelowFoldContent = lazy(() =>
   import("../components/BelowFoldContent").then((module) => ({
     default: module.default || module.BelowFoldContent,
+  })).catch(() => ({
+    default: () => <div>Error loading content</div>
   }))
 );
 
 const Speakers = lazy(() =>
   import("../components/Speakers").then((module) => ({
     default: module.default || module.Speakers,
-  }))
-);
-const TeamSection = lazy(() =>
-  import("../components/TeamSection").then((module) => ({
-    default: module.default || module.TeamSection,
+  })).catch(() => ({
+    default: () => <div>Error loading speakers</div>
   }))
 );
 
-const SectionSkeleton = memo(({ height = "h-64" }) => (
-  <div className={`bg-gray-100 animate-pulse rounded-lg ${height}`} />
+const TeamSection = lazy(() =>
+  import("../components/TeamSection").then((module) => ({
+    default: module.default || module.TeamSection,
+  })).catch(() => ({
+    default: () => <div>Error loading team</div>
+  }))
+);
+
+// Enhanced skeleton with better UX
+const SectionSkeleton = memo(({ height = "h-64", className = "" }) => (
+  <div className={`bg-gray-100 animate-pulse rounded-lg ${height} ${className}`}>
+    <div className="flex items-center justify-center h-full">
+      <div className="text-sm text-gray-400">Loading...</div>
+    </div>
+  </div>
 ));
 
 SectionSkeleton.displayName = "SectionSkeleton";
 SectionSkeleton.propTypes = {
   height: PropTypes.string,
+  className: PropTypes.string,
 };
 
+// Remove duplicate SEO - it's already in HTML
 const SEOHead = memo(() => (
   <Helmet>
-    <title>LinkedIn Local Nigeria 2025 | We Gather, We Learn, We Evolve</title>
-    <meta
-      name="description"
-      content="Join Nigeria's largest professional networking event. Connect with industry leaders, entrepreneurs, and innovators at LinkedIn Local Nigeria 2025."
-    />
-    <meta
-      name="keywords"
-      content="LinkedIn Local Nigeria, professional networking, business event Nigeria, career development, entrepreneurs Nigeria, LinkedIn event"
-    />
+    {/* Only add dynamic/page-specific meta tags here */}
     <meta name="robots" content="index, follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0076B2" />
-    <link rel="canonical" href="https://linkedinlocalnigeria.com/" />
-    <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="preload" href="/group-pic.webp" as="image" />
     <link rel="preload" href="/world-map.svg" as="image" />
   </Helmet>
 ));
 
+// Optimize sections for better performance
 const HeroSectionWrapper = memo(() => (
   <Section id="about" background="bg-[#FDFDFD]">
     <HeroSection />
