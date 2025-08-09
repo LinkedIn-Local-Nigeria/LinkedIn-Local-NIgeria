@@ -9,6 +9,8 @@ const navLinks = [
   { id: 2, label: "Speakers", href: "/#speakers" },
   { id: 3, label: "Teams", href: "/#teams" },
   { id: 4, label: "FAQs", href: "/#faqs" },
+  { id: 5, label: "Blog", href: "/blog" },
+
 ];
 
 const Navbar = () => {

@@ -1,29 +1,25 @@
-import './App.css';
+import "./App.css";
 
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import Blog from "./components/Blog";
+import Home from "./components/Home";
+import Layout from "./components/ui/Layout";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import ScrollToHashElement from "./components/lib/ScrollToHashElement";
+import TermsOfUse from "./components/TermsOfUse";
+import BlogDetail from "./components/BlogDetail";
 
-
-import AllSpeakers from './components/AllSpeakers'
-import SanityStudio from './components/SanityStudio'
-import SpeakerDetail from './components/SpeakerDetails'
-import Blog from './components/Blog'
-import Home from './components/Home';
-import Layout from './components/ui/Layout';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import ScrollToHashElement from './components/lib/ScrollToHashElement';
-import TermsOfUse from './components/TermsOfuse';
-
-const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
-const SpeakerDetail = lazy(() => import('./components/SpeakerDetails'));
-const SanityStudio = lazy(() => import('./components/SanityStudio'));
+const AllSpeakers = lazy(() => import("./components/AllSpeakers"));
+const SpeakerDetail = lazy(() => import("./components/SpeakerDetails"));
+const SanityStudio = lazy(() => import("./components/SanityStudio"));
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
             <Layout>
               <Home />
@@ -31,15 +27,15 @@ function App() {
           }
         />
         <Route
-          path='/terms-of-use'
+          path="/terms-of-use"
           element={
             <Layout>
-              <TermsOfuse />
+              <TermsOfUse />
             </Layout>
           }
         />
         <Route
-          path='/privacy-policy'
+          path="/privacy-policy"
           element={
             <Layout>
               <PrivacyPolicy />
@@ -47,7 +43,7 @@ function App() {
           }
         />
         <Route
-          path='/AllSpeakers'
+          path="/AllSpeakers"
           element={
             <Layout>
               <AllSpeakers />
@@ -55,29 +51,26 @@ function App() {
           }
         />
         <Route
-          path='/speaker/:slug'
+          path="/speaker/:slug"
           element={
             <Layout>
               <SpeakerDetail />
             </Layout>
           }
         />
-        <Route
-          path='/blog'
-          element={<Blog />}
-        />
+        <Route path="/blog" element={<Blog />} />
 
         {/* Sanity CMS dashboard */}
-        <Route path='/studio/*' element={<SanityStudio />} />
+        <Route path="/studio/*" element={<SanityStudio />} />
       </Routes>
-      <ScrollToHashElement /> 
+      <ScrollToHashElement />
       <Suspense fallback={<p className="mt-20 text-center">Loading...</p>}>
         <Routes>
           <Route
-            path="/"
+            path="/blog/:slug"
             element={
               <Layout>
-                <Home />
+                <BlogDetail />
               </Layout>
             }
           />
@@ -118,10 +111,7 @@ function App() {
             path="*"
             element={
               <Layout>
-                <div className="mt-20 text-center text-gray-600">
-                  <h1 className="text-3xl font-semibold">404</h1>
-                  <p>Page not found</p>
-                </div>
+                <div className="mt-20 text-center text-gray-600"></div>
               </Layout>
             }
           />
