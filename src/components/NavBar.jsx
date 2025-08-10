@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import Button from "./ui/Button";
+import CountdownMarquee from "./ui/Marquee";
 import { HashLink } from 'react-router-hash-link';
 import { motion } from "framer-motion";
 
@@ -41,8 +42,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed z-50 w-full border-b border-gray-200 bg-opacity-10 backdrop-blur-md">
-        <div className="lg:px-[6.25rem] flex items-center justify-between max-w-7xl container px-6 py-4">
+      <nav className="fixed z-50 w-full border-b border-gray-200 bg-opacity-10 backdrop-blur-md mx-auto max-w-7xl">
+        <CountdownMarquee />
+        
+        <div className="lg:px-[6.25rem] mt-8 flex items-center justify-between max-w-7xl container px-6 py-4">
           <a
             href="/"
             className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
