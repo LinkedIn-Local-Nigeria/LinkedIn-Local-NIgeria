@@ -1,17 +1,18 @@
 import "./App.css";
 
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
-import Blog from './components/Blog'
-import Home from './components/Home';
-import Layout from './components/ui/Layout';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import ScrollToHashElement from './components/lib/ScrollToHashElement';
-import TermsOfUse from './components/TermsOfUse';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import Blog from "./components/Blog";
+import Home from "./components/Home";
+import Layout from "./components/ui/Layout";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import ScrollToHashElement from "./components/lib/ScrollToHashElement";
+import TermsOfUse from "./components/TermsOfUse";
+import BlogDetail from "./components/BlogDetail"; 
 
-const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
-const SpeakerDetail = lazy(() => import('./components/SpeakerDetails'));
-const SanityStudio = lazy(() => import('./components/SanityStudio'));
+const AllSpeakers = lazy(() => import("./components/AllSpeakers"));
+const SpeakerDetail = lazy(() => import("./components/SpeakerDetails"));
+const SanityStudio = lazy(() => import("./components/SanityStudio"));
 
 function App() {
   return (
@@ -59,7 +60,7 @@ function App() {
         />
         <Route path="/blog" element={<Blog />} />
 
-        {/* Sanity CMS dashboard */}
+        {/* Sanity CMS dashboard ? */}
         <Route path="/studio/*" element={<SanityStudio />} />
       </Routes>
       <ScrollToHashElement />
