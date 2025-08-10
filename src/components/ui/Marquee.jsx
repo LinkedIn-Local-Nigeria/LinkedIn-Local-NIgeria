@@ -53,16 +53,21 @@ const CountdownMarquee = () => {
   }, []);
 
   const wittyMessages = [
-    `🎟️ LLN '25: ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m left! Your FOMO is showing... Buy tickets before they disappear! `,
-    `⚡ ${timeLeft.days} days until LLN '25! Still thinking about it? That's cute. Buy your ticket NOW! `,
-    `🚀 LLN '25 in ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m! Don't be the friend who says "I wish I went..." Get your ticket! `,
-    `🔥 ${timeLeft.days} days left! Your future self is begging you to buy that LLN '25 ticket RIGHT NOW! `,
-    `💸 LLN '25: ${timeLeft.days}d ${timeLeft.hours}h away! Money can't buy happiness, but it can buy tickets to happiness! `,
-    `🎭 ${timeLeft.days} days until the most epic event! Stop scrolling, start buying! LLN '25 tickets won't sell themselves! `,
-    `⏰ ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m until LLN '25! Time's ticking louder than your excuses! Buy tickets! `,
-    `🎪 The countdown is real: ${timeLeft.days} days to LLN '25! Your couch will understand if you leave it for this! `,
+    `🎯 LLN '25 in ${timeLeft.days} days: Where industry leaders gather and careers transform. Secure your spot now! `,
+    `💼 ${timeLeft.days}d ${timeLeft.hours}h left! Join 5,000+ professionals who chose growth over excuses. Get your LLN '25 ticket! `,
+    `🚀 ${timeLeft.days} days to LLN '25: The investment in yourself that pays dividends. Register before it's too late! `,
+    `⚡ ${timeLeft.days} days until LLN '25! Smart professionals plan ahead. Smarter ones have already booked. Be smarter. `,
+    `🎪 LLN '25: ${timeLeft.days}d ${timeLeft.hours}h remaining! Your competition is already registered. Don't let them get ahead! `,
+    `🔥 ${timeLeft.days} days to the most anticipated professional event! Your future network is one ticket away. `,
+    `💡 LLN '25 countdown: ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m! Breakthrough moments don't wait for perfect timing. Book now! `,
+    `🎖️ ${timeLeft.days} days left! LLN '25: Where today's decisions become tomorrow's success stories. Claim your seat! `,
+    `⏰ ${timeLeft.days}d ${timeLeft.hours}h until LLN '25! The early bird gets more than the worm – they get the connections that matter. `,
+    `🏆 LLN '25 in ${timeLeft.days} days! Winners show up. Champions register early. Legends were already there. Which are you? `,
+    `💎 ${timeLeft.days}d ${timeLeft.hours}h to LLN '25! Your biggest regret won't be the ticket price – it'll be missing out. `,
+    `🎭 ${timeLeft.days} days remaining! LLN '25: Where professional development meets personal transformation. Ready to level up? `
   ];
 
+  // Create confetti particles
   const confettiParticles = Array.from({ length: 50 }, (_, i) => ({
     id: i,
     color: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b', '#6c5ce7'][i % 7],
@@ -76,13 +81,13 @@ const CountdownMarquee = () => {
         <motion.div
           className="flex whitespace-nowrap"
           animate={{
-            x: [0, -2000]
+            x: [0, -2500]
           }}
           transition={{
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 40,
+              duration: 50,
               ease: "linear",
             },
           }}
