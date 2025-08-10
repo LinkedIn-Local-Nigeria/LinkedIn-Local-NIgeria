@@ -1,8 +1,9 @@
+
 import { Flex, Separator, Text } from "@radix-ui/themes";
 
 import Button from "./ui/Button";
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { WorldMap } from "./ui/WorldMap";
+import WorldMap  from "./ui/WorldMap";
 import { mapdots } from "./constants/mapdots";
 import { motion } from "framer-motion";
 
@@ -35,7 +36,7 @@ const pageTransition = {
 };
 
 
-export function HeroSection() {
+export default function HeroSection() {
   return (
     <motion.div
       variants={pageTransition}

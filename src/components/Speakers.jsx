@@ -12,8 +12,8 @@ function SpeakerCard({ data, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { threshold: 0.3 });
   const [hasAnimated, setHasAnimated] = useState(false);
-  const glassControls = useAnimation();
   const fadeControls = useAnimation();
+  const glassControls = useAnimation();
 
   useEffect(() => {
     if (isInView && !hasAnimated) {
@@ -28,8 +28,8 @@ function SpeakerCard({ data, index }) {
   }, [fadeControls, glassControls, hasAnimated, isInView]);
 
   return (
-    <div className="block">
-      {/* Wrap the entire card in a Link to speaker details */}
+    <div className="relative block">
+      {/* Card link wrapper */}
       <Link
         to={`/speaker/${slugify(data.name, { lower: true })}`}
         className="relative block"
@@ -48,7 +48,11 @@ function SpeakerCard({ data, index }) {
           }}
           className="relative overflow-hidden aspect-[3/4] rounded-[1rem] shadow-lg border border-gray-200"
         >
-          <img className="object-cover w-full h-full" src={data.image} alt={data.name} />
+          <img
+            className="object-cover w-full h-full"
+            src={data.image}
+            alt={data.name}
+          />
 
           {/* Frosted Overlay */}
           <motion.div
@@ -68,7 +72,7 @@ function SpeakerCard({ data, index }) {
             }}
           />
 
-          {/* Gradient & Content */}
+          {/* Gradient + Info */}
           <div className="absolute flex justify-between items-end bottom-0 left-0 w-full h-64 rounded-b-[1.025rem] bg-gradient-to-t from-black/70 to-transparent z-10">
             <div className="flex flex-col mb-5">
               <h3 className="ml-5 text-2xl font-bold text-left text-white font-poppins">
@@ -78,22 +82,23 @@ function SpeakerCard({ data, index }) {
                 {data.role}
               </p>
             </div>
-            {/* LinkedIn link - needs to prevent event bubbling */}
-            {data.linkedinUrl && (
-              <a
-                href={data.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${data.name}'s LinkedIn profile`}
-                onClick={(e) => e.stopPropagation()} // Prevent navigation to speaker details
-                className="relative z-30"
-              >
-                <LinkedInLogoIcon className="w-10 h-10 mb-5 mr-5 text-white" />
-              </a>
-            )}
           </div>
         </motion.div>
       </Link>
+
+      {/* External LinkedIn link – NOT nested inside <Link> */}
+      {data.linkedinUrl && (
+        <a
+          href={data.linkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${data.name}'s LinkedIn profile`}
+          className="absolute z-30 bottom-5 right-5"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <LinkedInLogoIcon className="w-10 h-10 text-white" />
+        </a>
+      )}
     </div>
   );
 }
@@ -120,7 +125,7 @@ export default function Speakers() {
     const getSpeakers = async () => {
       try {
         const res = await sanityClient.fetch(speakersQuery);
-        console.table(res)
+        // console.table(res)
         setSpeakers(res.slice(0, 6)); // only first 6
       } catch (err) {
         console.error("Error fetching speakers:", err);

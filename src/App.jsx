@@ -1,78 +1,130 @@
-import './App.css';
+import "./App.css";
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
-import Home from './components/Home';
+import BlogDetail from "./components/BlogDetail";
 import Layout from './components/ui/Layout';
-import PrivacyPolicy from './components/PrivacyPolicy';
 import ScrollToHashElement from './components/lib/ScrollToHashElement';
-import TermsOfUse from './components/TermsOfuse';
 
+const Home = lazy(() => import('./components/Home'));
+const Blog = lazy(() => import('./components/Blog'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const TermsOfUse = lazy(() => import('./components/TermsOfuse'));
 const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
 const SpeakerDetail = lazy(() => import('./components/SpeakerDetails'));
 const SanityStudio = lazy(() => import('./components/SanityStudio'));
 
+const Loading = () => (
+  <div className="mt-20 text-center text-gray-500">
+    <p>Loading...</p>
+  </div>
+);
+
 function App() {
   return (
     <Router>
-      <ScrollToHashElement /> 
-      <Suspense fallback={<p className="mt-20 text-center">Loading...</p>}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
                 <Home />
-              </Layout>
-            }
-          />
-          <Route
-            path="/terms-of-use"
-            element={
-              <Layout>
+              </Suspense>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/terms-of-use"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
                 <TermsOfUse />
-              </Layout>
-            }
-          />
-          <Route
-            path="/privacy-policy"
-            element={
-              <Layout>
+              </Suspense>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/privacy-policy"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
                 <PrivacyPolicy />
-              </Layout>
-            }
-          />
-          <Route
-            path="/AllSpeakers"
-            element={
-              <Layout>
+              </Suspense>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/AllSpeakers"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
                 <AllSpeakers />
-              </Layout>
-            }
-          />
-          <Route
-            path="/speaker/:slug"
-            element={
-              <Layout>
+              </Suspense>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/speaker/:slug"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
                 <SpeakerDetail />
-              </Layout>
-            }
-          />
-          <Route path="/studio/*" element={<SanityStudio />} />
-          <Route
-            path="*"
-            element={
-              <Layout>
-                <div className="mt-20 text-center text-gray-600">
-                  <h1 className="text-3xl font-semibold">404</h1>
-                  <p>Page not found</p>
-                </div>
-              </Layout>
-            }
-          />
-        </Routes>
-      </Suspense>
+              </Suspense>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/blog"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <Blog />
+              </Suspense>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/blog/:slug"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <BlogDetail />
+              </Suspense>
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/studio/*"
+          element={
+            <Suspense fallback={<Loading />}>
+              <SanityStudio />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <div className="mt-20 text-center text-gray-600">
+                <h1 className="text-3xl font-semibold">404</h1>
+                <p>Page not found</p>
+              </div>
+            </Layout>
+          }
+        />
+      </Routes>
+
+      <ScrollToHashElement />
     </Router>
   );
 }
