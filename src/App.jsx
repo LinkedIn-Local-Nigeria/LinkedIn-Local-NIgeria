@@ -2,17 +2,12 @@ import './App.css';
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-
-
-import AllSpeakers from './components/AllSpeakers'
-import SanityStudio from './components/SanityStudio'
-import SpeakerDetail from './components/SpeakerDetails'
 import Blog from './components/Blog'
 import Home from './components/Home';
 import Layout from './components/ui/Layout';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ScrollToHashElement from './components/lib/ScrollToHashElement';
-import TermsOfUse from './components/TermsOfuse';
+import TermsOfUse from './components/TermsOfUse';
 
 const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
 const SpeakerDetail = lazy(() => import('./components/SpeakerDetails'));
