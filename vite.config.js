@@ -5,12 +5,8 @@ import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig({
   plugins: [
     react({
-      // Fix JSX runtime issues
       jsxRuntime: 'automatic',
       jsxImportSource: 'react',
-      babel: {
-        plugins: []
-      }
     }),
     visualizer({
       filename: "dist/bundle-stats.html",
@@ -20,119 +16,98 @@ export default defineConfig({
     }),
   ],
   
-  server: {
-    port: 3000,
-    // Fix MIME type issues
-    fs: {
-      strict: false,
-    },
-    // Handle module resolution properly
-    middlewareMode: false,
-  },
-
-  // Fix module resolution
   resolve: {
     alias: {
       '@': '/src',
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
 
-  // Fix JSX handling
   esbuild: {
     jsx: 'automatic',
-    jsxDev: true,
-    jsxSideEffects: false,
+    jsxDev: false,
+    target: 'es2020',
+    format: 'esm',
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
   },
 
-  // Optimize dependencies to prevent initialization errors
   optimizeDeps: {
     include: [
       'react', 
       'react-dom', 
       'react-router-dom',
-      '@mux/mux-player-react', // if you're using Mux
+      'react-helmet-async',
+      'react-hot-toast',
+      '@radix-ui/themes'
     ],
-    exclude: [
-      '@vite/client', 
-      '@vite/env'
-    ],
-    // Force pre-bundling to avoid runtime issues
-    force: false,
+    force: true, 
+  },
+
+  server: {
+    port: 3000,
+    fs: {
+      strict: false,
+    },
   },
 
   build: {
-    // Improve source maps for better debugging
-    sourcemap: true,
+    target: 'es2020',
+    sourcemap: false,
+    minify: 'esbuild',
     
     rollupOptions: {
+      input: {
+        main: './index.html'
+      },
+      
       output: {
-        manualChunks(id) {
-          // Video player chunk - isolate to prevent variable conflicts
-          if (id.includes("mux") || id.includes("media-chrome") || id.includes("video")) {
-            return "video-player";
-          }
-
-          // Sanity Studio and its deps
-          if (id.includes("sanity") || id.includes("groq") || id.includes("dnd-kit")) {
-            return "sanity-studio";
-          }
-
-          // Group react libs separately to prevent conflicts
-          if (id.includes("react") || id.includes("react-dom")) {
-            return "vendor-react";
-          }
-
-          // Utils chunk
-          if (id.includes("date-fns") || id.includes("lodash")) {
-            return "vendor-utils";
-          }
-
-          // Node modules that might cause issues
-          if (id.includes("node_modules")) {
-            return "vendor";
-          }
-        },
-        
-        // Ensure proper file naming
+        // Fixed: Remove format from output (it should be inferred)
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+            return `images/[name]-[hash].[ext]`;
+          }
+          if (/mp4|webm|ogg|mp3|wav|flac|aac/i.test(ext)) {
+            return `media/[name]-[hash].[ext]`;
+          }
+          return `assets/[name]-[hash].[ext]`;
+        },
+        
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-ui': ['@radix-ui/themes', 'react-helmet-async', 'react-hot-toast'],
+          'vendor-router': ['react-router-dom'],
+          'video-player': ['@mux/mux-player-react'],
+          'sanity-client': ['@sanity/client', 'groq'],
+        },
+        
+        // Format should be here, not nested
+        format: 'es',
       },
       
-      // Handle external dependencies properly
-      external: [],
-      
-      // Prevent tree-shaking issues that can cause variable errors
       treeshake: {
         preset: 'recommended',
-        manualPureFunctions: ['console.log'],
+        propertyReadSideEffects: false,
+        tryCatchDeoptimization: false,
       },
     },
     
-    chunkSizeWarningLimit: 1500,
-    
-    // Prevent build issues
-    minify: 'esbuild',
-    target: 'esnext',
-    
-    // Fix CSS handling
+    assetsInlineLimit: 4096,
     cssCodeSplit: true,
+    cssMinify: true,
+    chunkSizeWarningLimit: 1000,
   },
 
-  // Define environment variables to prevent undefined errors
   define: {
     global: 'globalThis',
-    __DEV__: JSON.stringify(process.env.NODE_ENV === 'development'),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
   },
 
-  // CSS preprocessing
   css: {
-    devSourcemap: true,
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "src/styles/variables.scss";`,
-      },
-    },
+    devSourcemap: false,
   },
 });

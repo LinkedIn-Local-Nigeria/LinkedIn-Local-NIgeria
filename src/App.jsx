@@ -3,36 +3,22 @@ import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
+import BlogDetail from "./components/BlogDetail";
 import Layout from './components/ui/Layout';
 import ScrollToHashElement from './components/lib/ScrollToHashElement';
 
-// import Home from './components/Home';
-
-
-
 const Home = lazy(() => import('./components/Home'));
-// const Blog = lazy(() => import('./components/Blog'));
+const Blog = lazy(() => import('./components/Blog'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const TermsOfUse = lazy(() => import('./components/TermsOfuse'));
 const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
 const SpeakerDetail = lazy(() => import('./components/SpeakerDetails'));
 const SanityStudio = lazy(() => import('./components/SanityStudio'));
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
-import Blog from "./components/Blog";
-import Home from "./components/Home";
-import Layout from "./components/ui/Layout";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import ScrollToHashElement from "./components/lib/ScrollToHashElement";
-import TermsOfUse from "./components/TermsOfUse";
-import BlogDetail from "./components/BlogDetail"; 
-
-const AllSpeakers = lazy(() => import("./components/AllSpeakers"));
-const SpeakerDetail = lazy(() => import("./components/SpeakerDetails"));
-const SanityStudio = lazy(() => import("./components/SanityStudio"));
 
 const Loading = () => (
-  <p className="mt-20 text-center text-gray-500">Loading...</p>
+  <div className="mt-20 text-center text-gray-500">
+    <p>Loading...</p>
+  </div>
 );
 
 function App() {
@@ -97,11 +83,25 @@ function App() {
         <Route
           path="/blog"
           element={
-            <Suspense fallback={<Loading />}>
-              {/* <Blog /> */}
-            </Suspense>
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <Blog />
+              </Suspense>
+            </Layout>
           }
         />
+
+        <Route
+          path="/blog/:slug"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <BlogDetail />
+              </Suspense>
+            </Layout>
+          }
+        />
+
         <Route
           path="/studio/*"
           element={
@@ -122,8 +122,6 @@ function App() {
             </Layout>
           }
         />
-        {/* Sanity CMS dashboard ? */}
-        <Route path="/studio/*" element={<SanityStudio />} />
       </Routes>
 
       <ScrollToHashElement />

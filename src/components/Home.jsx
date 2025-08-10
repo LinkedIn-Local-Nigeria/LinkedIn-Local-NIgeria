@@ -9,7 +9,6 @@ import HeroSection from "./HeroSection";
 import PropTypes from "prop-types";
 import Section from "./ui/Section";
 
-// Lazy load components with better error handling
 const BelowFoldContent = lazy(() =>
   import("../components/BelowFoldContent").then((module) => ({
     default: module.default || module.BelowFoldContent,
@@ -34,7 +33,6 @@ const TeamSection = lazy(() =>
   }))
 );
 
-// Enhanced skeleton with better UX
 const SectionSkeleton = memo(({ height = "h-64", className = "" }) => (
   <div className={`bg-gray-100 animate-pulse rounded-lg ${height} ${className}`}>
     <div className="flex items-center justify-center h-full">
@@ -49,16 +47,13 @@ SectionSkeleton.propTypes = {
   className: PropTypes.string,
 };
 
-// Remove duplicate SEO - it's already in HTML
 const SEOHead = memo(() => (
   <Helmet>
-    {/* Only add dynamic/page-specific meta tags here */}
     <meta name="robots" content="index, follow" />
     <link rel="preload" href="/world-map.svg" as="image" />
   </Helmet>
 ));
 
-// Optimize sections for better performance
 const HeroSectionWrapper = memo(() => (
   <Section id="about" background="bg-[#FDFDFD]">
     <HeroSection />

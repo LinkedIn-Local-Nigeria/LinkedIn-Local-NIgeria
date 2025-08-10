@@ -8,7 +8,7 @@ const navLinks = [
   { id: 1, label: "About Us", href: "/#about" },
   { id: 2, label: "Speakers", href: "/#speakers" },
   { id: 3, label: "Teams", href: "/#teams" },
-  // { id: 4, label: "Blog", href: "/blog" },
+  { id: 4, label: "Blog", href: "/blog" },
   { id: 5, label: "FAQs", href: "/#faqs" },
 ];
 
@@ -21,7 +21,6 @@ const Navbar = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  // Close menu if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -51,7 +50,6 @@ const Navbar = () => {
             LLN &apos;25
           </a>
 
-          {/* Desktop Nav Links */}
           <div className="hidden gap-6 lg:flex">
             {navLinks.map((link) => (
               <HashLink
@@ -69,7 +67,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Desktop Button */}
           <a 
             href="https://tix.africa/discover/lln25" 
             target="_blank" 
@@ -79,7 +76,6 @@ const Navbar = () => {
             <Button>Get your ticket</Button>
           </a>
 
-          {/* Mobile Menu Button - Changed from md:hidden to lg:hidden */}
           <div className="lg:hidden">
             <motion.button
               className="text-black transition ease-in-out cursor-pointer focus:outline-none duration-400"
@@ -106,7 +102,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Backdrop Overlay */}
       {isMenuOpen && (
         <motion.div
           className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
@@ -116,7 +111,6 @@ const Navbar = () => {
         />
       )}
 
-      {/* Slide-In Mobile Menu sheet */}
       <motion.nav
         ref={menuRef}
         className="fixed top-0 right-0 z-50 flex flex-col w-3/4 h-full max-w-xs gap-3 px-8 py-6 bg-white shadow-lg lg:hidden"
@@ -161,7 +155,6 @@ const Navbar = () => {
 
         <hr className="border-t border-gray-200" />
 
-        {/* CTA mobile Button */}
         <a 
           href="https://tix.africa/discover/lln25" 
           target="_blank" 

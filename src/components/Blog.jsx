@@ -1,17 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import Container from "./ui/Container";
 import BlogImg1 from "../assets/people.png";
-import GroupPics from "../assets/groupphoto.jpg";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
 import BlogImg2 from "../assets/possible.png";
 import BlogImg3 from "../assets/throwback.png";
 import Container from "./ui/Container";
 import Footer from "./Footer";
+import GroupPics from "../assets/groupphoto.jpg";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import React from "react";
+import { motion } from "framer-motion";
 
 // Placeholder images
 
