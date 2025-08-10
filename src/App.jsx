@@ -1,18 +1,17 @@
 import "./App.css";
 
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
-import Blog from "./components/Blog";
-import Home from "./components/Home";
-import Layout from "./components/ui/Layout";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import ScrollToHashElement from "./components/lib/ScrollToHashElement";
-import TermsOfUse from "./components/TermsOfUse";
-import BlogDetail from "./components/BlogDetail";
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import Blog from './components/Blog'
+import Home from './components/Home';
+import Layout from './components/ui/Layout';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import ScrollToHashElement from './components/lib/ScrollToHashElement';
+import TermsOfUse from './components/TermsOfUse';
 
-const AllSpeakers = lazy(() => import("./components/AllSpeakers"));
-const SpeakerDetail = lazy(() => import("./components/SpeakerDetails"));
-const SanityStudio = lazy(() => import("./components/SanityStudio"));
+const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
+const SpeakerDetail = lazy(() => import('./components/SpeakerDetails'));
+const SanityStudio = lazy(() => import('./components/SanityStudio'));
 
 function App() {
   return (
