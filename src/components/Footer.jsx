@@ -102,7 +102,7 @@ const Footer = () => {
     <footer className="py-5 text-gray-600 bg-[#F8FAFC] border-t md:px-16">
       <Container>
         {/* Newsletter Section */}
-        <div className="p-6 mx-auto mb-16 rounded-md lg:p-16 max-w-7xl newsletter-bg-desktop newsletter-bg-mobile">
+        <div className="p-6 mx-auto mb-16 rounded-md lg:p-16 max-w-7xl newsletter- bg-[#1790D0] newsletter- bg-[#1790D0]">
           <h4 className="pb-4 text-4xl font-semibold text-gray-100 font-poppins">
             Subscribe to our newsletter
           </h4>
@@ -120,7 +120,7 @@ const Footer = () => {
               value={formData.firstName}
               onChange={handleChange}
               disabled={isSubmitting}
-              className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200 disabled:opacity-50"
+              className="h-12 px-4 text-sm text-gray-100 bg-[#1790D0] border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200 disabled:opacity-50"
             />
             <input
               type="email"
@@ -130,7 +130,7 @@ const Footer = () => {
               value={formData.email}
               onChange={handleChange}
               disabled={isSubmitting}
-              className="h-12 px-4 text-sm text-gray-100 bg-blue-600 border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200 disabled:opacity-50"
+              className="h-12 px-4 text-sm text-gray-100 bg-[#1790D0] border border-gray-300 rounded font-manrope placeholder:text-gray-100 focus:outline-none focus:border-blue-200 disabled:opacity-50"
             />
             <Button
               type="submit"
@@ -146,7 +146,7 @@ const Footer = () => {
           <div className="flex flex-col items-start space-y-4">
             <a
               href="/"
-              className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
+              className="text-2xl font-bold text-transparent font-poppins bg-[#1790D0] to-black bg-clip-text"
             >
               LLN &apos;25
             </a>
