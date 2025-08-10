@@ -1,40 +1,64 @@
-import BlogImg1 from "../assets/people.png";
-import BlogImg2 from "../assets/possible.png";
-import BlogImg3 from "../assets/throwback.png";
+import { useEffect, useState } from "react";
+
+import Button from "./ui/Button";
 import Container from "./ui/Container";
-import Footer from "./Footer";
 import GroupPics from "../assets/groupphoto.jpg";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
-import React from "react";
+import imageUrlBuilder from "@sanity/image-url";
 import { motion } from "framer-motion";
-
-// Placeholder images
-
-
-
-const blogPosts = [
-  {
-    title: "The Power of Community in Career Tra...",
-    date: "5/16/2025",
-    image: BlogImg1,
-    link: "/blog/power-of-community",
-  },
-  {
-    title: "Behind the Scenes: Organizing a LinkedIn Local Ev...",
-    date: "5/16/2025",
-    image: BlogImg2,
-    link: "/blog/behind-the-scenes",
-  },
-  {
-    title: "Moments We Won't Forget: LLN in Pi...",
-    date: "5/16/2025",
-    image: BlogImg3,
-    link: "/blog/moments-we-wont-forget",
-  },
-];
+import sanityClient from '../sanity/sanityClient'
 
 const Blog = () => {
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const builder = imageUrlBuilder(sanityClient);
+  const urlFor = (source) => builder.image(source);
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        setLoading(true);
+        const query = `
+          *[_type == "blog"] | order(date desc) [0...6] {
+            _id,
+            title,
+            slug,
+            image,
+            author,
+            date
+          }
+        `;
+
+        const posts = await sanityClient.fetch(query);
+        setBlogPosts(posts);
+      } catch (err) {
+        console.error("Error fetching blog posts:", err);
+        setError("Failed to load blog posts");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      month: 'numeric',
+      day: 'numeric',
+      year: 'numeric'
+    });
+  };
+
+  const truncateTitle = (title, maxLength = 40) => {
+    if (title.length <= maxLength) return title;
+    return title.substring(0, maxLength) + "...";
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -81,10 +105,43 @@ const Blog = () => {
     },
   };
 
+  if (loading) {
+    return (
+      <div className="bg-white min-h-screen w-full">
+        <NavBar />
+        <div className="py-24 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1790D0] mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading blog posts...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-white min-h-screen w-full">
+        <NavBar />
+        <div className="py-24 flex items-center justify-center">
+          <div className="text-center">
+            <p className="text-red-600 mb-4">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="text-[#1790D0] hover:underline"
+            >
+              Try again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white min-h-screen w-full">
       <NavBar />
-      <div className="pt-24">
+      <div className="py-24">
         <section className="py-16">
           <div className="max-w-screen-xl mx-auto px-4 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-14">
@@ -96,7 +153,7 @@ const Blog = () => {
                 viewport={{ once: true }}
               >
                 <h1 className="text-4xl md:text-6xl font-bold text-[#1790D0] leading-tight mb-4 text-left">
-                  Your Front Row Seat to Nigeria’s{" "}
+                  Your Front Row Seat to Nigeria's{" "}
                   <br className="hidden md:block" />
                   Career Evolution
                 </h1>
@@ -106,21 +163,14 @@ const Blog = () => {
                 </p>
                 <div className="text-left">
                   <a
-                    href="/community"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1790D0] text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition text-base"
+                    href="https://chat.whatsapp.com/E4dv58mY9ax2v7qvbLEItI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full xl:w-1/2"
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 2L11 13" />
-                      <path d="M22 2L15 22L11 13L2 9L22 2Z" />
-                    </svg>
-                    Join Our Community
+                    <Button className="flex gap-2 whitespace-nowrap text-white w-full px-6 py-3 leading-[20.27px] text-base font-medium rounded-md transition-colors duration-300">
+                      Join Our Community
+                    </Button>
                   </a>
                 </div>
               </motion.div>
@@ -133,13 +183,14 @@ const Blog = () => {
               >
                 <img
                   src={GroupPics}
-                  alt="LinkedIn"
+                  alt="LinkedIn Local Nigeria Community"
                   className="object-cover bg-[#0a192f] w-full h-[350px] sm:h-[400px] md:h-[400px] lg:h-[500px] rounded-lg"
                 />
               </motion.div>
             </div>
           </div>
         </section>
+
         <section className="">
           <Container>
             <div className="flex items-center justify-between mb-8">
@@ -148,57 +199,68 @@ const Blog = () => {
                 to The Global
               </h2>
             </div>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-16 justify-center"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {blogPosts.map((post, idx) => (
-                <motion.div
-                  key={idx}
-                  className="flex flex-col items-center max-w-[530px] w-full rounded-xl"
-                  variants={itemVariants}
-                >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full max-w-[530px] h-[300px] sm:h-[400px] md:h-[477px] object-cover rounded-[10px] mb-3"
-                  />
-                  <div className="flex flex-col flex-1 w-full">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="font-medium text-base text-gray-800 truncate max-w-[60%]">
-                        {post.title}
-                      </h3>
-                      <Link
-                        to={post.link}
-                        className="text-[#1790D0] font-bold flex items-center gap-1 text-sm whitespace-nowrap"
-                      >
-                        READ MORE <span className="font-bold">&rarr;</span>
-                      </Link>
+
+            {blogPosts.length === 0 ? (
+              <div className="text-center py-16">
+                <p className="text-gray-600 text-lg">No blog posts available yet.</p>
+                <p className="text-gray-500 text-sm mt-2">Check back soon for new content!</p>
+              </div>
+            ) : (
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-center"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {blogPosts.map((post, idx) => (
+                  <motion.div
+                    key={post._id}
+                    className="flex flex-col items-center max-w-[530px] w-full rounded-xl"
+                    variants={itemVariants}
+                  >
+                    <img
+                      src={urlFor(post.image).width(530).height(477).url()}
+                      alt={post.title}
+                      className="w-full max-w-[530px] h-[300px] sm:h-[400px] md:h-[477px] object-cover rounded-[10px] mb-3"
+                      loading="lazy"
+                    />
+                    <div className="flex flex-col flex-1 w-full">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-medium text-base text-gray-800 truncate max-w-[60%]">
+                          {truncateTitle(post.title)}
+                        </h3>
+                        <Link
+                          to={`/blog/${post.slug.current}`}
+                          className="text-[#1790D0] font-bold flex items-center gap-1 text-sm whitespace-nowrap hover:underline transition-all duration-200"
+                        >
+                          READ MORE <span className="font-bold">&rarr;</span>
+                        </Link>
+                      </div>
+                      <div className="flex items-center gap-2 mt-1">
+                        {post.author?.avatar ? (
+                          <img
+                            src={urlFor(post.author.avatar).width(24).height(24).url()}
+                            alt={post.author.name}
+                            className="w-6 h-6 rounded-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-6 h-6 rounded-full bg-[#1790D0] flex items-center justify-center text-white text-xs font-bold">
+                            {post.author?.name?.charAt(0)?.toUpperCase() || 'A'}
+                          </div>
+                        )}
+                        <span className="text-xs font-semibold text-gray-700">
+                          {post.author?.name || 'Anonymous'}
+                        </span>
+                        <span className="text-xs text-gray-500">
+                          {formatDate(post.date)}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 mt-1">
-                      <img
-                        src={`https://randomuser.me/api/portraits/med/men/${
-                          idx + 10
-                        }.jpg`}
-                        alt="avatar"
-                        className="w-6 h-6 rounded-full"
-                      />
-                      <span className="text-xs font-semibold text-gray-700">
-                        {idx === 0
-                          ? "Bola Ade"
-                          : idx === 1
-                          ? "Chika Precious"
-                          : "Emeka Obi"}
-                      </span>
-                      <span className="text-xs text-gray-500">{post.date}</span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
           </Container>
         </section>
       </div>
