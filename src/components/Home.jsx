@@ -112,7 +112,11 @@ const Home = memo(() => {
         <BelowFoldSection />
         <SpeakersSection />
         <TeamSectionWrapper />
-        <AdditionalContent />
+      <section>
+-        <AdditionalContent />
++        <Suspense fallback={<SectionSkeleton height="h-[40rem]" />}>
++          <AdditionalContent />
++        </Suspense>
       </section>
     </>
   );
