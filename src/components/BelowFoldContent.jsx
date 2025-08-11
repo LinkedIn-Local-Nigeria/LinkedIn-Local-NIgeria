@@ -19,19 +19,6 @@ const BelowFoldContent = memo(() => (
     <Section id="events" className="border-t">
       <Events />
     </Section>
-    <Section id="scoop" className="border-t">
-      <Container>
-        <Scoop />
-      </Container>
-    </Section>
-    <Section id="faqs" title="" className="border-t">
-      <Faq />
-    </Section>
-    <Section className="desktop-cta-bg mobile-cta-bg">
-      <Container>
-        <Cta />
-      </Container>
-    </Section>
   </>
 ));
 

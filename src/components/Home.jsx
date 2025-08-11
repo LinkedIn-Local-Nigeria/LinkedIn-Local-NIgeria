@@ -17,6 +17,15 @@ const BelowFoldContent = lazy(() =>
   }))
 );
 
+
+const AdditionalContent = lazy(() =>
+  import("../components/AdditionalContent").then((module) => ({
+    default: module.default || module.AdditionalContent,
+  })).catch(() => ({
+    default: () => <div>Error loading additional content</div>
+  }))
+);
+
 const Speakers = lazy(() =>
   import("../components/Speakers").then((module) => ({
     default: module.default || module.Speakers,
@@ -98,10 +107,12 @@ const Home = memo(() => {
       <SEOHead />
       <HeroSectionWrapper />
       <section className="mobile-vertical-lines desktop-vertical-lines">
+        
         <EventInfoSection />
+        <BelowFoldSection />
         <SpeakersSection />
         <TeamSectionWrapper />
-        <BelowFoldSection />
+        <AdditionalContent />
       </section>
     </>
   );
