@@ -99,9 +99,9 @@ const Home = memo(() => {
       <HeroSectionWrapper />
       <section className="mobile-vertical-lines desktop-vertical-lines">
         <EventInfoSection />
-        <BelowFoldSection />
         <SpeakersSection />
         <TeamSectionWrapper />
+        <BelowFoldSection />
       </section>
     </>
   );
