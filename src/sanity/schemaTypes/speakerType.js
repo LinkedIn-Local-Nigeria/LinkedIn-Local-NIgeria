@@ -21,7 +21,7 @@ export const speakerType = defineType({
         slugify: input =>
           input
             .toLowerCase()
-            .replace(/\s+/g, '-') // Replace spaces with -
+            .replace(/\s+/g, '-') 
             .slice(0, 96),
       },
       validation: (rule) => rule.required(),
