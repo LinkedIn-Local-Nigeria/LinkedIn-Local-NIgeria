@@ -188,7 +188,7 @@ const Events = () => {
               <ChevronLeftIcon className="w-5 h-5 text-gray-700" />
             </button>
             <div className="px-4 py-1 bg-[#fff] text-black rounded-full text-[18px]">
-              {currentIndex + 1} / {events.length}
+              {events.length > 0 ? `${currentIndex + 1} / ${events.length}` : '0 / 0'}
             </div>
             <button
               onClick={() => scroll('right')}
