@@ -1,5 +1,5 @@
 import Button from "./ui/Button";
-import ScoopImage from "/community.png";
+import ScoopImage from "/community.avif";
 import { motion } from "framer-motion";
 
 const NewsletterCTA = () => {
@@ -39,7 +39,7 @@ const NewsletterCTA = () => {
         <motion.img
           src={ScoopImage}
           alt="Scoop Image"
-          className="object-cover w-full rounded-[1rem]"
+          className="object-contain w-full max-w-lg rounded-[1rem]"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
