@@ -3,18 +3,18 @@ import { motion } from 'framer-motion';
 const items = [
   {
     image: "people.svg",
-    title: "5000+ Attendees (virtual + physical)",
-    description: "Founders, creators, doers, and decision-makers from across Nigeria and beyond. ",
+    title: "5000+ Attendees | Virtual + Physical",
+    description: "From rising innovators to seasoned leaders—thousands connecting to shape what’s next",
   },
   {
     image: "pitch.svg",
-    title: "10+ Pitches and Showcase",
-    description: "Discover startups building tomorrow’s solutions—today",
+    title: "10+ Startup Pitches & Showcases",
+    description: " Bold founders unveiling tomorrow’s solutions, today",
   },
   {
     image: "chartbar.svg",
     title: "6+ Countries Represented",
-    description: "Diverse global insights with a distinctly African heartbeat.",
+    description: "Professionals from different nations, united by shared purpose",
   },
   {
     image: "person-add.svg",
@@ -56,7 +56,7 @@ export default function WhyAttend() {
           transition={{ duration: 0.6, type: "spring", stiffness: 80, delay: 0.2 }}
           viewport={{ once: true }}
         >
-         It’s not just an event. It’s an experience. 
+         More than an event. It’s a movement of professionals shaping tomorrow from today
         </motion.p>
       </div>
 

@@ -9,7 +9,7 @@ export default function AllSpeakers() {
   const [speakerData, setSpeakerData] = useState([]);
   const [loading, setLoading] = useState(true);
   const speakersPerPage = 9;
-  const topRef = useRef(null); 
+  const topRef = useRef(null);
 
   useEffect(() => {
     const getSpeakers = async () => {
@@ -28,11 +28,16 @@ export default function AllSpeakers() {
   }, []);
 
   useEffect(() => {
-    if (topRef.current) {
-      topRef.current.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    const scrollToTop = () => {
+      if (topRef.current) {
+        topRef.current.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    // Scroll immediately without delay
+    scrollToTop();
   }, [currentPage]);
 
   if (loading) {
@@ -59,7 +64,8 @@ export default function AllSpeakers() {
 
   return (
     <div className="px-6 py-40 lg:px-24">
-      <div ref={topRef} className="h-0" />
+      {/* Scroll target with minimal height instead of h-0 */}
+      <div ref={topRef} className="h-1" />
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {currentSpeakers.map((speaker) => (
@@ -73,11 +79,10 @@ export default function AllSpeakers() {
             <button
               key={index}
               onClick={() => setCurrentPage(index + 1)}
-              className={`px-4 py-2 rounded transition duration-200 ${
-                currentPage === index + 1
+              className={`px-4 py-2 rounded transition duration-200 ${currentPage === index + 1
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-              }`}
+                }`}
               aria-label={`Go to page ${index + 1}`}
             >
               {index + 1}

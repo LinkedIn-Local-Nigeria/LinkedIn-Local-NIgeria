@@ -75,8 +75,8 @@ const MissionVision = () => {
       title: "About LinkedIn Local Nigeria",
       type: "paragraph",
       text: [
-        "LinkedIn Local Nigeria (LLN) is the heart of this movement in Nigeria’s largest professional community. From Lagos to Abuja, Kaduna to Jos, Ogbomoso to Abeokuta, LinkedIn Locals have been hosted to bring local LinkedIn communities together",
-        "Now, LLN 2025 is the flagship national gathering of trailblazers committed to moving beyond stereotypes, reshaping perspectives, and creating a Nigeria driven by bold, progressive stories and new possibilities."
+        "LinkedIn Local Nigeria (LLN) is the heartbeat of this movement in Africa’s largest professional community. From Lagos to Abuja, Kaduna to Jos, Ogbomoso to Abeokuta, we’ve brought thousands of professionals together to exchange ideas, form partnerships, and spark innovation",
+        "In 2025, LLN takes the stage as Nigeria’s flagship gathering of visionaries and doers. Trailblazers committed to moving beyond stereotypes, reshaping perspectives, and proving that from every corner of Nigeria, global impact can emerge. This is more than an event. It’s a movement to evolve beyond the narrative and create a future driven by bold possibilities."
       ],
     },
     {
@@ -108,8 +108,8 @@ const MissionVision = () => {
       {/* Video Section */}
       <div
         className="w-full max-h-[470px] aspect-video rounded-xl overflow-hidden shadow mb-14 relative"
-        // onMouseEnter={() => setIsHovered(true)}
-        // onMouseLeave={() => setIsHovered(false)}
+      // onMouseEnter={() => setIsHovered(true)}
+      // onMouseLeave={() => setIsHovered(false)}
       >
         <video
           ref={videoRef}
@@ -158,17 +158,14 @@ const MissionVision = () => {
             className="font-poppins pb-2 text-left font-extrabold text-[1.75rem] leading-[1] md:text-[40.09px] md:leading-[45px] tracking-normal text-[#0076B2]"
             variants={itemsVariant}
           >
-            We Gather, We Learn, We Evolve.
+            We Connect, We Collaborate, We Create Impact.
           </motion.h1>
 
           <motion.p
             className="mb-4 text-sm text-left text-gray-700 md:text-base leading-[1.5]"
             variants={itemsVariant}
           >
-            LinkedIn Local is a global movement turning digital connections into
-            real conversations. It’s where professionals step out from behind
-            their profiles and meet in person to build relationships, exchange
-            ideas, and spark meaningful collaboration.
+            LinkedIn Local is more than a meetup. It’s a global movement where professionals step beyond profiles to build relationships that matter. At LLN, conversations turn into opportunities, and opportunities evolve into real impact for careers, businesses, and communities.
           </motion.p>
 
           {/* Accordion Section */}
