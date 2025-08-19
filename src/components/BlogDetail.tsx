@@ -178,7 +178,7 @@ const BlogDetail = () => {
                 <img
                   src={urlFor(post.image).width(800).height(400).url()}
                   alt={post.title}
-                  className="w-full max-h-[300px] sm:max-h-[350px] md:max-h-[400px] lg:max-h-[450px] object-cover rounded-lg mb-8"
+                  className="w-full max-h-[300px] sm:max-h-[350px] md:max-h-[400px] lg:max-h-full object-cover rounded-lg mb-8"
                 />
               )}
 

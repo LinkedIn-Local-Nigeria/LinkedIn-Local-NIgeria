@@ -27,10 +27,12 @@ const Blog = () => {
             title,
             slug,
             image,
-            author,
+            authorName,
+            "authorAvatar": authorAvatar.asset->url,
             date
           }
         `;
+
 
         const posts = await sanityClient.fetch(query);
         setBlogPosts(posts);
@@ -213,51 +215,54 @@ const Blog = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                {blogPosts.map((post, idx) => (
-                  <motion.div
+                {blogPosts.map((post) => (
+                  <Link
                     key={post._id}
-                    className="flex flex-col items-center max-w-[530px] w-full rounded-xl"
-                    variants={itemVariants}
+                    to={`/blog/${post.slug.current}`}
+                    className="flex flex-col items-center max-w-[530px] w-full rounded-xl hover:shadow-lg transition-shadow duration-300"
                   >
-                    <img
-                      src={urlFor(post.image).width(530).height(477).url()}
-                      alt={post.title}
-                      className="w-full max-w-[530px] h-[300px] sm:h-[400px] md:h-[477px] object-cover rounded-[10px] mb-3"
-                      loading="lazy"
-                    />
-                    <div className="flex flex-col flex-1 w-full">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-medium text-base text-gray-800 truncate max-w-[60%]">
-                          {truncateTitle(post.title)}
-                        </h3>
-                        <Link
-                          to={`/blog/${post.slug.current}`}
-                          className="text-[#1790D0] font-bold flex items-center gap-1 text-sm whitespace-nowrap hover:underline transition-all duration-200"
-                        >
-                          READ MORE <span className="font-bold">&rarr;</span>
-                        </Link>
+                    <motion.div
+                      className="flex flex-col items-center w-full"
+                      variants={itemVariants}
+                    >
+                      <img
+                        src={urlFor(post.image).width(530).height(477).url()}
+                        alt={post.title}
+                        className="w-full max-w-[530px] h-[300px] sm:h-[400px] md:h-[477px] object-cover rounded-[10px] mb-3"
+                        loading="lazy"
+                      />
+                      <div className="flex flex-col flex-1 w-full px-1">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="font-medium text-base text-gray-800 truncate max-w-[70%]">
+                            {truncateTitle(post.title)}
+                          </h3>
+                          <span className="text-[#1790D0] font-bold flex items-center gap-1 text-sm whitespace-nowrap">
+                            READ MORE <span className="font-bold">&rarr;</span>
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 mt-1">
+                          {post.authorAvatar ? (
+                            <img
+                              src={urlFor(post.authorAvatar).width(24).height(24).url()}
+                              alt={post.authorName}
+                              className="w-6 h-6 rounded-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-6 h-6 rounded-full bg-[#1790D0] flex items-center justify-center text-white text-xs font-bold">
+                              {post.authorName?.charAt(0)?.toUpperCase() || 'A'}
+                            </div>
+                          )}
+                          <span className="text-xs font-semibold text-gray-700">
+                            {post.authorName || 'Anonymous'}
+                          </span>
+                          <span className="text-xs text-gray-500">
+                            {formatDate(post.date)}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 mt-1">
-                        {post.author?.avatar ? (
-                          <img
-                            src={urlFor(post.author.avatar).width(24).height(24).url()}
-                            alt={post.author.name}
-                            className="w-6 h-6 rounded-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-6 h-6 rounded-full bg-[#1790D0] flex items-center justify-center text-white text-xs font-bold">
-                            {post.author?.name?.charAt(0)?.toUpperCase() || 'A'}
-                          </div>
-                        )}
-                        <span className="text-xs font-semibold text-gray-700">
-                          {post.author?.name || 'Anonymous'}
-                        </span>
-                        <span className="text-xs text-gray-500">
-                          {formatDate(post.date)}
-                        </span>
-                      </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </Link>
+
                 ))}
               </motion.div>
             )}
