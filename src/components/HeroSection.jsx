@@ -122,7 +122,7 @@ export default function HeroSection() {
                   />
                   10+
                   <span className="font-normal text-[0.625rem] md:text-sm font-manrope">
-                    world-class speakers redefining 
+                    world-class speakers 
                   </span>
                 </div>
               </div>
