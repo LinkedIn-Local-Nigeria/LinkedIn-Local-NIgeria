@@ -1,4 +1,3 @@
-
 import { Flex, Separator, Text } from "@radix-ui/themes";
 
 import Button from "./ui/Button";
@@ -90,8 +89,7 @@ export default function HeroSection() {
             variants={itemsVariant}
             className="max-w-xl mx-auto text-sm font-normal font-manrope md:text-lg text-neutral-500"
           >
-            Evolving Beyond the Narrative: An opportunity to connect, learn, and
-            grow with professionals who are shaping the future.
+           Evolving Beyond the Narrative: Where professionals across generations connect, share bold ideas, and shape new possibilities for Nigeria and beyond.
           </motion.p>
 
           <motion.div variants={itemsVariant} className="pb-8">
@@ -107,7 +105,7 @@ export default function HeroSection() {
                   />
                   5000+
                   <span className="font-normal text-[0.625rem] md:text-sm font-manrope">
-                    Changemakers
+                    professionals & innovators
                   </span>
                 </div>
 
@@ -124,7 +122,7 @@ export default function HeroSection() {
                   />
                   10+
                   <span className="font-normal text-[0.625rem] md:text-sm font-manrope">
-                    World-Class Speakers
+                    world-class speakers 
                   </span>
                 </div>
               </div>
@@ -140,7 +138,7 @@ export default function HeroSection() {
             transition={{ type: "spring", stiffness: 300 }}
             className="inline-block"
           >
-            <Button className="w-[300px]">Get your ticket</Button>
+            <Button className="w-[300px]">Reserve your spot at LLN ’25</Button>
           </motion.a>
         </div>
       </motion.div>

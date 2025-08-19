@@ -219,7 +219,7 @@ const Blog = () => {
                   <Link
                     key={post._id}
                     to={`/blog/${post.slug.current}`}
-                    className="flex flex-col items-center max-w-[530px] w-full rounded-xl hover:shadow-lg transition-shadow duration-300"
+                    className="flex flex-col items-center max-w-[530px] w-full rounded-xl transition-shadow duration-300"
                   >
                     <motion.div
                       className="flex flex-col items-center w-full"

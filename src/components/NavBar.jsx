@@ -76,7 +76,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="hidden lg:inline-block"
           >
-            <Button>Get your ticket</Button>
+            <Button>Reserve your spot at LLN ’25</Button>
           </a>
 
           <div className="lg:hidden">
@@ -164,7 +164,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
           className="block w-full mt-2"
         >
-          <Button className="w-full">Get your ticket</Button>
+          <Button className="w-full">Reserve your spot at LLN ’25</Button>
         </a>
       </motion.nav>
     </>
