@@ -182,7 +182,7 @@ const BlogDetail = () => {
                 />
               )}
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-left text-[#1790D0] my-6 lg:my-14 max-w-2xl lg:leading-snug">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-left text-[#1790D0] my-6 lg:my-14  lg:leading-snug">
                 {post.title}
               </h1>
 
