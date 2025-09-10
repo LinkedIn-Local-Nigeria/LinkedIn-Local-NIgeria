@@ -125,7 +125,6 @@ export default function Speakers() {
     const getSpeakers = async () => {
       try {
         const res = await sanityClient.fetch(speakersQuery);
-        console.table(res)
         setSpeakers(res.slice(0, 6)); // only first 6
       } catch (err) {
         console.error("Error fetching speakers:", err);
