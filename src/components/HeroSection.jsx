@@ -130,7 +130,7 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.a
-            href="https://tix.africa/discover/lln25"
+            href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d"
             target="_blank"
             rel="noopener noreferrer"
             variants={itemsVariant}

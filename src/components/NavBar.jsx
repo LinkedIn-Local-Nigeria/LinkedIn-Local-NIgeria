@@ -71,7 +71,7 @@ const Navbar = () => {
           </div>
 
           <a 
-            href="https://tix.africa/discover/lln25" 
+            href="hhttps://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hidden lg:inline-block"
@@ -159,7 +159,7 @@ const Navbar = () => {
         <hr className="border-t border-gray-200" />
 
         <a 
-          href="https://tix.africa/discover/lln25" 
+          href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
           target="_blank" 
           rel="noopener noreferrer"
           className="block w-full mt-2"

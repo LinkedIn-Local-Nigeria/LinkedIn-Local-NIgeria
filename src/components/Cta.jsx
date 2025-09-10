@@ -28,13 +28,13 @@ const Cta = () => {
 
       {/* CTA Button wrapped in styled anchor */}
       <a 
-        href="https://tix.africa/discover/lln25" 
+        href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="w-full  mt-4 lg:w-[150px] lg:mt-0 flex"
+        className="w-full  mt-4 lg:w-[205px] lg:mt-0 flex"
       >
-        <Button className="w-full">
-          Get your ticket
+        <Button className="w-full whitespace-nowrap">
+          Reserve Your Spot at LLN 25
         </Button>
       </a>
     </div>
