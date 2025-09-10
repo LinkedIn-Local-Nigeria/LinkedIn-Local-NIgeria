@@ -33,7 +33,7 @@ const Cta = () => {
         rel="noopener noreferrer"
         className="w-full  mt-4 lg:w-[150px] lg:mt-0 flex"
       >
-        <Button className="w-full">
+        <Button className="w-full whitespace-nowrap">
           Reserve Your Spot at LLN 25
         </Button>
       </a>
