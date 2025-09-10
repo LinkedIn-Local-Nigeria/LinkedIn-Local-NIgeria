@@ -31,7 +31,7 @@ const Cta = () => {
         href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="w-full  mt-4 lg:w-[150px] lg:mt-0 flex"
+        className="w-full  mt-4 lg:w-[205px] lg:mt-0 flex"
       >
         <Button className="w-full whitespace-nowrap">
           Reserve Your Spot at LLN 25
