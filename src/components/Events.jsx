@@ -77,7 +77,6 @@ const Events = () => {
     getEvents()
   }, [])
 
-  // Utility to detect if a URL is external
   const isExternal = url => /^https?:\/\//.test(url)
 
   const renderEvents = () => {
