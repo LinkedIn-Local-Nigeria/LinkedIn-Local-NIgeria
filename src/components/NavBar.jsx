@@ -9,8 +9,9 @@ const navLinks = [
   { id: 1, label: "About Us", href: "/#about" },
   { id: 2, label: "Speakers", href: "/#speakers" },
   { id: 3, label: "Teams", href: "/#teams" },
-  { id: 4, label: "Blog", href: "/blog" },
-  { id: 5, label: "FAQs", href: "/#faqs" },
+  { id: 4, label: "Schedule", href: "/schedule" },
+  { id: 5, label: "Blog", href: "/blog" },
+  { id: 6, label: "FAQs", href: "/#faqs" },
 ];
 
 const Navbar = () => {
@@ -42,7 +43,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed z-50 w-full border-b border-gray-200 bg-opacity-10 backdrop-blur-md mx-auto max-w-7xl">
+      <nav className="fixed z-50 w-full mx-auto border-b border-gray-200 bg-opacity-10 backdrop-blur-md max-w-7xl">
         <CountdownMarquee />
         
         <div className="lg:px-[6.25rem] mt-8 flex items-center justify-between max-w-7xl container px-6 py-4">
