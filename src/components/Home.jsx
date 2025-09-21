@@ -86,7 +86,7 @@ const SEOHead = memo(() => (
     />
     <meta name="twitter:image" content="/world-map.svg" />
 
-    {/* Preload asset (already included) */}
+    {/* Preload asset */}
     <link rel="preload" href="/world-map.svg" as="image" />
   </Helmet>
 ));
