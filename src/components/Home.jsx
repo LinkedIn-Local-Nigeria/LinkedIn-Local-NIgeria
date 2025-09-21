@@ -58,7 +58,35 @@ SectionSkeleton.propTypes = {
 
 const SEOHead = memo(() => (
   <Helmet>
+    {/* Basic SEO */}
+    <title>LinkedIn Local Nigeria 2025 | Inspiring Talks, Networking, and Innovation</title>
+    <meta
+      name="description"
+      content="Join LinkedIn Local Nigeria 2025 to connect with industry leaders, discover new ideas, and be inspired by world-class speakers. Secure your spot today."
+    />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.linkedninlocalnigeria.com/" />
+
+    {/* Open Graph for social sharing */}
+    <meta property="og:title" content="LinkedIn Local Nigeria 2025 | Inspiring Talks, Networking, and Innovation" />
+    <meta
+      property="og:description"
+      content="Join LinkedIn Local Nigeria 2025 to connect with industry leaders, discover new ideas, and be inspired by world-class speakers."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.linkedninlocalnigeria.com/" />
+    <meta property="og:image" content="/world-map.svg" />
+
+    {/* Twitter Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LinkedIn Local Nigeria 2025 | Inspiring Talks, Networking, and Innovation" />
+    <meta
+      name="twitter:description"
+      content="Join LinkedIn Local Nigeria 2025 to connect with industry leaders, discover new ideas, and be inspired by world-class speakers."
+    />
+    <meta name="twitter:image" content="/world-map.svg" />
+
+    {/* Preload asset (already included) */}
     <link rel="preload" href="/world-map.svg" as="image" />
   </Helmet>
 ));
