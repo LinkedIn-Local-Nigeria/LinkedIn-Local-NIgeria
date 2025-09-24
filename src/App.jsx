@@ -9,6 +9,7 @@ import ScrollToHashElement from './components/lib/ScrollToHashElement';
 
 const Home = lazy(() => import('./components/Home'));
 const Blog = lazy(() => import('./components/Blog'));
+const Schedule = lazy(() => import('./components/Schedule'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const TermsOfUse = lazy(() => import('./components/TermsOfuse'));
 const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
@@ -86,6 +87,17 @@ function App() {
             <Layout>
               <Suspense fallback={<Loading />}>
                 <Blog />
+              </Suspense>
+            </Layout>
+          }
+        />
+        
+        <Route
+          path="/schedule"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <Schedule />
               </Suspense>
             </Layout>
           }
