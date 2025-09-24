@@ -1,42 +1,13 @@
-// import "./index.css";
-
-// import App from "./App.jsx";
-// import { HelmetProvider } from 'react-helmet-async';
-// import React from "react";
-// import ReactDOM from "react-dom/client";
-// import { Theme } from "@radix-ui/themes";
-// import { Toaster } from "react-hot-toast";
-
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//   <React.StrictMode>
-//     <Theme>
-//       <HelmetProvider>
-//       <App />
-//       </HelmetProvider>
-//       <Toaster position="top-right" reverseOrder={false} /> 
-//     </Theme>
-//   </React.StrictMode>
-// );
-
-
-// src/main.jsx
-
 import './index.css';
 
 import App from './App.jsx';
+import ChatWidget from './components/ChatWidget.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import React from 'react';
 import { Theme } from '@radix-ui/themes';
 import { Toaster } from 'react-hot-toast';
 import { createRoot } from 'react-dom/client';
 
-// Import CSS first
-
-
-// Import App component
-
-
-// Error boundary for better error handling
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -90,7 +61,6 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-// Safe initialization function
 function initializeApp() {
   const rootElement = document.getElementById('root');
   
@@ -107,6 +77,7 @@ function initializeApp() {
           <Theme>
             <HelmetProvider>
               <App />
+              <ChatWidget />
               <Toaster 
                 position="top-right" 
                 reverseOrder={false}
@@ -129,7 +100,6 @@ function initializeApp() {
   } catch (error) {
     console.error('❌ Failed to initialize app:', error);
     
-    // Fallback rendering
     rootElement.innerHTML = `
       <div style="
         padding: 20px; 
@@ -168,7 +138,6 @@ function initializeApp() {
   }
 }
 
-// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
