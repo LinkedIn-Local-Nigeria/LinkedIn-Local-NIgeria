@@ -5,8 +5,19 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 from multi_tool_agent.agent import Olutona
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://linkedinlocalnigeria.com", "http://localhost:3000"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 session_service = InMemorySessionService()
 runner = Runner(agent=Olutona, app_name="olutona_app", session_service=session_service)
