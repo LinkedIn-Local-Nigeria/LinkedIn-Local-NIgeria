@@ -40,23 +40,17 @@ const ChatWidget = () => {
     scrollToBottom();
   }, [messages, isTyping]);
 
-  // Simple markdown-like text formatting
   const formatText = (text) => {
     if (!text) return '';
     
-    // Convert **bold** to <strong>
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     
-    // Convert *italic* to <em>
     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
     
-    // Convert [link text](url) to <a>
     text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>');
     
-    // Convert newlines to <br>
     text = text.replace(/\n/g, '<br>');
     
-    // Convert bullet points (- item or * item)
     text = text.replace(/^[\-\*]\s+(.+)$/gm, '• $1');
     
     return text;
@@ -176,15 +170,7 @@ const ChatWidget = () => {
               <p className="text-sm opacity-90">How can i help you today?</p>
             </div>
             <div className="flex items-center space-x-2">
-              {/* <button
-                onClick={() => handleOpenFullChat('')}
-                className="text-gray-500 transition-colors hover:text-gray-700"
-                title="Open full chat"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </button> */}
+
               {messages.length > 0 && (
                 <button
                   onClick={clearChat}
@@ -273,7 +259,6 @@ const ChatWidget = () => {
               </div>
             )}
 
-            {/* Separator */}
             <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300"></div>
@@ -285,7 +270,6 @@ const ChatWidget = () => {
               </div>
             </div>
 
-            {/* Input Area */}
             <div className="space-y-3">
               <textarea
                 value={inputMessage}
@@ -309,15 +293,7 @@ const ChatWidget = () => {
                 >
                   Send Message
                 </button>
-                {/* <button
-                  onClick={() => handleOpenFullChat(inputMessage)}
-                  className="bg-gray-200 rounded-[320px] text-gray-700 py-2 px-4 font-medium transition-all duration-200 hover:bg-gray-300"
-                  title="Open in full chat"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </button> */}
+   
               </div>
             </div>
           </div>
