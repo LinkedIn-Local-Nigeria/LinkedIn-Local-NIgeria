@@ -42,6 +42,14 @@ const TeamSection = lazy(() =>
   }))
 );
 
+const Sponsors = lazy(() =>
+  import("../components/Sponsor").then((module) => ({
+    default: module.default || module.Sponsors,
+  })).catch(() => ({
+    default: () => <div>Error loading Sponsor</div>
+  }))
+);
+
 const SectionSkeleton = memo(({ height = "h-64", className = "" }) => (
   <div className={`bg-gray-100 animate-pulse rounded-lg ${height} ${className}`}>
     <div className="flex items-center justify-center h-full">
@@ -101,6 +109,15 @@ const TeamSectionWrapper = memo(() => (
   </Section>
 ));
 
+
+const SponsorSection = memo(() => (
+  <Section id="sponsors" className="border-t">
+    <Suspense fallback={<SectionSkeleton height="h-[40rem]" />}>
+      <Sponsors />
+    </Suspense>
+  </Section>
+));
+
 const Home = memo(() => {
   return (
     <>
@@ -111,6 +128,7 @@ const Home = memo(() => {
         <EventInfoSection />
         <BelowFoldSection />
         <SpeakersSection />
+        <SponsorSection />
         <TeamSectionWrapper />
         <AdditionalContent />
       </section>
