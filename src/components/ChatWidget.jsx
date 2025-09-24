@@ -9,7 +9,7 @@ const ChatWidget = () => {
   const [showChat, setShowChat] = useState(false);
 
   const messagesEndRef = useRef(null);
-  const CHATBOT_URL = 'https://chat.apiconf.net/';
+  const CHATBOT_URL = 'https://chat.LLN.net/';
   const API_URL = 'https://linkedin-local-nigeria.onrender.com/chat';
 //   const API_URL = 'http://localhost:2025/api/v1/agents/chat';
 
@@ -29,8 +29,8 @@ const ChatWidget = () => {
     return id;
   };
 
-  const userId = getOrCreateId('apiconf_user_id');
-  const sessionId = getOrCreateId('apiconf_session_id');
+  const userId = getOrCreateId('LLN_user_id');
+  const sessionId = getOrCreateId('LLN_session_id');
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -96,7 +96,7 @@ const ChatWidget = () => {
       const result = await response.json();
 
       const botMessage = {
-        text: result.data.answer,
+        text: result.answer,
         sender: 'bot',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
@@ -145,16 +145,16 @@ const ChatWidget = () => {
     setShowChat(false);
     if (typeof window !== 'undefined') {
       const newSessionId = Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
-      localStorage.setItem('apiconf_session_id', newSessionId);
+      localStorage.setItem('LLN_session_id', newSessionId);
     }
   };
 
   return (
     <>
-      <div className="fixed z-50 bottom-6 right-6">
+      <div className="fixed z-50 mx-auto bottom-6 right-6 max-w-7xl">
         <button
           onClick={toggleModal}
-          className="flex items-center justify-center text-white transition-all duration-300 transform rounded-full shadow-lg w-14 h-14 bg-dark-purple hover:shadow-xl hover:scale-110"
+          className="flex items-center justify-center text-white transition-all duration-300 transform bg-[#0076b2] rounded-full shadow-lg w-14 h-14 hover:shadow-xl hover:scale-110"
         >
           {isModalOpen ? (
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,11 +172,11 @@ const ChatWidget = () => {
         <div className="fixed bottom-24 right-6 z-[999999] w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
           <div className="flex items-center justify-between p-4 text-black">
             <div>
-              <h3 className="text-lg font-semibold">Chat with Ndu</h3>
+              <h3 className="text-lg font-semibold">Chat with Olutona</h3>
               <p className="text-sm opacity-90">How can i help you today?</p>
             </div>
             <div className="flex items-center space-x-2">
-              <button
+              {/* <button
                 onClick={() => handleOpenFullChat('')}
                 className="text-gray-500 transition-colors hover:text-gray-700"
                 title="Open full chat"
@@ -184,7 +184,7 @@ const ChatWidget = () => {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
-              </button>
+              </button> */}
               {messages.length > 0 && (
                 <button
                   onClick={clearChat}
@@ -211,7 +211,7 @@ const ChatWidget = () => {
                     <div
                       className={`inline-block max-w-xs px-3 py-2 rounded-lg text-sm ${
                         msg.sender === 'user'
-                          ? 'bg-dark-purple text-white'
+                          ? 'bg-[#0076b2] text-white'
                           : 'bg-gray-100 text-gray-800'
                       }`}
                     >
@@ -238,7 +238,7 @@ const ChatWidget = () => {
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                         </div>
-                        <span className="text-xs">Ndu is typing...</span>
+                        <span className="text-xs">Olutona is typing...</span>
                       </div>
                     </div>
                   </div>
@@ -264,7 +264,7 @@ const ChatWidget = () => {
                     <button
                       key={index}
                       onClick={() => handleQuestionClick(question)}
-                      className="w-full text-center rounded-[320px] bg-dark-purple p-3 text-sm text-white transition-colors duration-200 hover:opacity-90"
+                      className="w-full text-center rounded-[320px] bg-[#0076b2] p-3 text-sm text-white transition-colors duration-200 hover:opacity-90"
                     >
                       {question}
                     </button>
@@ -305,11 +305,11 @@ const ChatWidget = () => {
                 <button
                   onClick={handleInputSubmit}
                   disabled={!inputMessage.trim() || isTyping}
-                  className="flex-1 bg-dark-purple rounded-[320px] text-white py-2 px-4 font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-[#0076b2] rounded-[320px] text-white py-2 px-4 font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Send Message
                 </button>
-                <button
+                {/* <button
                   onClick={() => handleOpenFullChat(inputMessage)}
                   className="bg-gray-200 rounded-[320px] text-gray-700 py-2 px-4 font-medium transition-all duration-200 hover:bg-gray-300"
                   title="Open in full chat"
@@ -317,14 +317,14 @@ const ChatWidget = () => {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
 
           <div className="px-4 py-3 text-center bg-gray-50">
             <p className="text-xs text-gray-500">
-              Powered by APICONF Agent
+              Powered by LLN Agent
             </p>
           </div>
         </div>
@@ -332,7 +332,7 @@ const ChatWidget = () => {
 
       {isModalOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black bg-opacity-25"
+          className="fixed inset-0 z-40 bg-[#0076b2] bg-opacity-25"
           onClick={toggleModal}
         />
       )}
