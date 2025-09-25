@@ -1,0 +1,42 @@
+id,title,timeSlot,duration,timeFrame,type,color,dayNumber,date
+masterclass,Masterclass: "LinkedIn as a Launchpad",8:00 – 8:45 AM,45 mins,8am,masterclass,#0076B2,1,October 4 2025
+registration,Arrival Registration & Settling In,8:45 – 9:00 AM,15 mins,8am,registration,#D9D9D9,1,October 4 2025
+opening-prayer,Opening Prayer,9:00 – 9:03 AM,3 mins,9am,ceremony,#E1EF8B,1,October 4 2025
+national-anthem,National Anthem (Violin Performance),9:03 – 9:08 AM,5 mins,9am,performance,#E1EF8B,1,October 4 2025
+icebreaker,Icebreaker: "The Code Cluster Challenge",9:08 – 9:23 AM,15 mins,9am,interactive,#52525B,1,October 4 2025
+mc-opening,Opening Address by the MC,9:23 – 9:28 AM,5 mins,9am,address,#D9D9D9,1,October 4 2025
+convener-intro,Convener Introduction (Video + Live),9:28 – 9:33 AM,5 mins,9am,introduction,#D9D9D9,1,October 4 2025
+convener-speech,Convener's Speech: "Why We're Here",9:33 – 9:45 AM,12 mins,9am,speech,#0076B2,1,October 4 2025
+mc-remarks-1,MC Remarks & Awarding previous session,9:45 – 9:48 AM,3 mins,9am,transition,#D9D9D9,1,October 4 2025
+speaker-intro-1,Speaker Introduction (Keynote 1),9:48 – 9:51 AM,3 mins,9am,introduction,#D9D9D9,1,October 4 2025
+keynote-1,1st Keynote: "The Power of Personal Branding",9:51 – 10:11 AM,20 mins,10am,keynote,#0076B2,1,October 4 2025
+mc-remarks-2,MC Remarks & Awarding speaker,10:11 – 10:14 AM,3 mins,10am,transition,#D9D9D9,1,October 4 2025
+speaker-intro-2,Speaker Introduction (Keynote 2),10:14 – 10:17 AM,3 mins,10am,introduction,#D9D9D9,1,October 4 2025
+keynote-2,2nd Keynote: "Networking with Intention",10:17 – 10:37 AM,20 mins,10am,keynote,#0076B2,1,October 4 2025
+mc-remarks-3,MC Remarks & Awarding speaker,10:37 – 10:40 AM,3 mins,10am,transition,#D9D9D9,1,October 4 2025
+speaker-intro-3,Speaker Introduction (Keynote 3),10:40 – 10:43 AM,3 mins,10am,introduction,#D9D9D9,1,October 4 2025
+keynote-3,3rd Keynote: "From Local to Global",10:43 – 11:03 AM,20 mins,11am,keynote,#0076B2,1,October 4 2025
+spoken-word,Spoken Word + Live Drawing Artist Performance,11:03 – 11:18 AM,15 mins,11am,performance,#E1EF8B,1,October 4 2025
+sponsorship-highlights,Sponsorship Highlights,11:18 – 11:23 AM,5 mins,11am,sponsor,#D9D9D9,1,October 4 2025
+fashion-show,Mini Fashion Show: "Dress the Part",11:23 – 11:33 AM,10 mins,11am,fashion,#E1EF8B,1,October 4 2025
+mc-remarks-4,MC Remarks & Awarding previous session,11:33 – 11:36 AM,3 mins,11am,transition,#D9D9D9,1,October 4 2025
+panel-intro-1,Panel Introduction (Panel 1),11:36 – 11:39 AM,3 mins,11am,introduction,#D9D9D9,1,October 4 2025
+panel-1,1st Panel Session: "Building Businesses That Thrive" (incl. Q&A),11:39 AM – 12:19 PM,40 mins,12pm,session,#52525B,1,October 4 2025
+mc-remarks-5,MC Remarks & Awarding panel,12:19 – 12:22 PM,3 mins,12pm,transition,#D9D9D9,1,October 4 2025
+speaker-intro-4,Speaker Introduction (Keynote 4),12:22 – 12:25 PM,3 mins,12pm,introduction,#D9D9D9,1,October 4 2025
+keynote-4,4th Keynote: "The Future of Work in Africa",12:25 – 12:45 PM,20 mins,12pm,keynote,#0076B2,1,October 4 2025
+mc-remarks-6,MC Remarks & Awarding speaker,12:45 – 12:48 PM,3 mins,12pm,transition,#D9D9D9,1,October 4 2025
+speaker-intro-5,Speaker Introduction (Keynote 5),12:48 – 12:51 PM,3 mins,12pm,introduction,#D9D9D9,1,October 4 2025
+keynote-5,5th Keynote: "Leadership in the Age of AI",12:51 – 1:11 PM,20 mins,1pm,keynote,#0076B2,1,October 4 2025
+networking-break,Break (refreshments LinkedIn Wall of Fame Headshot Station),1:11 – 1:31 PM,20 mins,1pm,break,#D9D9D9,1,October 4 2025
+violin-performance,Violinist Performance,1:31 – 1:41 PM,10 mins,1pm,performance,#E1EF8B,1,October 4 2025
+mc-remarks-7,MC Remarks & Awarding previous session,1:41 – 1:44 PM,3 mins,1pm,transition,#D9D9D9,1,October 4 2025
+speaker-intro-6,Speaker Introduction (Keynote 6),1:44 – 1:47 PM,3 mins,1pm,introduction,#D9D9D9,1,October 4 2025
+keynote-6,6th Keynote: "Creative Confidence",1:47 – 2:07 PM,20 mins,2pm,keynote,#0076B2,1,October 4 2025
+mc-remarks-8,MC Remarks & Awarding speaker,2:07 – 2:10 PM,3 mins,2pm,transition,#D9D9D9,1,October 4 2025
+panel-intro-2,Panel Introduction (Panel 2),2:10 – 2:13 PM,3 mins,2pm,introduction,#D9D9D9,1,October 4 2025
+panel-2,2nd Panel Session: "The Creative Economy",2:13 – 2:53 PM,40 mins,2pm,session,#52525B,1,October 4 2025
+mc-remarks-9,MC Remarks & Awarding panel,2:53 – 2:56 PM,3 mins,2pm,transition,#D9D9D9,1,October 4 2025
+segment-intro,Segment Introduction (lead-in to closing),2:56 – 2:59 PM,3 mins,2pm,introduction,#D9D9D9,1,October 4 2025
+closing-remarks,Closing Remarks + Group Photo,2:59 – 3:08 PM,9 mins,3pm,closing,#0076B2,1,October 4 2025
+open-networking,Open Networking Headshots Connection Wall Music Lounge,3:08 – 4:38 PM,90 mins,3pm,networking,#E1EF8B,1,October 4 2025
