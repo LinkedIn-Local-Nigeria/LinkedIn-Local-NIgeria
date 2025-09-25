@@ -5,7 +5,7 @@ Provides functions to query sessions by time.
 
 import re
 from typing import List, Dict, Any
-from core.types import ToolContext
+from google.adk.tools import ToolContext
 
 # Define available time frames (ensure consistency with schedule data)
 TIME_FRAMES = ['8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm']
@@ -41,11 +41,9 @@ def get_schedule_by_time(time_query: str, tool_context: ToolContext) -> Dict[str
         elif time_query in ['closing', 'end', 'finish']:
             time_frames = ['3pm']
         else:
-            # Match against TIME_FRAMES directly
             matched_frames = [tf for tf in TIME_FRAMES if tf in time_query or time_query in tf]
             time_frames = matched_frames if matched_frames else [time_query]
 
-        # Fetch sessions from schedule
         schedule = tool_context.get_csv_data("schedule")
         results = []
         for tf in time_frames:
