@@ -5,6 +5,7 @@ from multi_tool_agent.tools.team import team_tool, all_team_tool, conveners_tool
 from multi_tool_agent.tools.web_scrapper import web_scraper_tool
 from multi_tool_agent.tools.schedule import schedule_time_tool, full_schedule_tool, search_sessions_tool
 from multi_tool_agent.tools.speaker import speaker_tool, all_speakers_tool
+from multi_tool_agent.tools.direction import custom_directions_tool
 from multi_tool_agent.tools.knowledge_base import venue_tool, event_info_tool, directions_tool, ticket_tool, general_tool, resources_tool, practical_tool, maximize_tool, networking_tool
 
 Olutona = LlmAgent(
@@ -37,6 +38,7 @@ Olutona = LlmAgent(
         practical_tool,
         resources_tool,
         general_tool,
+        custom_directions_tool,
         web_scraper_tool
     ]
 )
