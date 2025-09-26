@@ -34,7 +34,7 @@ async def ask(request: QuestionRequest):
         user_id = "user1"
         session_id = str(uuid.uuid4())
         
-        logger.info(f"Processing question: {request.question}")
+        logger.info(f"🟢 New question received: {request.question}")
 
         await session_service.create_session(
             app_name=runner.app_name,
@@ -59,34 +59,31 @@ async def ask(request: QuestionRequest):
 
         async for event in result_generator:
             try:
-                # Log event structure for debugging
                 logger.debug(f"Event type: {type(event).__name__}")
-                
-                raw_events.append(str(event))  # Convert to string to avoid NaN serialization issues
-                
-                # Check for text content in different event structures
+                raw_events.append(str(event))  
+
                 if hasattr(event, 'content') and event.content:
                     if hasattr(event.content, 'parts') and event.content.parts:
                         for part in event.content.parts:
                             if hasattr(part, 'text') and part.text:
                                 final_text += part.text
                 
-                # Also check for direct output_text
                 if getattr(event, "output_text", None):
                     final_text += event.output_text
                     
-                # Capture tool calls
                 if getattr(event, "tool_call", None):
-                    tool_calls.append(str(event.tool_call))  # Convert to string
+                    tool_calls.append(str(event.tool_call))
 
             except Exception as event_error:
                 logger.warning(f"Error processing event: {event_error}")
                 continue
 
-        # Clean up the final text
         final_text = final_text.strip()
-        
-        logger.info(f"Final response length: {len(final_text)}")
+
+        # 🔥 Log Q&A pair neatly
+        logger.info("📝 Conversation Log")
+        logger.info(f"Q: {request.question}")
+        logger.info(f"A: {final_text if final_text else '[no response generated]'}")
 
         return {
             "answer": final_text,
@@ -96,6 +93,7 @@ async def ask(request: QuestionRequest):
     except Exception as e:
         logger.error(f"Error in chat endpoint: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
 
 @app.get("/health")
 async def health_check():

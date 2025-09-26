@@ -3,7 +3,7 @@ from google.adk.tools import FunctionTool, ToolContext
 import re
 import random
 
-# Enhanced LinkedIn Local Nigeria Knowledge Base
+# Updated LinkedIn Local Nigeria Knowledge Base
 LLN_KNOWLEDGE = {
     "venue": {
         "name": "Trinity Towers",
@@ -18,7 +18,7 @@ LLN_KNOWLEDGE = {
             "wifi": "Free high-speed WiFi available",
             "charging": "Phone charging stations available",
             "restrooms": "Multiple restroom facilities",
-            "food_court": "On-site food vendors and refreshment areas",
+            "food_court": "On-site food vendors and exhibitors for purchasing food and refreshments",
             "photo_booth": "Professional photo booth for headshots",
             "registration_desk": "Multiple registration desks for quick check-in"
         }
@@ -33,22 +33,24 @@ LLN_KNOWLEDGE = {
         "dress_code": "Dress how you want to be perceived",
         "capacity": "5,000 attendees",
         "check_in_time": "7:30 AM - 8:30 AM",
-        "late_arrivals": "Late check-in available until 10:00 AM"
+        "late_arrivals": "Late check-in available until 10:00 AM",
+        "giveaways": "Exciting giveaways including laptops, merchandise, internships, and a plot of land! Stay attentive during the event for details on how to participate and win."
     },
     "agenda": {
-        "8:00_8:30": "Registration & Welcome Coffee",
-        "8:30_9:00": "Opening Ceremony & Welcome Address",
-        "9:00_10:00": "Keynote Session 1: The Future of Work in Nigeria",
-        "10:00_10:15": "Networking Break",
-        "10:15_11:15": "Panel Discussion: Building Your Personal Brand",
-        "11:15_12:00": "Masterclass: LinkedIn Optimization Workshop",
+        # Placeholder: Update with schedule.csv content when provided
+        "8:00_8:30": "Registration & Welcome",
+        "8:30_9:00": "Opening Ceremony",
+        "9:00_10:00": "Keynote Session",
+        "10:00_10:15": "Break",
+        "10:15_11:15": "Panel Discussion",
+        "11:15_12:00": "Workshop",
         "12:00_1:00": "Lunch & Networking",
-        "1:00_2:00": "Keynote Session 2: Entrepreneurship & Innovation",
-        "2:00_2:45": "Startup Pitch Competition",
+        "1:00_2:00": "Keynote Session",
+        "2:00_2:45": "Pitch Competition",
         "2:45_3:00": "Break",
-        "3:00_3:45": "Panel: Women in Leadership",
-        "3:45_4:15": "Awards & Recognition Ceremony",
-        "4:15_4:30": "Closing Remarks & Next Steps"
+        "3:00_3:45": "Panel Discussion",
+        "3:45_4:15": "Awards Ceremony",
+        "4:15_4:30": "Closing Remarks"
     },
     "speakers": {
         "keynote_speakers": [
@@ -191,7 +193,6 @@ LLN_KNOWLEDGE = {
             "description": "For freelancers, designers, writers, developers, social media managers, creatives and consultants who work project-to-project",
             "perks": [
                 "Certificate of attendance",
-                "Light refreshments", 
                 "Priority seating",
                 "Access to digital resources and event materials",
                 "Networking opportunities with founders, business leaders, and investors",
@@ -224,11 +225,11 @@ LLN_KNOWLEDGE = {
                 "Premium digital and physical media coverage (photo/video kit)",
                 "VIP front row reserved seating",
                 "Deeper access to insider conversations with high-level speakers",
-                "Premium VIP networking lounge with curated refreshments and 1-on-1 opportunities",
+                "Premium VIP networking lounge with curated refreshments",
                 "Customized name tag with 'VIP' badge or gold lanyard",
                 "VIP-only mastermind session",
                 "Priority access to speakers for Q&A",
-                "Executive networking dinner invitation (if applicable)"
+                "Executive networking dinner invitation"
             ]
         },
         "vvip": {
@@ -265,8 +266,8 @@ LLN_KNOWLEDGE = {
         }
     },
     "transportation": {
-        "lagride_discount": "50% off with coupon code: LLN2025",
-        "lagride_info": "Book your ride using Lagride app with code LLN2025 for 50% discount",
+        "Lagride (Official Mobility Sponsor)_discount": "50% off with coupon code: LLN2025",
+        "Lagride (Official Mobility Sponsor)_info": "Book your ride using Lagride (Official Mobility Sponsor) app with code LLN2025 for 50% discount",
         "uber_bolt": "Available - search 'Trinity Towers, Chief Yesufu Abiodun Oniru Road'",
         "public_transport": "BRT to CMS, then taxi/ride-share to Oniru area",
         "from_airport": "45-90 minutes from Murtala Muhammed Airport depending on traffic",
@@ -279,15 +280,18 @@ LLN_KNOWLEDGE = {
     },
     "food_and_refreshments": {
         "included_meals": {
-            "breakfast": "Welcome coffee and light snacks (8:00-8:30 AM)",
-            "lunch": "Full lunch buffet with Nigerian and continental options (12:00-1:00 PM)",
-            "breaks": "Coffee, tea, and snacks during networking breaks"
+            "vip_vvip_only": "VIP and VVIP tickets include curated refreshments and premium catering in exclusive lounges",
+            "others": "No complimentary meals for Student, Freelance, Premium, or Virtual tickets"
         },
+        "vendors_exhibitors": [
+            "On-site food vendors and exhibitors available for purchasing meals and snacks",
+            "Variety of Nigerian and continental food options",
+            "Beverage stations for purchasing drinks"
+        ],
         "dietary_requirements": [
-            "Vegetarian options available",
-            "Halal options available", 
-            "Notify organizers of special dietary needs during registration",
-            "Water stations throughout the venue"
+            "Vegetarian and Halal options available from vendors",
+            "Notify organizers of special dietary needs during registration for VIP/VVIP catering",
+            "Water stations available throughout the venue"
         ],
         "nearby_restaurants": [
             "Multiple restaurants within 5 minutes walk",
@@ -302,7 +306,8 @@ LLN_KNOWLEDGE = {
             "Portable charger/power bank",
             "Business cards (if available)",
             "Notebook and pen",
-            "Comfortable walking shoes"
+            "Comfortable walking shoes",
+            "Cash or mobile payment for food and vendor purchases"
         ],
         "optional": [
             "Tablet for note-taking",
@@ -331,7 +336,8 @@ LLN_KNOWLEDGE = {
             "dress_code_strict": "Smart casual to business formal. Dress to reflect your professional goals",
             "photography": "Photography allowed in designated areas. Speakers may request no photos",
             "networking": "Dedicated networking breaks and lunch specifically for meeting new people",
-            "certificates": "Digital certificates available 48 hours after event"
+            "certificates": "Digital certificates available 48 hours after event",
+            "giveaways": "Exciting giveaways (laptops, merchandise, internships, plot of land) will be announced during the event. Stay attentive for participation details!"
         },
         "technical": {
             "wifi_password": "Will be shared during event registration",
@@ -410,8 +416,8 @@ def get_venue_info(query: str = "", tool_context: ToolContext = None) -> dict:
                           f"👥 **Capacity:** {venue['capacity']}\n\n"
                           f"**Facilities:**\n{facilities_list}\n\n"
                           f"**Getting There:**\n"
-                          f"🚗 Uber/Bolt: Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"🎉 **Special Offer:** {transport['lagride_info']}\n"
+                          f"🚗 Lagride (Official Mobility Sponsor) (Official Mobility Sponsor): Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
+                          f"🎉 **Special Offer:** {transport['Lagride (Official Mobility Sponsor)_info']}\n"
                           f"♿ {venue['accessibility']}\n\n"
                           f"*Need directions from your location? Just ask!*"
             }
@@ -423,10 +429,9 @@ def get_venue_info(query: str = "", tool_context: ToolContext = None) -> dict:
                                        for key, value in venue["facilities"].items()])
             return {
                 "message": f"**Venue Facilities & Amenities:**\n\n{facilities_list}\n\n"
-                          f"*All facilities are available throughout the event day.*"
+                          f"*Food and refreshments available for purchase from vendors.*"
             }
         
-        # Continue with existing venue logic...
         elif any(word in query_lower for word in ['address', 'location', 'where']):
             return {
                 "message": f"**Event Location:**\n\n"
@@ -555,7 +560,7 @@ def get_maximize_experience(section: str = "", tool_context: ToolContext = None)
             during_tips = "\n".join([f"  • {tip}" for tip in maximize["during_event_tips"]])
             return {
                 "message": f"**During Event: Active Participation Strategies:**\n\n{during_tips}\n\n"
-                          f"**⚡ Energy Tip:** Stay hydrated and take short breaks to maintain high energy throughout the day!"
+                          f"**⚡ Energy Tip:** Stay hydrated and purchase food from vendors to maintain high energy throughout the day!"
             }
         
         elif any(word in section_lower for word in ['content', 'social', 'media', 'sharing']):
@@ -599,12 +604,12 @@ def get_event_agenda(time_slot: str = "", tool_context: ToolContext = None) -> d
             agenda_text = "\n".join([f"**{time.replace('_', ':')}** - {session}" 
                                    for time, session in agenda.items()])
             return {
-                "message": f"**LinkedIn Local Nigeria Event Agenda:**\n"
+                "message": f"**LinkedIn Local Nigeria Event Agenda (Tentative):**\n"
                           f"📅 **October 4, 2025**\n\n{agenda_text}\n\n"
                           f"**🎤 Featured Speakers Include:**\n"
                           f"• {', '.join(speakers['keynote_speakers'])}\n"
                           f"• {', '.join(speakers['panelists'][:2])}\n\n"
-                          f"*Ask about specific time slots for more details!*"
+                          f"*Note: Agenda subject to change based on final schedule. Ask about specific time slots for details!*"
             }
         
         time_key = time_slot.replace(":", "_").replace(" ", "_")
@@ -630,7 +635,7 @@ def get_practical_info(topic: str = "", tool_context: ToolContext = None) -> dic
         if not topic:
             return {
                 "message": f"**Practical Information Available:**\n\n"
-                          f"• **Food & Refreshments** - Meals, dietary options\n"
+                          f"• **Food & Refreshments** - Vendor options, VIP/VVIP catering\n"
                           f"• **What to Bring** - Essential and optional items\n"
                           f"• **Safety Guidelines** - Health and security protocols\n"
                           f"• **FAQs** - Common questions and answers\n\n"
@@ -643,15 +648,17 @@ def get_practical_info(topic: str = "", tool_context: ToolContext = None) -> dic
             food = LLN_KNOWLEDGE["food_and_refreshments"]
             meals = "\n".join([f"• **{meal.title()}:** {desc}" 
                              for meal, desc in food["included_meals"].items()])
+            vendors = "\n".join([f"  • {req}" for req in food["vendors_exhibitors"]])
             dietary = "\n".join([f"  • {req}" for req in food["dietary_requirements"]])
             restaurants = "\n".join([f"  • {rest}" for rest in food["nearby_restaurants"]])
             
             return {
                 "message": f"**Food & Refreshments:**\n\n"
                           f"**🍽️ Included Meals:**\n{meals}\n\n"
+                          f"**🥪 Vendor Options:**\n{vendors}\n\n"
                           f"**🥗 Dietary Requirements:**\n{dietary}\n\n"
                           f"**🍕 Nearby Options:**\n{restaurants}\n\n"
-                          f"*All dietary needs will be accommodated - just inform us during registration!*"
+                          f"*Bring cash or mobile payment for vendor purchases!*"
             }
         
         elif any(word in topic_lower for word in ['bring', 'pack', 'items', 'essentials']):
@@ -691,7 +698,8 @@ def get_practical_info(topic: str = "", tool_context: ToolContext = None) -> dic
                           f"**📅 Event Day FAQs:**\n"
                           f"• What if I'm late? {faqs['event_day']['what_if_late']}\n"
                           f"• Strict dress code? {faqs['event_day']['dress_code_strict']}\n"
-                          f"• Photography allowed? {faqs['event_day']['photography']}\n\n"
+                          f"• Photography allowed? {faqs['event_day']['photography']}\n"
+                          f"• Giveaways? {faqs['event_day']['giveaways']}\n\n"
                           f"*Have more questions? Contact us at info@linkedinlocalnigeria.com*"
             }
         
@@ -718,7 +726,8 @@ def get_event_info(query: str = "", tool_context: ToolContext = None) -> dict:
                           f"⏰ **Time:** {event['time']}\n"
                           f"📍 **Venue:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n"
                           f"👥 **Expected Attendees:** {event['capacity']}\n"
-                          f"👔 **Dress Code:** {event['dress_code']}\n\n"
+                          f"👔 **Dress Code:** {event['dress_code']}\n"
+                          f"🎁 **Giveaways:** {event['giveaways']}\n\n"
                           f"**🎯 Mission:** {about['mission']}\n\n"
                           f"**✅ Registration:** {event['registration']}\n"
                           f"🌐 **Website:** {contact['website']}\n\n"
@@ -754,14 +763,25 @@ def get_event_info(query: str = "", tool_context: ToolContext = None) -> dict:
                           f"**⚡ Pro Tip:** Arrive early to avoid queues and start networking during registration!"
             }
         
-        # Continue with existing event_info logic...
+        elif any(word in query_lower for word in ['giveaway', 'giveaways', 'prizes']):
+            return {
+                "message": f"**Exciting Giveaways at LinkedIn Local Nigeria:**\n\n"
+                          f"🎁 **Giveaways:** {event['giveaways']}\n\n"
+                          f"**📢 How to Participate:**\n"
+                          f"  • Stay attentive during the event for announcements\n"
+                          f"  • Follow instructions provided by organizers\n"
+                          f"  • Engage actively in sessions and networking\n\n"
+                          f"*Don’t miss your chance to win laptops, merchandise, internships, or even a plot of land!*"
+            }
+        
         elif any(word in query_lower for word in ['date', 'when', 'time']):
             return {
                 "message": f"**Event Date & Time:**\n\n"
                           f"📅 **Date:** {event['date']}\n"
                           f"⏰ **Time:** {event['time']}\n"
                           f"🚪 **Check-in:** {event['check_in_time']}\n"
-                          f"📍 **Venue:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n\n"
+                          f"📍 **Venue:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n"
+                          f"🎁 **Giveaways:** {event['giveaways']}\n\n"
                           f"*Mark your calendar and join us for a full day of networking and learning!*"
             }
         
@@ -780,7 +800,6 @@ def get_ticket_info(ticket_type: str = "", tool_context: ToolContext = None) -> 
         transport = LLN_KNOWLEDGE["transportation"]
         
         if not ticket_type:
-            # Return enhanced ticket overview
             ticket_list = []
             for key, ticket in tickets.items():
                 ticket_list.append(f"• **{key.upper()} TICKET** - {ticket['price']}\n  Perfect for: {ticket['target']}")
@@ -788,7 +807,7 @@ def get_ticket_info(ticket_type: str = "", tool_context: ToolContext = None) -> 
             return {
                 "message": f"**LinkedIn Local Nigeria Ticket Options:**\n\n" +
                           "\n\n".join(ticket_list) + 
-                          f"\n\n**🎉 Special Transport Offer:**\n{transport['lagride_info']}\n\n" +
+                          f"\n\n**🎉 Special Transport Offer:**\n{transport['Lagride (Official Mobility Sponsor)_info']}\n\n" +
                           f"**💡 Choosing Your Ticket:**\n" +
                           f"• Students/NYSC → Student Ticket\n" +
                           f"• Freelancers/Creatives → Freelance Ticket\n" +
@@ -803,26 +822,24 @@ def get_ticket_info(ticket_type: str = "", tool_context: ToolContext = None) -> 
             ticket = tickets[ticket_lower]
             perks_text = "\n".join([f"    • {perk}" for perk in ticket["perks"]])
             
-            # Add value proposition based on ticket type
             value_prop = ""
             if ticket_lower == "student":
                 value_prop = "\n**🎓 Why Students Choose This:**\nStart building your professional network before graduation. This investment in yourself will pay dividends throughout your career!"
             elif ticket_lower == "vip":
-                value_prop = "\n**💼 Executive Value:**\nAccess decision-makers, skip the crowds, and make meaningful connections with other leaders in your field."
+                value_prop = "\n**💼 Executive Value:**\nAccess decision-makers, skip the crowds, and enjoy curated refreshments in the VIP lounge."
             elif ticket_lower == "vvip":
-                value_prop = "\n**👑 Ultimate Experience:**\nMaximize your time with exclusive access, personalized service, and direct connections with speakers and industry leaders."
+                value_prop = "\n**👑 Ultimate Experience:**\nMaximize your time with exclusive access, premium catering, and direct connections with speakers and industry leaders."
             
             return {
                 "message": f"**{ticket_lower.upper()} TICKET - {ticket['price']}**\n\n"
                           f"**🎯 Perfect for:** {ticket['target']}\n\n"
                           f"**📝 Description:** {ticket['description']}\n\n"
                           f"**✨ Perks & Benefits:**\n{perks_text}\n\n"
-                          f"**🚗 Special Transport Offer:**\n{transport['lagride_info']}\n\n"
+                          f"**🚗 Special Transport Offer:**\n{transport['Lagride (Official Mobility Sponsor)_info']}\n\n"
                           f"**✅ Register:** linkedinlocalnigeria.com"
                           f"{value_prop}"
             }
         else:
-            # Try to match partial names
             matching_tickets = [name for name in tickets.keys() if ticket_lower in name.lower()]
             if matching_tickets:
                 return get_ticket_info(matching_tickets[0], tool_context)
@@ -854,12 +871,12 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
                           f"📍 **Destination:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n\n"
                           f"🕐 **Travel Time:** {transport['from_airport']}\n\n"
                           f"**🚗 Recommended Routes:**\n"
-                          f"1. **Uber/Bolt:** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"2. **Lagride Special:** Use code LLN2025 for 50% off\n"
+                          f"1. **Lagride (Official Mobility Sponsor) (Official Mobility Sponsor):** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
+                          f"2. **Lagride (Official Mobility Sponsor) Special:** Use code LLN2025 for 50% off\n"
                           f"3. Route: Airport Road → Third Mainland Bridge → Oniru area\n\n"
                           f"**💰 Cost Estimates:**\n"
                           f"• Regular rides: ₦3,000 - ₦8,000\n"
-                          f"• With Lagride discount: ₦1,500 - ₦4,000\n\n"
+                          f"• With Lagride (Official Mobility Sponsor) discount: ₦1,500 - ₦4,000\n\n"
                           f"**⚠️ Traffic Tips:**\n"
                           f"• Leave 2 hours early during rush hours (7-10 AM)\n"
                           f"• Book rides 30 minutes in advance\n"
@@ -872,13 +889,13 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
                           f"📍 **Destination:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n\n"
                           f"🕐 **Travel Time:** {transport['from_mainland']}\n\n"
                           f"**🚗 Transportation Options:**\n"
-                          f"1. **Uber/Bolt:** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"2. **Lagride (50% off):** Use code LLN2025\n"
+                          f"1. **Lagride (Official Mobility Sponsor) (Official Mobility Sponsor):** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
+                          f"2. **Lagride (Official Mobility Sponsor) (50% off):** Use code LLN2025\n"
                           f"3. **BRT + Taxi:** BRT to CMS → Taxi to Oniru (₦1,500 total)\n"
                           f"4. **Personal Car:** Third Mainland/Carter Bridge → Oniru\n\n"
                           f"**💰 Cost Breakdown:**\n"
-                          f"• Uber/Bolt: ₦2,000 - ₦6,000\n"
-                          f"• Lagride discounted: ₦1,000 - ₦3,000\n"
+                          f"• Lagride (Official Mobility Sponsor) (Official Mobility Sponsor): ₦2,000 - ₦6,000\n"
+                          f"• Lagride (Official Mobility Sponsor) discounted: ₦1,000 - ₦3,000\n"
                           f"• BRT + Taxi: ₦1,500 total\n\n"
                           f"**📍 Parking:** Available near venue (₦1,000-₦2,000/day)\n"
                           f"**⏰ Best departure times:** 6:30-7:00 AM to arrive by 8:00 AM"
@@ -890,13 +907,13 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
                           f"📍 **Destination:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n\n"
                           f"🕐 **Travel Time:** {transport['from_island']}\n\n"
                           f"**🚗 Easy Transportation:**\n"
-                          f"1. **Uber/Bolt:** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"2. **Lagride (50% off):** Use code LLN2025\n"
+                          f"1. **Lagride (Official Mobility Sponsor) (Official Mobility Sponsor):** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
+                          f"2. **Lagride (Official Mobility Sponsor) (50% off):** Use code LLN2025\n"
                           f"3. **Taxi:** Direct route within VI area\n"
                           f"4. **Walk + Uber:** If staying very close in VI\n\n"
                           f"**💰 Cost (Very Affordable):**\n"
-                          f"• Uber/Bolt: ₦1,000 - ₦3,000\n"
-                          f"• Lagride discounted: ₦500 - ₦1,500\n"
+                          f"• Lagride (Official Mobility Sponsor) (Official Mobility Sponsor): ₦1,000 - ₦3,000\n"
+                          f"• Lagride (Official Mobility Sponsor) discounted: ₦500 - ₦1,500\n"
                           f"• Taxi: ₦1,500 - ₦2,500\n\n"
                           f"**✅ Advantages:**\n"
                           f"• Shortest distance - you're already on the Island!\n"
@@ -911,11 +928,11 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
                           f"📍 **Destination:** {venue['name']}\n"
                           f"📧 {venue['address']}\n\n"
                           f"**🚗 General Directions:**\n"
-                          f"1. Open your preferred ride app (Uber/Bolt/Lagride)\n"
+                          f"1. Open your preferred ride app (Lagride (Official Mobility Sponsor) (Official Mobility Sponsor)/Lagride (Official Mobility Sponsor))\n"
                           f"2. Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
                           f"3. Book your ride\n\n"
                           f"**💰 Special Offers:**\n"
-                          f"• {transport['lagride_info']}\n\n"
+                          f"• {transport['Lagride (Official Mobility Sponsor)_info']}\n\n"
                           f"**🗺️ Alternative Navigation:**\n"
                           f"Use Google Maps with destination:\n"
                           f"'{venue['name']}, Chief Yesufu Abiodun Oniru Road, Lagos'\n\n"
@@ -951,14 +968,12 @@ def get_follow_up_resources(tool_context: ToolContext = None) -> dict:
     except Exception as e:
         return {"message": f"Sorry, couldn't fetch follow-up resources. Error: {str(e)}"}
 
-# Enhanced conversation handlers
 def handle_general_query(query: str, tool_context: ToolContext) -> dict:
     """
     Handle general queries that don't fit specific categories.
     """
     query_lower = query.lower()
     
-    # Define response patterns
     responses = {
         "motivation": [
             "LinkedIn Local Nigeria is your gateway to building meaningful professional relationships that can transform your career!",
@@ -983,6 +998,16 @@ def handle_general_query(query: str, tool_context: ToolContext) -> dict:
         return {"message": random.choice(responses["motivation"])}
     elif any(word in query_lower for word in ['success', 'win', 'best']):
         return {"message": random.choice(responses["success_tips"])}
+    elif any(word in query_lower for word in ['giveaway', 'giveaways', 'prizes']):
+        return {
+            "message": f"**Exciting Giveaways at LinkedIn Local Nigeria:**\n\n"
+                      f"🎁 **Giveaways:** {LLN_KNOWLEDGE['event_details']['giveaways']}\n\n"
+                      f"**📢 How to Participate:**\n"
+                      f"  • Stay attentive during the event for announcements\n"
+                      f"  • Follow instructions provided by organizers\n"
+                      f"  • Engage actively in sessions and networking\n\n"
+                      f"*Don’t miss your chance to win laptops, merchandise, internships, or even a plot of land!*"
+        }
     else:
         return {
             "message": "I'd be happy to help you with information about LinkedIn Local Nigeria! You can ask me about:\n\n"
@@ -991,7 +1016,8 @@ def handle_general_query(query: str, tool_context: ToolContext) -> dict:
                       "• **Maximize Experience** - Preparation tips, learning optimization\n"
                       "• **Event Agenda** - Schedule, speakers, sessions\n"
                       "• **Tickets** - Pricing, perks, and recommendations\n"
-                      "• **Practical Info** - Food, what to bring, safety guidelines\n\n"
+                      "• **Practical Info** - Food, what to bring, safety guidelines\n"
+                      "• **Giveaways** - Details on exciting prizes\n\n"
                       "*What would you like to know more about?*"
         }
 
