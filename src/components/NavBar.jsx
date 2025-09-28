@@ -72,7 +72,7 @@ const Navbar = () => {
           </div>
 
           <a 
-            href="hhttps://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
+            href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hidden lg:inline-block"
