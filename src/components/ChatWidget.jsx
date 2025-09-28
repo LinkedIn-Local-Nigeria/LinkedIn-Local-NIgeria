@@ -11,7 +11,7 @@ const ChatWidget = () => {
   const messagesEndRef = useRef(null);
   const CHATBOT_URL = 'https://chat.LLN.net/';
   const API_URL = 'https://linkedin-local-nigeria.onrender.com/chat';
-//   const API_URL = 'http://localhost:2025/api/v1/agents/chat';
+//   const API_URL = 'http://localhost:8000/chat';
 
   const predefinedQuestions = [
     'Who are the keynote speakers ?',
@@ -166,7 +166,7 @@ const ChatWidget = () => {
         <div className="fixed bottom-24 right-6 z-[999999] w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
           <div className="flex items-center justify-between p-4 text-black">
             <div>
-              <h3 className="text-lg font-semibold">Chat with Olutona</h3>
+              <h3 className="text-lg font-semibold">Chat with Tona</h3>
               <p className="text-sm opacity-90">How can i help you today?</p>
             </div>
             <div className="flex items-center space-x-2">
@@ -224,7 +224,7 @@ const ChatWidget = () => {
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                         </div>
-                        <span className="text-xs">Olutona is typing...</span>
+                        <span className="text-xs">Tona is typing...</span>
                       </div>
                     </div>
                   </div>

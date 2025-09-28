@@ -28,9 +28,6 @@ LLN_KNOWLEDGE = {
     },
     "contact_info": {
         "website": "https://linkedinlocalnigeria.com",
-        "email": "info@linkedinlocalnigeria.com",
-        "whatsapp": "+234 XXX XXX XXXX",
-        "emergency_contact": "Event day emergency: +234 XXX XXX XXXX"
     }
 }
 
