@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const scheduleData = {
-  title: 'LinkedIn Local Nigeria 2025 - Your day at a glance',
+  title: 'Your day at a glance',
   days: [
     {
       dayNumber: 1,
