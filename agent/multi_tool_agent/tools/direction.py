@@ -28,6 +28,9 @@ LLN_KNOWLEDGE = {
     },
     "contact_info": {
         "website": "https://linkedinlocalnigeria.com",
+        "email": "info@linkedinlocalnigeria.com",
+        "whatsapp": "+234 XXX XXX XXXX",
+        "emergency_contact": "Event day emergency: +234 XXX XXX XXXX"
     }
 }
 
@@ -60,8 +63,6 @@ def get_custom_directions(from_location: str = "", tool_context: ToolContext = N
                           f"• **Personal Car:** Navigate to '{venue['address']}' with Google Maps\n\n"
                           f"**🅿️ Parking:** {transport['parking']}\n\n"
                           f"**📞 Need Help?**\n"
-                          f"WhatsApp: {LLN_KNOWLEDGE['contact_info']['whatsapp']}\n"
-                          f"Email: {LLN_KNOWLEDGE['contact_info']['email']}\n\n"
                           f"*Specify your starting location (e.g., 'Ibadan', 'Abuja', 'Port Harcourt') for tailored advice!*"
             }
         
@@ -89,7 +90,6 @@ def get_custom_directions(from_location: str = "", tool_context: ToolContext = N
                           f"• Leave 2 hours early during rush hours (7-10 AM)\n"
                           f"• Book Lagride 30 minutes in advance\n"
                           f"• Consider staying overnight near venue if arriving late\n\n"
-                          f"**📞 Support:** {LLN_KNOWLEDGE['contact_info']['whatsapp']}"
             }
         
         elif any(word in location_lower for word in ['mainland', 'ikeja', 'surulere', 'yaba', 'mushin', 'maryland', 'gbagada']):
@@ -108,7 +108,6 @@ def get_custom_directions(from_location: str = "", tool_context: ToolContext = N
                           f"• Discounted rides: ₦1,000 - ₦3,000 (with code LLN2025)\n\n"
                           f"**📍 Parking:** Available near venue (₦1,000-₦2,000/day)\n"
                           f"**⏰ Best Departure Times:** 6:30-7:00 AM to arrive by 8:00 AM\n\n"
-                          f"**📞 Support:** {LLN_KNOWLEDGE['contact_info']['whatsapp']}"
             }
         
         elif any(word in location_lower for word in ['island', 'ikoyi', 'lekki', 'ajah', 'vi', 'victoria island']):
@@ -157,8 +156,6 @@ def get_custom_directions(from_location: str = "", tool_context: ToolContext = N
                           f"• **Traffic:** Lagos traffic can be heavy; leave Ibadan by 5:00 AM to reach venue by 8:00 AM\n"
                           f"• **Ride Booking:** Pre-book Lagride with code LLN2025 for discounted travel in Lagos\n\n"
                           f"**📞 Need Assistance?**\n"
-                          f"WhatsApp: {LLN_KNOWLEDGE['contact_info']['whatsapp']}\n"
-                          f"Email: {LLN_KNOWLEDGE['contact_info']['email']}\n"
                           f"Website: {LLN_KNOWLEDGE['contact_info']['website']}\n\n"
                           f"*Use the Google Maps link for real-time directions and book Lagride for your Lagos travel!*"
             }
@@ -184,8 +181,6 @@ def get_custom_directions(from_location: str = "", tool_context: ToolContext = N
                           f"• **Ride Booking:** Pre-book Lagride with code LLN2025 for smoother travel\n"
                           f"• **Parking:** Available near venue (₦1,000-₦2,000/day)\n\n"
                           f"**📞 Need Assistance?**\n"
-                          f"WhatsApp: {LLN_KNOWLEDGE['contact_info']['whatsapp']}\n"
-                          f"Email: {LLN_KNOWLEDGE['contact_info']['email']}\n"
                           f"Website: {LLN_KNOWLEDGE['contact_info']['website']}\n\n"
                           f"*Use the Google Maps link for real-time, turn-by-turn directions and book Lagride for your Lagos travel!*"
             }
@@ -204,8 +199,6 @@ def get_custom_directions(from_location: str = "", tool_context: ToolContext = N
                       f"• Enter '{venue['address']}' in the Lagride app or Google Maps for precise navigation\n"
                       f"• For long-distance travel, book a bus or flight to Lagos, then use Lagride for the final leg\n\n"
                       f"**📞 Need Help?**\n"
-                      f"WhatsApp: {LLN_KNOWLEDGE['contact_info']['whatsapp']}\n"
-                      f"Email: {LLN_KNOWLEDGE['contact_info']['email']}\n\n"
                       f"*Safe journey to the event!*"
         }
 

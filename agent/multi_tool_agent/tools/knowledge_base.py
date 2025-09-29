@@ -372,7 +372,6 @@ LLN_KNOWLEDGE = {
     "contact_info": {
         "website": "https://linkedinlocalnigeria.com",
         "email": "info@linkedinlocalnigeria.com",
-        "whatsapp": "+234 XXX XXX XXXX",
         "social_media": {
             "linkedin": "LinkedIn Local Nigeria",
             "twitter": "@LinkedInLocalNG",
@@ -937,7 +936,6 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
                           f"Use Google Maps with destination:\n"
                           f"'{venue['name']}, Chief Yesufu Abiodun Oniru Road, Lagos'\n\n"
                           f"**📞 Need Help?**\n"
-                          f"WhatsApp: {LLN_KNOWLEDGE['contact_info']['whatsapp']}\n\n"
                           f"*For specific route guidance, please use GPS navigation from your exact location.*"
             }
     
