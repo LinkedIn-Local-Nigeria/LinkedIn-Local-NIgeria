@@ -10,8 +10,8 @@ const ChatWidget = () => {
 
   const messagesEndRef = useRef(null);
   const CHATBOT_URL = 'https://chat.LLN.net/';
-//   const API_URL = 'https://linkedin-local-nigeria.onrender.com/chat';
-  const API_URL = 'http://localhost:8000/chat';
+  const API_URL = 'https://linkedin-local-nigeria.onrender.com/chat';
+//   const API_URL = 'http://localhost:8000/chat';
 
   const predefinedQuestions = [
     'Who are the keynote speakers ?',
