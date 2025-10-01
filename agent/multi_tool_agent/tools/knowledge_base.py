@@ -37,7 +37,6 @@ LLN_KNOWLEDGE = {
         "giveaways": "Exciting giveaways including laptops, merchandise, internships, and a plot of land! Stay attentive during the event for details on how to participate and win."
     },
     "agenda": {
-        # Placeholder: Update with schedule.csv content when provided
         "8:00_8:30": "Registration & Welcome",
         "8:30_9:00": "Opening Ceremony",
         "9:00_10:00": "Keynote Session",
@@ -266,17 +265,94 @@ LLN_KNOWLEDGE = {
         }
     },
     "transportation": {
-        "Lagride (Official Mobility Sponsor)_discount": "50% off with coupon code: LLN2025",
-        "Lagride (Official Mobility Sponsor)_info": "Book your ride using Lagride (Official Mobility Sponsor) app with code LLN2025 for 50% discount",
-        "uber_bolt": "Available - search 'Trinity Towers, Chief Yesufu Abiodun Oniru Road'",
-        "public_transport": "BRT to CMS, then taxi/ride-share to Oniru area",
-        "from_airport": "45-90 minutes from Murtala Muhammed Airport depending on traffic",
-        "from_mainland": "30-60 minutes via Third Mainland Bridge or Carter Bridge", 
-        "from_island": "15-30 minutes within Victoria Island/Ikoyi area",
-        "parking": "Available nearby",
-        "ride_sharing": "Coordinate rides with other attendees via WhatsApp groups",
-        "early_transport": "Book rides 30 minutes earlier during rush hours",
-        "return_transport": "Book return rides before 4:00 PM to avoid delays"
+        "overview": "Two official mobility partners serving different travel needs",
+        
+        "lagride": {
+            "partner_type": "Official Ride-Hailing Partner",
+            "discount": "50% off with code LLN2025",
+            "best_for": [
+                "Private, door-to-door rides",
+                "Flexible timing - travel on your schedule",
+                "Coming from varied locations across Lagos",
+                "Prefer personal space and comfort",
+                "Last-minute travel plans"
+            ],
+            "how_to_use": [
+                "Download or open the Lagride app",
+                "Enter destination: Trinity Towers, Chief Yesufu Abiodun Oniru Road",
+                "Before checkout, apply coupon code: LLN2025",
+                "Enjoy 50% discount on your ride"
+            ],
+            "cost_estimates": {
+                "from_airport": "₦1,500 - ₦4,000 (with discount)",
+                "from_mainland": "₦1,000 - ₦3,000 (with discount)",
+                "from_island": "₦500 - ₦1,500 (with discount)"
+            }
+        },
+        
+        "shuttlers": {
+            "partner_type": "Official Shared Shuttle Partner",
+            "discount": "30% discount (automatically applied)",
+            "best_for": [
+                "Budget-conscious attendees",
+                "Comfortable with shared transport",
+                "Don't mind fixed schedules",
+                "Want to network during commute",
+                "Coming from popular pick-up points"
+            ],
+            "how_to_use": [
+                "Download or open the Shuttlers app",
+                "Navigate to the 'Events' section",
+                "Search for 'LinkedIn Local Nigeria'",
+                "Browse available shuttle routes",
+                "Select a pick-up station near your location",
+                "Book your seat (30% discount already included)",
+                "Arrive at pick-up station on time"
+            ],
+            "advantages": [
+                "Most affordable option",
+                "Meet other attendees during ride",
+                "No need to apply discount code",
+                "Fixed schedule ensures punctuality",
+                "Multiple pick-up stations across Lagos"
+            ]
+        },
+        
+        "comparison": {
+            "choose_lagride_if": [
+                "You need flexible departure times",
+                "You're coming from an area without Shuttlers routes",
+                "You prefer private transportation",
+                "You have luggage or materials to transport",
+                "You want door-to-door convenience"
+            ],
+            "choose_shuttlers_if": [
+                "Budget is a primary concern",
+                "You're near a Shuttlers pick-up station",
+                "You enjoy networking opportunities",
+                "You're comfortable with shared rides",
+                "You can commit to fixed departure times"
+            ]
+        },
+        
+        "other_options": {
+            "uber_bolt": "Available - search 'Trinity Towers, Chief Yesufu Abiodun Oniru Road'",
+            "public_transport": "BRT to CMS, then taxi/ride-share to Oniru area",
+            "personal_car": "Parking available nearby (₦1,000-₦2,000/day)"
+        },
+        
+        "travel_times": {
+            "from_airport": "45-90 minutes depending on traffic",
+            "from_mainland": "30-60 minutes via Third Mainland Bridge or Carter Bridge", 
+            "from_island": "15-30 minutes within Victoria Island/Ikoyi area"
+        },
+        
+        "tips": {
+            "early_departure": "Leave 30-60 minutes earlier during rush hours (7-10 AM)",
+            "booking_timing": "Book rides 30 minutes in advance to ensure availability",
+            "return_transport": "Book return rides before 4:00 PM to avoid post-event delays",
+            "ride_sharing": "Coordinate with other attendees via event WhatsApp groups"
+        }
     },
     "food_and_refreshments": {
         "included_meals": {
@@ -404,7 +480,6 @@ def get_venue_info(query: str = "", tool_context: ToolContext = None) -> dict:
     """
     try:
         venue = LLN_KNOWLEDGE["venue"]
-        transport = LLN_KNOWLEDGE["transportation"]
         
         if not query:
             facilities_list = "\n".join([f"  • {desc}" for desc in venue["facilities"].values()])
@@ -415,10 +490,9 @@ def get_venue_info(query: str = "", tool_context: ToolContext = None) -> dict:
                           f"👥 **Capacity:** {venue['capacity']}\n\n"
                           f"**Facilities:**\n{facilities_list}\n\n"
                           f"**Getting There:**\n"
-                          f"🚗 Lagride (Official Mobility Sponsor) (Official Mobility Sponsor): Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"🎉 **Special Offer:** {transport['Lagride (Official Mobility Sponsor)_info']}\n"
+                          f"🚗 Use Lagride (50% off) or Shuttlers (30% off)\n"
                           f"♿ {venue['accessibility']}\n\n"
-                          f"*Need directions from your location? Just ask!*"
+                          f"*Ask about 'transportation' for detailed mobility partner info!*"
             }
         
         query_lower = query.lower()
@@ -445,13 +519,97 @@ def get_venue_info(query: str = "", tool_context: ToolContext = None) -> dict:
                 "message": f"**{venue['name']} Information:**\n\n"
                           f"📧 **Address:** {venue['address']}\n"
                           f"📱 **Contact:** {venue['contact']}\n"
-                          f"🚗 **Transportation:** {transport['uber_bolt']}\n"
+                          f"🚗 **Transportation:** Lagride & Shuttlers (ask for details)\n"
                           f"🅿️ **Parking:** {venue['parking']}\n"
                           f"♿ **Accessibility:** {venue['accessibility']}"
             }
     
     except Exception as e:
         return {"message": f"Sorry, couldn't fetch venue information. Error: {str(e)}"}
+
+def get_transportation_info(query: str = "", tool_context: ToolContext = None) -> dict:
+    """
+    Get comprehensive transportation information including both mobility partners.
+    """
+    try:
+        transport = LLN_KNOWLEDGE["transportation"]
+        venue = LLN_KNOWLEDGE["venue"]
+        
+        if not query:
+            return {
+                "message": f"**Getting to LinkedIn Local Nigeria - Trinity Towers:**\n\n"
+                          f"**🚗 Official Mobility Partners:**\n\n"
+                          f"**1. LAGRIDE (Private Rides)**\n"
+                          f"   💰 50% OFF with code: LLN2025\n"
+                          f"   ✅ Best for: Door-to-door service, flexible timing\n"
+                          f"   📱 Book in the Lagride app\n\n"
+                          f"**2. SHUTTLERS (Shared Shuttles)**\n"
+                          f"   💰 30% OFF (automatically applied)\n"
+                          f"   ✅ Best for: Budget travel, networking during commute\n"
+                          f"   📱 Find event in Shuttlers app → Events section\n\n"
+                          f"**🤔 Which Should You Choose?**\n"
+                          f"• **Lagride** → Need flexibility or coming from unusual locations\n"
+                          f"• **Shuttlers** → Want to save money and don't mind fixed schedules\n\n"
+                          f"*Ask about 'Lagride details', 'Shuttlers details', or 'transport comparison' for more info!*"
+            }
+        
+        query_lower = query.lower()
+        
+        if any(word in query_lower for word in ['lagride', 'private', 'door-to-door']):
+            lagride = transport["lagride"]
+            best_for = "\n".join([f"  • {use}" for use in lagride["best_for"]])
+            steps = "\n".join([f"  {i+1}. {step}" for i, step in enumerate(lagride["how_to_use"])])
+            costs = "\n".join([f"  • {route.replace('_', ' ').title()}: {cost}" 
+                              for route, cost in lagride["cost_estimates"].items()])
+            
+            return {
+                "message": f"**🚗 LAGRIDE - Official Ride-Hailing Partner**\n\n"
+                          f"**💰 Discount:** {lagride['discount']}\n\n"
+                          f"**✅ Best For:**\n{best_for}\n\n"
+                          f"**📱 How to Use:**\n{steps}\n\n"
+                          f"**💵 Estimated Costs (with 50% discount):**\n{costs}\n\n"
+                          f"**⏰ Pro Tip:** Book 30 minutes in advance during rush hours!"
+            }
+        
+        elif any(word in query_lower for word in ['shuttlers', 'shuttle', 'shared', 'bus']):
+            shuttlers = transport["shuttlers"]
+            best_for = "\n".join([f"  • {use}" for use in shuttlers["best_for"]])
+            steps = "\n".join([f"  {i+1}. {step}" for i, step in enumerate(shuttlers["how_to_use"])])
+            advantages = "\n".join([f"  • {adv}" for adv in shuttlers["advantages"]])
+            
+            return {
+                "message": f"**🚌 SHUTTLERS - Official Shared Shuttle Partner**\n\n"
+                          f"**💰 Discount:** {shuttlers['discount']}\n\n"
+                          f"**✅ Best For:**\n{best_for}\n\n"
+                          f"**📱 How to Book:**\n{steps}\n\n"
+                          f"**🌟 Why Choose Shuttlers:**\n{advantages}\n\n"
+                          f"**🤝 Bonus:** Network with fellow attendees during your ride!"
+            }
+        
+        elif any(word in query_lower for word in ['compare', 'comparison', 'difference', 'which', 'choose']):
+            comparison = transport["comparison"]
+            lagride_reasons = "\n".join([f"  • {reason}" for reason in comparison["choose_lagride_if"]])
+            shuttlers_reasons = "\n".join([f"  • {reason}" for reason in comparison["choose_shuttlers_if"]])
+            
+            return {
+                "message": f"**🚗 vs 🚌 LAGRIDE vs SHUTTLERS - Which is Right for You?**\n\n"
+                          f"**Choose LAGRIDE if:**\n{lagride_reasons}\n\n"
+                          f"**Choose SHUTTLERS if:**\n{shuttlers_reasons}\n\n"
+                          f"**Quick Comparison:**\n\n"
+                          f"**Feature** | **Lagride** | **Shuttlers**\n"
+                          f"Discount | 50% OFF | 30% OFF\n"
+                          f"Type | Private ride | Shared shuttle\n"
+                          f"Timing | Flexible | Fixed schedule\n"
+                          f"Cost | Medium | Most affordable\n"
+                          f"Booking | Use code LLN2025 | Auto-applied\n\n"
+                          f"**💡 Pro Tip:** Both are great options - choose based on your priorities!"
+            }
+        
+        else:
+            return get_transportation_info("", tool_context)
+            
+    except Exception as e:
+        return {"message": f"Sorry, couldn't fetch transportation information. Error: {str(e)}"}
 
 def get_networking_guide(section: str = "", tool_context: ToolContext = None) -> dict:
     """
@@ -517,7 +675,7 @@ def get_networking_guide(section: str = "", tool_context: ToolContext = None) ->
             }
         
         else:
-            return get_networking_guide("", tool_context)  # Return general guide
+            return get_networking_guide("", tool_context)
             
     except Exception as e:
         return {"message": f"Sorry, couldn't fetch networking guide. Error: {str(e)}"}
@@ -645,7 +803,7 @@ def get_practical_info(topic: str = "", tool_context: ToolContext = None) -> dic
         
         if any(word in topic_lower for word in ['food', 'meal', 'eat', 'lunch', 'refreshment']):
             food = LLN_KNOWLEDGE["food_and_refreshments"]
-            meals = "\n".join([f"• **{meal.title()}:** {desc}" 
+            meals = "\n".join([f"• **{meal.replace('_', ' ').title()}:** {desc}" 
                              for meal, desc in food["included_meals"].items()])
             vendors = "\n".join([f"  • {req}" for req in food["vendors_exhibitors"]])
             dietary = "\n".join([f"  • {req}" for req in food["dietary_requirements"]])
@@ -770,7 +928,7 @@ def get_event_info(query: str = "", tool_context: ToolContext = None) -> dict:
                           f"  • Stay attentive during the event for announcements\n"
                           f"  • Follow instructions provided by organizers\n"
                           f"  • Engage actively in sessions and networking\n\n"
-                          f"*Don’t miss your chance to win laptops, merchandise, internships, or even a plot of land!*"
+                          f"*Don't miss your chance to win laptops, merchandise, internships, or even a plot of land!*"
             }
         
         elif any(word in query_lower for word in ['date', 'when', 'time']):
@@ -785,7 +943,7 @@ def get_event_info(query: str = "", tool_context: ToolContext = None) -> dict:
             }
         
         else:
-            return get_event_info("", tool_context)  # Return general info
+            return get_event_info("", tool_context)
             
     except Exception as e:
         return {"message": f"Sorry, couldn't fetch event information. Error: {str(e)}"}
@@ -796,7 +954,6 @@ def get_ticket_info(ticket_type: str = "", tool_context: ToolContext = None) -> 
     """
     try:
         tickets = LLN_KNOWLEDGE["tickets"]
-        transport = LLN_KNOWLEDGE["transportation"]
         
         if not ticket_type:
             ticket_list = []
@@ -806,7 +963,7 @@ def get_ticket_info(ticket_type: str = "", tool_context: ToolContext = None) -> 
             return {
                 "message": f"**LinkedIn Local Nigeria Ticket Options:**\n\n" +
                           "\n\n".join(ticket_list) + 
-                          f"\n\n**🎉 Special Transport Offer:**\n{transport['Lagride (Official Mobility Sponsor)_info']}\n\n" +
+                          f"\n\n**🚗 Transportation Bonus:**\nAll attendees get special discounts: Lagride (50% off) & Shuttlers (30% off)\n\n" +
                           f"**💡 Choosing Your Ticket:**\n" +
                           f"• Students/NYSC → Student Ticket\n" +
                           f"• Freelancers/Creatives → Freelance Ticket\n" +
@@ -834,7 +991,7 @@ def get_ticket_info(ticket_type: str = "", tool_context: ToolContext = None) -> 
                           f"**🎯 Perfect for:** {ticket['target']}\n\n"
                           f"**📝 Description:** {ticket['description']}\n\n"
                           f"**✨ Perks & Benefits:**\n{perks_text}\n\n"
-                          f"**🚗 Special Transport Offer:**\n{transport['Lagride (Official Mobility Sponsor)_info']}\n\n"
+                          f"**🚗 Transportation Bonus:**\nLagride (50% off) & Shuttlers (30% off)\n\n"
                           f"**✅ Register:** linkedinlocalnigeria.com"
                           f"{value_prop}"
             }
@@ -868,17 +1025,16 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
             return {
                 "message": f"**From Lagos Airport to Event Venue:**\n\n"
                           f"📍 **Destination:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n\n"
-                          f"🕐 **Travel Time:** {transport['from_airport']}\n\n"
-                          f"**🚗 Recommended Routes:**\n"
-                          f"1. **Lagride (Official Mobility Sponsor) (Official Mobility Sponsor):** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"2. **Lagride (Official Mobility Sponsor) Special:** Use code LLN2025 for 50% off\n"
-                          f"3. Route: Airport Road → Third Mainland Bridge → Oniru area\n\n"
-                          f"**💰 Cost Estimates:**\n"
-                          f"• Regular rides: ₦3,000 - ₦8,000\n"
-                          f"• With Lagride (Official Mobility Sponsor) discount: ₦1,500 - ₦4,000\n\n"
+                          f"🕐 **Travel Time:** {transport['travel_times']['from_airport']}\n\n"
+                          f"**🚗 Recommended Options:**\n"
+                          f"1. **Lagride (Private):** 50% off with code LLN2025\n"
+                          f"   Cost: {transport['lagride']['cost_estimates']['from_airport']}\n\n"
+                          f"2. **Shuttlers (Shared):** 30% off (auto-applied)\n"
+                          f"   Check app for routes from airport area\n\n"
+                          f"3. **Regular ride-hailing:** Uber/Bolt also available\n\n"
                           f"**⚠️ Traffic Tips:**\n"
-                          f"• Leave 2 hours early during rush hours (7-10 AM)\n"
-                          f"• Book rides 30 minutes in advance\n"
+                          f"• {transport['tips']['early_departure']}\n"
+                          f"• {transport['tips']['booking_timing']}\n"
                           f"• Consider staying overnight near venue if arriving late"
             }
         
@@ -886,34 +1042,28 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
             return {
                 "message": f"**From Lagos Mainland to Event Venue:**\n\n"
                           f"📍 **Destination:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n\n"
-                          f"🕐 **Travel Time:** {transport['from_mainland']}\n\n"
-                          f"**🚗 Transportation Options:**\n"
-                          f"1. **Lagride (Official Mobility Sponsor) (Official Mobility Sponsor):** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"2. **Lagride (Official Mobility Sponsor) (50% off):** Use code LLN2025\n"
-                          f"3. **BRT + Taxi:** BRT to CMS → Taxi to Oniru (₦1,500 total)\n"
-                          f"4. **Personal Car:** Third Mainland/Carter Bridge → Oniru\n\n"
-                          f"**💰 Cost Breakdown:**\n"
-                          f"• Lagride (Official Mobility Sponsor) (Official Mobility Sponsor): ₦2,000 - ₦6,000\n"
-                          f"• Lagride (Official Mobility Sponsor) discounted: ₦1,000 - ₦3,000\n"
-                          f"• BRT + Taxi: ₦1,500 total\n\n"
-                          f"**📍 Parking:** Available near venue (₦1,000-₦2,000/day)\n"
-                          f"**⏰ Best departure times:** 6:30-7:00 AM to arrive by 8:00 AM"
+                          f"🕐 **Travel Time:** {transport['travel_times']['from_mainland']}\n\n"
+                          f"**🚗 Best Transportation Options:**\n"
+                          f"1. **Lagride (Private):** 50% off with code LLN2025\n"
+                          f"   Cost: {transport['lagride']['cost_estimates']['from_mainland']}\n\n"
+                          f"2. **Shuttlers (Shared):** 30% off (auto-applied)\n"
+                          f"   Multiple mainland pick-up stations available\n\n"
+                          f"3. **Budget Option:** {transport['other_options']['public_transport']}\n\n"
+                          f"**📍 Parking:** {transport['other_options']['personal_car']}\n"
+                          f"**⏰ Pro Tip:** {transport['tips']['early_departure']}"
             }
         
         elif any(word in location_lower for word in ['island', 'ikoyi', 'lekki', 'ajah', 'vi', 'victoria island']):
             return {
                 "message": f"**From Lagos Island to Event Venue:**\n\n"
                           f"📍 **Destination:** {venue['name']}, Chief Yesufu Abiodun Oniru Road\n\n"
-                          f"🕐 **Travel Time:** {transport['from_island']}\n\n"
+                          f"🕐 **Travel Time:** {transport['travel_times']['from_island']}\n\n"
                           f"**🚗 Easy Transportation:**\n"
-                          f"1. **Lagride (Official Mobility Sponsor) (Official Mobility Sponsor):** Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"2. **Lagride (Official Mobility Sponsor) (50% off):** Use code LLN2025\n"
-                          f"3. **Taxi:** Direct route within VI area\n"
-                          f"4. **Walk + Uber:** If staying very close in VI\n\n"
-                          f"**💰 Cost (Very Affordable):**\n"
-                          f"• Lagride (Official Mobility Sponsor) (Official Mobility Sponsor): ₦1,000 - ₦3,000\n"
-                          f"• Lagride (Official Mobility Sponsor) discounted: ₦500 - ₦1,500\n"
-                          f"• Taxi: ₦1,500 - ₦2,500\n\n"
+                          f"1. **Lagride (Private):** 50% off with code LLN2025\n"
+                          f"   Cost: {transport['lagride']['cost_estimates']['from_island']}\n\n"
+                          f"2. **Shuttlers (Shared):** 30% off (auto-applied)\n"
+                          f"   Island routes available in app\n\n"
+                          f"3. **Regular taxis:** Short distance within VI area\n\n"
                           f"**✅ Advantages:**\n"
                           f"• Shortest distance - you're already on the Island!\n"
                           f"• Less traffic compared to mainland routes\n"
@@ -926,17 +1076,20 @@ def get_directions_from_location(from_location: str, tool_context: ToolContext) 
                 "message": f"**From {from_location} to Event Venue:**\n\n"
                           f"📍 **Destination:** {venue['name']}\n"
                           f"📧 {venue['address']}\n\n"
-                          f"**🚗 General Directions:**\n"
-                          f"1. Open your preferred ride app (Lagride (Official Mobility Sponsor) (Official Mobility Sponsor)/Lagride (Official Mobility Sponsor))\n"
-                          f"2. Search '{venue['name']}, Chief Yesufu Abiodun Oniru Road'\n"
-                          f"3. Book your ride\n\n"
-                          f"**💰 Special Offers:**\n"
-                          f"• {transport['Lagride (Official Mobility Sponsor)_info']}\n\n"
+                          f"**🚗 Transportation Options:**\n\n"
+                          f"**1. Lagride (Private Rides)**\n"
+                          f"   • 50% OFF with code: LLN2025\n"
+                          f"   • Door-to-door service\n"
+                          f"   • Flexible timing\n\n"
+                          f"**2. Shuttlers (Shared Shuttles)**\n"
+                          f"   • 30% OFF (auto-applied)\n"
+                          f"   • Budget-friendly\n"
+                          f"   • Fixed routes - check app for stations\n\n"
                           f"**🗺️ Alternative Navigation:**\n"
                           f"Use Google Maps with destination:\n"
                           f"'{venue['name']}, Chief Yesufu Abiodun Oniru Road, Lagos'\n\n"
                           f"**📞 Need Help?**\n"
-                          f"*For specific route guidance, please use GPS navigation from your exact location.*"
+                          f"*Ask about 'transportation' for detailed mobility partner info!*"
             }
     
     except Exception as e:
@@ -965,6 +1118,7 @@ def get_follow_up_resources(tool_context: ToolContext = None) -> dict:
         
     except Exception as e:
         return {"message": f"Sorry, couldn't fetch follow-up resources. Error: {str(e)}"}
+
 
 def handle_general_query(query: str, tool_context: ToolContext) -> dict:
     """
