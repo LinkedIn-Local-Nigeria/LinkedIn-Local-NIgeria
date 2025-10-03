@@ -74,7 +74,6 @@ function CertificateGenerator() {
             </div>
             <button
               onClick={handlerDownload}
-              // className="items-center justify-center text-white transition-all duration-300 transform bg-[#0076b2] rounded-full shadow-lg w-14 h-14 hover:shadow-xl hover:scale-110"
               className="flex place-items-center font-manrope font-bold w-24 text-green-600 bg-white absolute border-none rounded-full p-3 left-[4%] bottom-[4%] cursor-pointer hover:shadow-xl hover:scale-110"
             >
               <Download size={"25%"} />
