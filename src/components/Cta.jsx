@@ -28,13 +28,13 @@ const Cta = () => {
 
       {/* CTA Button wrapped in styled anchor */}
       <a 
-        href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
+        href="/certificate" 
         target="_blank" 
         rel="noopener noreferrer"
         className="w-full  mt-4 lg:w-[205px] lg:mt-0 flex"
       >
         <Button className="w-full whitespace-nowrap">
-          Reserve Your Spot at LLN 25
+          Download Your Certificate
         </Button>
       </a>
     </div>

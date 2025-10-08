@@ -1,20 +1,23 @@
 import "./App.css";
 
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
 import BlogDetail from "./components/BlogDetail";
-import Layout from './components/ui/Layout';
-import ScrollToHashElement from './components/lib/ScrollToHashElement';
+import Layout from "./components/ui/Layout";
+import ScrollToHashElement from "./components/lib/ScrollToHashElement";
 
-const Home = lazy(() => import('./components/Home'));
-const Blog = lazy(() => import('./components/Blog'));
-const Schedule = lazy(() => import('./components/Schedule'));
-const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
-const TermsOfUse = lazy(() => import('./components/TermsOfuse'));
-const AllSpeakers = lazy(() => import('./components/AllSpeakers'));
-const SpeakerDetail = lazy(() => import('./components/SpeakerDetails'));
-const SanityStudio = lazy(() => import('./components/SanityStudio'));
+const Home = lazy(() => import("./components/Home"));
+const Blog = lazy(() => import("./components/Blog"));
+const Schedule = lazy(() => import("./components/Schedule"));
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
+const TermsOfUse = lazy(() => import("./components/TermsOfuse"));
+const AllSpeakers = lazy(() => import("./components/AllSpeakers"));
+const SpeakerDetail = lazy(() => import("./components/SpeakerDetails"));
+const SanityStudio = lazy(() => import("./components/SanityStudio"));
+const CertificateGenerator = lazy(
+  () => import("./components/CertificateGenerator")
+);
 
 const Loading = () => (
   <div className="mt-20 text-center text-gray-500">
@@ -91,7 +94,7 @@ function App() {
             </Layout>
           }
         />
-        
+
         <Route
           path="/schedule"
           element={
@@ -120,6 +123,17 @@ function App() {
             <Suspense fallback={<Loading />}>
               <SanityStudio />
             </Suspense>
+          }
+        />
+
+        <Route
+          path="/certificate"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <CertificateGenerator />
+              </Suspense>
+            </Layout>
           }
         />
 

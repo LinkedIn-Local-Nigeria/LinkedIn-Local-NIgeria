@@ -130,15 +130,14 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.a
-            href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d"
-            target="_blank"
+            href="certificate"
             rel="noopener noreferrer"
             variants={itemsVariant}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
             className="inline-block"
           >
-            <Button className="w-[300px]">Reserve your spot at LLN ’25</Button>
+            <Button className="w-[300px]">Download Your Certificate </Button>
           </motion.a>
         </div>
       </motion.div>

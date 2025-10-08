@@ -19,6 +19,8 @@
     "clsx": "^2.1.1",
     "dotted-map": "^2.2.3",
     "framer-motion": "^12.7.4",
+    "html2canvas": "^1.4.1",
+    "lucide-react": "^0.544.0",
     "motion": "^12.6.3",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
