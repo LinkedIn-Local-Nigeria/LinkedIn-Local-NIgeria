@@ -2,39 +2,8 @@ import { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 
-const CountdownMarquee = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
+const PostEventMarquee = () => {
   const [showConfetti, setShowConfetti] = useState(false);
-
-  useEffect(() => {
-    const targetDate = new Date('2025-10-04T00:00:00').getTime();
-
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        setTimeLeft({ days, hours, minutes, seconds });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const today = new Date().toDateString();
@@ -52,19 +21,19 @@ const CountdownMarquee = () => {
     }
   }, []);
 
-  const wittyMessages = [
-    `🎯 LLN '25 in ${timeLeft.days} days: Where industry leaders gather and careers transform. Secure your spot now! `,
-    `💼 ${timeLeft.days}d ${timeLeft.hours}h left! Join 5,000+ professionals who chose growth over excuses. Get your LLN '25 ticket! `,
-    `🚀 ${timeLeft.days} days to LLN '25: The investment in yourself that pays dividends. Register before it's too late! `,
-    `⚡ ${timeLeft.days} days until LLN '25! Smart professionals plan ahead. Smarter ones have already booked. Be smarter. `,
-    `🎪 LLN '25: ${timeLeft.days}d ${timeLeft.hours}h remaining! Your competition is already registered. Don't let them get ahead! `,
-    `🔥 ${timeLeft.days} days to the most anticipated professional event! Your future network is one ticket away. `,
-    `💡 LLN '25 countdown: ${timeLeft.days}d ${timeLeft.hours}h ${timeLeft.minutes}m! Breakthrough moments don't wait for perfect timing. Book now! `,
-    `🎖️ ${timeLeft.days} days left! LLN '25: Where today's decisions become tomorrow's success stories. Claim your seat! `,
-    `⏰ ${timeLeft.days}d ${timeLeft.hours}h until LLN '25! The early bird gets more than the worm – they get the connections that matter. `,
-    `🏆 LLN '25 in ${timeLeft.days} days! Winners show up. Champions register early. Legends were already there. Which are you? `,
-    `💎 ${timeLeft.days}d ${timeLeft.hours}h to LLN '25! Your biggest regret won't be the ticket price – it'll be missing out. `,
-    `🎭 ${timeLeft.days} days remaining! LLN '25: Where professional development meets personal transformation. Ready to level up? `
+  const postEventMessages = [
+    `🎉 LLN '25 was a massive success! Thank you to all 5,000+ attendees who made it unforgettable! `,
+    `✨ Missed LLN '25? Catch the highlights on youtube `,
+    `🏆 LLN '25 brought together industry leaders, innovators, and game-changers. Were you part of history? `,
+    `📸 Relive the magic! Browse LLN '25 photo gallery and see the moments that sparked connections. `,
+    `💼 LLN '25 Alumni: Your network just grew by 5,000. Now it's time to leverage those connections! `,
+    `🚀 The conversations started at LLN '25 don't end here. Join our community forum to keep the momentum going! `,
+    `🎯 LLN '25 delivered breakthrough insights and powerful networking. Check out session recordings now! `,
+    `⭐ Thank you for making LLN '25 legendary! Save the date for LLN '26 - it's going to be even bigger! `,
+    `💡 LLN '25 testimonials are in: "Career-changing," "Inspiring," "Unmissable." Read what attendees are saying! `,
+    `🔥 The energy, the speakers, the connections - LLN '25 exceeded all expectations! See you next year? `,
+    `📱 Stay connected! Follow us for LLN '26 announcements, exclusive content, and community updates. `,
+    `🎊 LLN '25 may be over, but the impact lives on. Share your experience and tag us! `
   ];
 
   // Create confetti particles
@@ -92,8 +61,8 @@ const CountdownMarquee = () => {
             },
           }}
         >
-          {wittyMessages.map((message, index) => (
-            <span key={index} className="text-sm font-medium mx-8">
+          {postEventMessages.map((message, index) => (
+            <span key={index} className="mx-8 text-sm font-medium">
               {message}
             </span>
           ))}
@@ -101,7 +70,7 @@ const CountdownMarquee = () => {
       </div>
 
       {showConfetti && (
-        <div className="fixed inset-0 pointer-events-none z-40">
+        <div className="fixed inset-0 z-40 pointer-events-none">
           {confettiParticles.map((particle) => (
             <motion.div
               key={particle.id}
@@ -134,4 +103,4 @@ const CountdownMarquee = () => {
   );
 };
 
-export default CountdownMarquee;
+export default PostEventMarquee;

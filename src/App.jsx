@@ -127,7 +127,7 @@ function App() {
         />
 
         <Route
-          path="/generate-certificate"
+          path="/certificate"
           element={
             <Layout>
               <Suspense fallback={<Loading />}>

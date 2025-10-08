@@ -72,12 +72,11 @@ const Navbar = () => {
           </div>
 
           <a 
-            href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
-            target="_blank" 
+            href="certificate" 
             rel="noopener noreferrer"
             className="hidden lg:inline-block"
           >
-            <Button>Reserve your spot at LLN ’25</Button>
+            <Button>Download Your Certificate</Button>
           </a>
 
           <div className="lg:hidden">
@@ -160,12 +159,11 @@ const Navbar = () => {
         <hr className="border-t border-gray-200" />
 
         <a 
-          href="https://share.chasescroll.com/share/event?id=68baae481d5cb1602d401a4d" 
-          target="_blank" 
+          href="" 
           rel="noopener noreferrer"
           className="block w-full mt-2"
         >
-          <Button className="w-full">Reserve your spot at LLN ’25</Button>
+          <Button className="w-full">Download Your Certificate</Button>
         </a>
       </motion.nav>
     </>
