@@ -1,12 +1,35 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Download } from "lucide-react";
 import html2canvas from "html2canvas";
 
 function CertificateGenerator() {
   const [name, setName] = useState("");
+  const [fontSize, setFontSize] = useState("3vw");
   const containerRef = useRef(null);
   const inputRef = useRef(null);
+  const textDisplayRef = useRef(null);
+
+  useEffect(() => {
+    const nameLength = name.length;
+    let newFontSize;
+    
+    if (nameLength === 0) {
+      newFontSize = "clamp(12px, 2vw, 60px)";
+    } else if (nameLength <= 10) {
+      newFontSize = "clamp(16px, 2.5vw, 60px)";
+    } else if (nameLength <= 15) {
+      newFontSize = "clamp(14px, 2vw, 50px)";
+    } else if (nameLength <= 20) {
+      newFontSize = "clamp(12px, 1.8vw, 45px)";
+    } else if (nameLength <= 25) {
+      newFontSize = "clamp(10px, 1.5vw, 40px)";
+    } else {
+      newFontSize = "clamp(8px, 1.2vw, 35px)";
+    }
+    
+    setFontSize(newFontSize);
+  }, [name]);
 
   async function handleDownload() {
     if (!name.trim()) {
@@ -19,8 +42,9 @@ function CertificateGenerator() {
       return;
     }
 
-    if (inputRef.current) {
-      inputRef.current.blur();
+    if (inputRef.current && textDisplayRef.current) {
+      inputRef.current.style.display = "none";
+      textDisplayRef.current.style.display = "block";
     }
 
     await new Promise((resolve) => setTimeout(resolve, 100));
@@ -29,10 +53,9 @@ function CertificateGenerator() {
       const canvas = await html2canvas(elementContainer, {
         scale: 3,
         useCORS: true,
+        allowTaint: true,
         backgroundColor: null,
         logging: false,
-        windowWidth: elementContainer.scrollWidth,
-        windowHeight: elementContainer.scrollHeight,
       });
 
       const link = document.createElement("a");
@@ -42,6 +65,12 @@ function CertificateGenerator() {
     } catch (error) {
       console.error("Certificate generation failed:", error);
       alert("Failed to generate certificate. Please try again.");
+    } finally {
+      // Show input again after capture
+      if (inputRef.current && textDisplayRef.current) {
+        inputRef.current.style.display = "block";
+        textDisplayRef.current.style.display = "none";
+      }
     }
   }
 
@@ -55,20 +84,39 @@ function CertificateGenerator() {
               className="relative grid w-full overflow-hidden place-items-center"
               id="certificate-image-container"
             >
-              <div className="w-[60%] text-white flex justify-center items-center text-center absolute top-[56%] left-[20%] z-10">
+              <div className="w-[60%] text-white flex justify-center items-center text-center absolute top-[54%] sm:top-[56%] left-[20%] z-10 px-1">
+                {/* Input field for typing */}
                 <input
                   ref={inputRef}
                   type="text"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter Your Name here"
-                  aria-label="Full name for certificate"
-                  className="w-full font-bold text-center text-white uppercase transition-all bg-transparent border-none outline-none font-manrope text-[3vw] placeholder-white/70 focus:placeholder-white/40"
+                  onChange={(e) => setName(e.target.value.toUpperCase())}
+                  placeholder="ENTER YOUR NAME HERE"
+                  maxLength={35}
+                  className="w-full font-bold leading-tight text-center text-white uppercase transition-all bg-transparent border-none outline-none font-manrope placeholder-white/70 focus:placeholder-white/40"
                   style={{
+                    fontSize: fontSize,
                     textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
                     caretColor: "white",
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
                   }}
                 />
+                {/* Hidden text display for capture */}
+                <div
+                  ref={textDisplayRef}
+                  className="w-full font-bold leading-tight text-center text-white font-manrope"
+                  style={{
+                    fontSize: fontSize,
+                    textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                    display: "none",
+                    textTransform: "uppercase",
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
+                  }}
+                >
+                  {name.toUpperCase() || "ENTER YOUR NAME HERE"}
+                </div>
               </div>
 
               <img
@@ -76,6 +124,7 @@ function CertificateGenerator() {
                 id="certificate-image"
                 src="/llc-attendee-certificate.png"
                 alt="LinkedIn Local Nigeria attendee certificate"
+                crossOrigin="anonymous"
               />
             </div>
 
