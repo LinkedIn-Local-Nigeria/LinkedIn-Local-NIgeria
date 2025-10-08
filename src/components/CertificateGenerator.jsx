@@ -62,6 +62,7 @@ function CertificateGenerator() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter Your Name here"
+                  aria-label="Full name for certificate"
                   className="w-full font-bold text-center text-white uppercase transition-all bg-transparent border-none outline-none font-manrope text-[3vw] placeholder-white/70 focus:placeholder-white/40"
                   style={{
                     textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
