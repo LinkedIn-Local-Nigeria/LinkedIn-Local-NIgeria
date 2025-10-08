@@ -5,77 +5,53 @@ import html2canvas from "html2canvas";
 
 function CertificateGenerator() {
   const [name, setName] = useState("");
+  const containerRef = useRef(null);
   const inputRef = useRef(null);
-
-  const downloadProps = {
-    container: "certificate-image-container",
-    fileName: `lll-attendee-${new Date().toDateString()}.png`.replaceAll(" ", "-"),
-    height: 2550,
-    width: 3300,
-  };
 
   async function handleDownload() {
     if (!name.trim()) {
       return alert("Please enter your full name to download your certificate.");
     }
 
-    const elementContainer = document.getElementById(downloadProps.container);
+    const elementContainer = containerRef.current;
     if (!elementContainer) {
       console.error("Container element not found");
       return;
     }
 
-    // Hide the input cursor and blur effect during capture
     if (inputRef.current) {
       inputRef.current.blur();
     }
 
-    const clone = elementContainer.cloneNode(true);
-    clone.style.width = `${downloadProps.width}px`;
-    clone.style.height = `${downloadProps.height}px`;
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px";
-    clone.style.top = "0";
-
-    // Find and style the input in the clone to look like static text
-    const clonedInput = clone.querySelector('input');
-    if (clonedInput) {
-      clonedInput.style.caretColor = 'transparent';
-      clonedInput.style.border = 'none';
-      clonedInput.style.outline = 'none';
-    }
-
-    document.body.appendChild(clone);
     await new Promise((resolve) => setTimeout(resolve, 100));
 
     try {
-      const canvas = await html2canvas(clone, {
-        scale: 2,
+      const canvas = await html2canvas(elementContainer, {
+        scale: 3,
         useCORS: true,
         backgroundColor: null,
         logging: false,
-        width: downloadProps.width,
-        height: downloadProps.height,
+        windowWidth: elementContainer.scrollWidth,
+        windowHeight: elementContainer.scrollHeight,
       });
 
       const link = document.createElement("a");
-      link.download = downloadProps.fileName;
+      link.download = `${name.trim().replace(/\s+/g, "-").toLowerCase()}-certificate.png`;
       link.href = canvas.toDataURL("image/png", 1.0);
       link.click();
     } catch (error) {
       console.error("Certificate generation failed:", error);
       alert("Failed to generate certificate. Please try again.");
-    } finally {
-      document.body.removeChild(clone);
     }
   }
 
   return (
-    <div className="overflow-x-hidden ont-manrope">
+    <div className="overflow-x-hidden font-manrope">
       <div className="w-full px-4 pt-20 md:py-40 md:px-20">
         <section>
-          <div className="relative p-4 mt-6 ">
+          <div className="relative p-4 mt-6">
             <div
+              ref={containerRef}
               className="relative grid w-full overflow-hidden place-items-center"
               id="certificate-image-container"
             >
@@ -86,13 +62,14 @@ function CertificateGenerator() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter Your Name here"
-                  className="uppercase font-manrope font-bold text-[3vw] text-center w-full bg-transparent border-none outline-none text-white placeholder-white/70 focus:placeholder-white/40 transition-all"
+                  className="w-full font-bold text-center text-white uppercase transition-all bg-transparent border-none outline-none font-manrope text-[3vw] placeholder-white/70 focus:placeholder-white/40"
                   style={{
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                    textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                    caretColor: "white",
                   }}
                 />
               </div>
-              
+
               <img
                 className="block object-cover w-full h-auto"
                 id="certificate-image"
@@ -113,7 +90,7 @@ function CertificateGenerator() {
             </div>
 
             {!name.trim() && (
-              <p className="mt-4 text-[.75rem] center text-gray-500 text-">
+              <p className="mt-4 text-[.75rem] text-center text-gray-500">
                 Enter your name on the certificate to enable download
               </p>
             )}

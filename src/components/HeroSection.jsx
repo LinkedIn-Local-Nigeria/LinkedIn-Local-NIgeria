@@ -131,7 +131,6 @@ export default function HeroSection() {
 
           <motion.a
             href="certificate"
-            target="_blank"
             rel="noopener noreferrer"
             variants={itemsVariant}
             whileHover={{ scale: 1.05 }}
