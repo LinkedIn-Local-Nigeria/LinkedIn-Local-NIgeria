@@ -18,6 +18,12 @@ const SanityStudio = lazy(() => import("./components/SanityStudio"));
 const CertificateGenerator = lazy(
   () => import("./components/CertificateGenerator")
 );
+const VolunteerCertificate = lazy(
+  () => import("./components/VolunteerCertificate")
+);
+const TeamCertificate = lazy(
+  () => import("./components/TeamCertificate")
+);
 
 const Loading = () => (
   <div className="mt-20 text-center text-gray-500">
@@ -132,6 +138,28 @@ function App() {
             <Layout>
               <Suspense fallback={<Loading />}>
                 <CertificateGenerator />
+              </Suspense>
+            </Layout>
+          }
+        />
+        
+        <Route
+          path="/volunteer-certificate"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <VolunteerCertificate />
+              </Suspense>
+            </Layout>
+          }
+        />
+        
+        <Route
+          path="/team-certificate"
+          element={
+            <Layout>
+              <Suspense fallback={<Loading />}>
+                <TeamCertificate />
               </Suspense>
             </Layout>
           }
