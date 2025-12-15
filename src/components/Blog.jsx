@@ -185,7 +185,7 @@ const Blog = () => {
               >
                 <img
                   src={GroupPics}
-                  alt="LinkedIn Local Nigeria Community"
+                  alt="Evolve Africa Summit Group"
                   className="object-cover bg-[#0a192f] w-full h-[350px] sm:h-[400px] md:h-[400px] lg:h-[500px] rounded-lg"
                 />
               </motion.div>
