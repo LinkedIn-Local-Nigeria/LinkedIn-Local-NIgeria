@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import Button from "./ui/Button";
+import EvolvLogo from "@/assets/EvolvAfricaSummitBlu.svg";
 import CountdownMarquee from "./ui/Marquee";
 import { HashLink } from 'react-router-hash-link';
 import { motion } from "framer-motion";
@@ -47,12 +48,14 @@ const Navbar = () => {
         <CountdownMarquee />
         
         <div className="lg:px-[6.25rem] mt-8 flex items-center justify-between max-w-7xl container px-6 py-4">
-          <a
-            href="/"
-            className="text-2xl font-bold text-transparent font-poppins bg-gradient-to-r from-blue-500 to-black bg-clip-text"
-          >
-            LLN &apos;25
-          </a>
+          <a href="/" className="flex items-center">
+          <img
+            src={EvolvLogo}
+            alt="Evolv Africa Summit"
+            className="h-8 md:h-12 w-auto"
+          />
+        </a>
+
 
           <div className="hidden gap-6 lg:flex">
             {navLinks.map((link) => (

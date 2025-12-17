@@ -151,7 +151,7 @@ const MissionVision = () => {
             className="font-inter font-normal text-sm md:text-[20px] uppercase leading-[30px] tracking-[0px] text-zinc-600 text-left mb-3"
             variants={itemsVariant}
           >
-            About LinkedIn Local
+            About Evolv Africa Summit
           </motion.h2>
 
           <motion.h1

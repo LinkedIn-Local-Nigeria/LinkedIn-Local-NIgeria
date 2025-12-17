@@ -75,14 +75,11 @@ export default function HeroSection() {
 
         <motion.h1
           variants={itemsVariant}
-          className="flex flex-wrap items-center justify-center mt-5 space-x-2 text-2xl font-bold text-center text-[#0076B2] font-poppins md:text-5xl"
+          className="flex flex-wrap items-center justify-center mt-5 text-2xl font-bold text-center text-[#0076B2] font-poppins md:text-5xl"
         >
-          <span className="flex items-center">
-            Linked
-            <LinkedInLogoIcon className="text-[#0076B2] h-7 w-7 md:h-14 md:w-14" />{" "}
-          </span>
-          <span>Local Nigeria </span>
+          Evolv Africa Summit
         </motion.h1>
+
 
         <div className="flex flex-col items-center justify-center w-full gap-4 mt-5">
           <motion.p
