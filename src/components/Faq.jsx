@@ -2,17 +2,17 @@ import { useState } from 'react';
 
 const faqItems = [
   {
-    question: 'Who should attend LinkedIn Local Nigeria 2025?',
-    answer: `LLN 2025 is for anyone who’s passionate about networking, collaboration, and shaping the future of Nigeria. Whether you're a startup founder, business executive, entrepreneur, young professional, or influencer, you’ll find value in connecting with like-minded people and industry leaders.`
+    question: 'Who should attend Evolv Africa Summit',
+    answer: `Evolve Africa Summit is for anyone who’s passionate about networking, collaboration, and shaping the future of Nigeria. Whether you're a startup founder, business executive, entrepreneur, young professional, or influencer, you’ll find value in connecting with like-minded people and industry leaders.`
   },
   {
     question: 'What’s the event schedule? ',
     answer: 'The full agenda will be shared closer to the event, but expect inspiring keynotes, breakout sessions, panel discussions, and networking opportunities throughout the day.',
   },
-  {
-    question: 'Can I still attend if I’m new to LinkedIn? ',
-    answer: ` Absolutely! Whether you're a LinkedIn pro or just getting started, LLN 2025 offers something for everyone. It’s about building relationships and growing together. `,
-  },
+  // {
+  //   question: 'Can I still attend if I’m new to LinkedIn? ',
+  //   answer: ` Absolutely! Whether you're a LinkedIn pro or just getting started, LLN 2025 offers something for everyone. It’s about building relationships and growing together. `,
+  // },
   {
     question: 'What should I bring? ',
     answer: `Your learning materials, curiosity, energy, and an open mind! And, of course, don’t forget your business cards and networking tools.`,
@@ -22,7 +22,7 @@ const faqItems = [
     answer: `Yes! For those who can’t make it in person, we'll be offering a virtual pass to participate in key sessions and join the conversation from anywhere.`,
   },
   {
-    question: 'Can I volunteer or get involved with LLN 2025? ',
+    question: 'Can I volunteer or get involved with Evolve Africa Summit? ',
     answer: `We’d love to have you! Become a volunteer or partner with us to help make this event an unforgettable experience. `,
   },
   {
